@@ -1,11 +1,13 @@
 package Stores;
 
+import Enums.BranchStatus;
+
 public class Branch {
 
 	private String name;
 	private String location;
 	private int staffQuota;
-	private boolean status = true;
+	private BranchStatus branchStatus = BranchStatus.OPEN;
 
 	public Branch(String name, String location, int staffQuota) {
 		this.name = name;
@@ -39,12 +41,15 @@ public class Branch {
 		}
 	}
 
+	public void setBranchStatus(int a) {
+		if (a == 1)
+			this.branchStatus = branchStatus.OPEN;
+		else
+			this.branchStatus = branchStatus.CLOSED;
+	}
+
 	public boolean isopen() {
 		return status;
 	}
 
-	public void setStatus(int a) {
-		if (a == 1)
-			this.status = true;
-	}
 }
