@@ -1,8 +1,0 @@
-FRIES|3.2|NTU|side|NA
-3PC set meal|9.9|NTU|set meal|NA
-CAJUN FISH|5.6|JP|burger|NA
-COLE SLAW|2.7|JE|side|NA
-3PC set meal|10.4|JE|set meal|NA
-chicken nugget|6.9|JP|side|NA
-chicken nugget|6.6|NTU|side|NA
-pepsi|2.1|JE|drink|NA

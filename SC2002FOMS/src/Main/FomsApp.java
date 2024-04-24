@@ -15,38 +15,30 @@ import Stores.MenuTextDB;
 import Stores.Staff;
 import Stores.StaffTextDB;
 
-
 public class FomsApp {
-	
 
-	public static void main(String[]aArgs) throws IOException
-	{
-		
-		AuthController.start(); //to log in
-		
-		
+	public static void main(String[] aArgs) throws IOException {
+
+		AuthController.start(); // to log in
+
 		Staff staff = AuthStore.getCurrentStaff();
-		
-		if(staff!=null)//if null then is customer
-		{	
-			if (staff.getRole().equals(Role.S)) //plan to change to enum
+
+		if (staff != null)// if null then is customer
+		{
+			if (staff.getRole().equals(Role.S)) // plan to change to enum
 			{
 				StaffController staffController = new StaffController();
 				staffController.start();
-			}
-			else if (staff.getRole().equals(Role.M))
-			{
+			} else if (staff.getRole().equals(Role.M)) {
 				ManagerController managerController = new ManagerController();
 				managerController.start();
-			}
-			else //admin
+			} else // admin
 			{
 				AdminController adminController = new AdminController();
 				adminController.start();
 			}
 		}
-		
-		
-        //StaffTextDB.printStaffList();
+
+		// StaffTextDB.printStaffList();
 	}
 }
