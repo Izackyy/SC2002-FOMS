@@ -49,4 +49,9 @@ public class Order {
 		}
 	}
 
+	public void cancelOrder(){
+
+		
+	}
+
 }
