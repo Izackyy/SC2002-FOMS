@@ -7,12 +7,13 @@ public class Branch {
 	private String name;
 	private String location;
 	private int staffQuota;
-	private BranchStatus branchStatus = BranchStatus.OPEN;
+	private BranchStatus branchStatus;
 
-	public Branch(String name, String location, int staffQuota) {
+	public Branch(String name, String location, int staffQuota, BranchStatus branchStatus) {
 		this.name = name;
 		this.location = location;
 		this.staffQuota = staffQuota;
+		this.branchStatus = branchStatus.OPEN;
 	}
 
 	public void setStaffQuota(String branch) // not sure if this is needed tho
@@ -48,8 +49,11 @@ public class Branch {
 			this.branchStatus = branchStatus.CLOSED;
 	}
 
-	public boolean isopen() {
-		return status;
+	public boolean isOpen() {
+		if (this.branchStatus == branchStatus.OPEN) {
+			return true;
+		} else
+			return false;
 	}
 
 }
