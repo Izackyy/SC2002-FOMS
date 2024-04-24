@@ -7,27 +7,28 @@ import java.util.Scanner;
 import Stores.AuthStore;
 import Stores.MenuItem;
 import Stores.MenuTextDB;
-import Services.BranchService;
 import Services.MenuDisplay;
 import Services.StaffDisplay;
 
-public class ManagerController extends EmployeeController // inheritence
+public class ManagerController extends StaffController // inheritence
 {
 	
 	private static final Scanner sc = new Scanner(System.in);
 
-	public void start() throws IOException //i think here can try implement SRP but like i laze now
+	public void start() throws IOException
 	{
 		boolean success = false;
 		int selection;
 		do
 		{
 			System.out.println("========Manager's Actions========");
-			System.out.println("|| 1) Edit Menu                ||");
+			System.out.println("|| 1) Display New Order        ||");
 			System.out.println("|| 2) Process Order            ||");
-			System.out.println("|| 3) View Staff List          ||");
-			System.out.println("|| 4) Change Password          ||");
-			System.out.println("|| 5) Quit                     ||");
+			System.out.println("|| 3) View Details of Order    ||");
+			System.out.println("|| 4) Edit Menu                ||");
+			System.out.println("|| 5) View Staff List          ||");
+			System.out.println("|| 6) Change Password          ||");
+			System.out.println("|| 7) Quit                     ||");
 			System.out.println("=================================");
 			
 			selection = sc.nextInt();
@@ -35,21 +36,21 @@ public class ManagerController extends EmployeeController // inheritence
 			switch(selection)
 			{
 				case(1):
-				{
+					displayNewOrder(AuthStore.getCurrentStaff().getBranch());
+					break;
+				case(2):
+					processOrder();
+					break;
+				case(3):
+					viewDetails();
+					break;
+				case(4):
 					editMenu();
 					break;
-				}
-				case (2):
-				{
-					BranchService.processOrder();
-					break;
-				}
-				case(3):
-				{
+				case(5):
 					StaffDisplay.printStaffList(AuthStore.getCurrentStaff().getBranch());
 					break;
-				}
-				case(4):
+				case(6):
 					success = changePassword();
 					if (success)
 					{
@@ -62,7 +63,7 @@ public class ManagerController extends EmployeeController // inheritence
 					break;
 			}
 			
-		}while(selection!=5);
+		}while(selection!=7);
 		
 		System.out.println("Exiting Manager's Actions");
 		AuthController.endSession();
@@ -200,9 +201,4 @@ public class ManagerController extends EmployeeController // inheritence
 		MenuDisplay.printMenuItem(AuthStore.getCurrentStaff().getBranch());
 	}
 	
-	/*
-	public static void processOrder() {
-		// TODO Auto-generated method stub
-		
-	}*/
 }

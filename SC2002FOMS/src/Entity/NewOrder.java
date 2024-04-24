@@ -1,11 +1,13 @@
 package Entity;
 
 import java.io.IOException;
+
 import java.util.Random;
 import java.util.Scanner;
 
 import Enums.DiningOption;
 import Enums.OrderStatus;
+import Services.MenuDisplay;
 import Services.PaymentService;
 import Stores.Branch;
 import Stores.Order;
@@ -45,6 +47,9 @@ public class NewOrder {
 		int selection;
 		
 		Cart cart = new Cart();
+		
+		MenuDisplay.printMenuItem(branch.getName());
+		
 		do
 		{
 			System.out.println("======Cart Actions======");
@@ -58,6 +63,7 @@ public class NewOrder {
 			switch (selection)
 			{
 				case (1):
+					MenuDisplay.printMenuItem(branch.getName());
 					order.cart.addItem(branch.getName());
 					System.out.println("======Updated Cart======");
 					order.cart.printCart();
@@ -115,6 +121,7 @@ public class NewOrder {
 		
 		Order storeOrder = new Order(orderID, branch.getName(), OrderStatus.PROCESSING);
 		OrderTextDB.addOrder("order.txt", storeOrder);
+		order.cart.addOrderline(orderID);
 	}
 
 	private static int generateRandomOrderID()
