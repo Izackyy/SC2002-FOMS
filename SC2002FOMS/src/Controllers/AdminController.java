@@ -48,12 +48,13 @@ public class AdminController extends EmployeeController {
 				case (6):
 
 				case (7):
-
+					setBranchStatus();
+					break;
 				case (8):
 					changePassword();
 					break;
 				case (9):
-
+					return;
 			}
 
 		} while (selection != 9);
@@ -127,4 +128,42 @@ public class AdminController extends EmployeeController {
 
 		}
 	}
+
+	private static void setBranchStatus() throws IOException {
+
+		int set, choice;
+
+		String branch;
+		System.out.println("Select a branch: ");
+		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
+		int c = 1;
+		for (Branch b : branches) {
+			System.out.println(c + ") " + b.getName() + " - " + b.getBranchStatus());
+			c++;
+		}
+		choice = sc.nextInt();
+		Branch selectedBranch = branches.get(choice - 1);
+		Branch oldStatus = selectedBranch;
+
+		System.out.println("Open/Close Branch");
+		System.out.println("<Press 1 to open Branch or Press 0 to close Branch>");
+
+		set = sc.nextInt();
+		while (set != 1 && set != 0) {
+			System.out.println("Invalid choice! Enter 1 to open or 0 to close the branch.");
+			set = sc.nextInt();
+		}
+		while (!selectedBranch.setBranchStatus(set)) {
+			set = sc.nextInt();
+		}
+
+		Branch newStatus = selectedBranch;
+		BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
+
+		System.out.println(selectedBranch.getName() + " - " + selectedBranch.getBranchStatus());
+		System.out.println("Branch status updated successfully.\n");
+
+		return;
+	}
+
 }

@@ -1,6 +1,7 @@
 package Stores;
 
 import java.io.FileInputStream;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -52,6 +53,8 @@ public class BranchTextDB {
 			st.append(branch.getLocation().trim()); // this is a double
 			st.append(SEPARATOR);
 			st.append(branch.getStaffQuota()); // this is a double
+			st.append(SEPARATOR);
+			st.append(branch.getBranchStatus());
 			alw.add(st.toString());
 		}
 		write(filename, alw);
@@ -82,6 +85,25 @@ public class BranchTextDB {
 			scanner.close();
 		}
 		return data;
+	}
+
+	public static void updateBranchStatus(String filename, Branch oldStatus, Branch newStatus) throws IOException {
+		List<String> lines = read(filename);
+
+		for (int i = 0; i < lines.size(); i++) {
+			String line = lines.get(i);
+			String[] parts = line.split("\\|");
+			String name = parts[0].trim();
+
+			if (name.equals(oldStatus.getName())) {
+				Enums.BranchStatus newBranchStatus = newStatus.getBranchStatus();
+				parts[3] = newBranchStatus.toString(); // Update branch status with enum value
+				lines.set(i, String.join(SEPARATOR, parts));
+				break; // Once updated, exit the loop
+			}
+		}
+
+		write(filename, lines);
 	}
 
 }

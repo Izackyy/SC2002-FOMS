@@ -33,20 +33,34 @@ public class Branch {
 		return staffQuota;
 	}
 
+	public BranchStatus getBranchStatus() {
+		return branchStatus;
+	}
+
 	public boolean equals(Object o) {
 		if (o instanceof MenuItem)
 			;
 		{
-			MenuItem m = (MenuItem) o;
+			Branch m = (Branch) o;
 			return (getName().equals(m.getName()));
 		}
 	}
 
-	public void setBranchStatus(int a) {
-		if (a == 1)
+	public boolean setBranchStatus(int a) {
+		if (a == 1 && this.getBranchStatus() == branchStatus.OPEN) {
+			System.out.println("Branch is already open!");
+			return false;
+		} else if (a == 0 && this.getBranchStatus() == branchStatus.CLOSED) {
+			System.out.println("Branch is already closed!");
+			return false;
+		} else if (a == 1) {
 			this.branchStatus = branchStatus.OPEN;
-		else
+			return true;
+		} else if (a == 0) {
 			this.branchStatus = branchStatus.CLOSED;
+			return true;
+		}
+		return false;
 	}
 
 	public boolean isOpen() {
