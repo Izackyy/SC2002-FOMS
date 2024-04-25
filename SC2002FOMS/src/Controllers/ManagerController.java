@@ -111,7 +111,7 @@ public class ManagerController extends StaffController // inheritence
 				System.out.println("Want to add description? (Y/N)");
 				String desc = sc.nextLine();
 
-				String description = null;
+				String description;
 
 				if(desc.equalsIgnoreCase("Y"))
 				{
@@ -123,8 +123,7 @@ public class ManagerController extends StaffController // inheritence
 					description = "NA";
 				}
 				
-				System.out.println("Item added:");
-				System.out.println("name:" + name + ", price:" + price + ", category:" + category);
+				System.out.println("Item has been successfully added:");
 			
 				MenuItem menuitem = new MenuItem(name, price , AuthStore.getCurrentStaff().getBranch(), category, description);
 				MenuTextDB.addMenuItem("menu.txt", menuitem);

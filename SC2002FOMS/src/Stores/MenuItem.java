@@ -11,7 +11,7 @@ public class MenuItem {
 	private Availability availability;
 	
 	
-	public MenuItem(String name, double price, String branch, String category, String decription)
+	public MenuItem(String name, double price, String branch, String category, String description)
 {
 		this.name = name;
 		this.price = price;
