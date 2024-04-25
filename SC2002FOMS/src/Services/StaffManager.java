@@ -271,7 +271,7 @@ public class StaffManager implements IStaffManagement {
                     newRole.setRole(Role.M);
                     StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
                     StaffTextDB.printStaffList("staff.txt");
-                    System.out.println("Staff branch status updated successfully.\n");
+                    System.out.println("SStaff has been promoted successfully.\n");
                 }
             }
         } else

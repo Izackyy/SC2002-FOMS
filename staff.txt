@@ -5,7 +5,7 @@ Alica Ang|AlicaA|M|F|27|JE|password
 Mary lee|MaryL|S|F|44|JP|password
 Justin Loh|JustinL|M|M|49|JP|password
 Boss|boss|A|F|62|NA|password
-jennifer|jen1|S|F|32|JP|password
+jennifer|jen1|M|F|32|JP|password
 isaac|iwong|M|M|21|NTU|password
 isabel|isabl|M|F|18|NTU|password
 junsheng|jxxsheng|M|M|22|NTU|password

@@ -53,7 +53,6 @@ public class AdminController extends EmployeeController {
 					bm.setBranchStatus();
 					break;
 				case (7):
-					sc.nextLine();// input buffer
 					bm.addBranch();
 					break;
 				case (8):

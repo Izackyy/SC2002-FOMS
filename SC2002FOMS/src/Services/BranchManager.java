@@ -78,9 +78,11 @@ public class BranchManager implements IBranchManagement {
         List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
 
         for (Branch branch : al) {
-            System.out.println(branch.getName());
+            System.out.println("Name: " + branch.getName());
         }
         // BranchTextDB.printBranch("branch.txt");
+
+        System.out.println("========================");
 
         System.out.println("Enter Branch Name:");
         String name = sc.nextLine();
