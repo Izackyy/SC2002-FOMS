@@ -1,6 +1,7 @@
 package Controllers;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,8 +18,7 @@ public class StaffController extends EmployeeController{ // inheritance
 	private static final Scanner sc = new Scanner(System.in);
 
 	public void start() throws IOException
-	{
-	do{
+	{do{
 		System.out.println("======Staff Actions======");
 		System.out.println("1) Display New Orders");
 		System.out.println("2) Process Order");
@@ -26,7 +26,14 @@ public class StaffController extends EmployeeController{ // inheritance
 		System.out.println("4) Quit");
 		System.out.println("=========================");
 
-		selection = sc.nextInt();
+		try {
+                selection = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a valid number.");
+                sc.next(); // Clear the wrong input from scanner buffer
+                continue;
+            }
+		
 		switch(selection)
 		{
 			case(1):
@@ -45,7 +52,7 @@ public class StaffController extends EmployeeController{ // inheritance
 				System.out.println("Invalid selection");
 				break;
 		}
-	}while(selection!=4);
+		}while(selection!=4);
 	}
 
 	public void processOrder() throws IOException 
