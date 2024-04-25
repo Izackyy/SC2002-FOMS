@@ -9,11 +9,10 @@ public class Staff {
 	private Role role;
 	private Gender gender;
 	private int age;
-	private String branch; 
+	private String branch;
 	private String password;
-	
-	public Staff(String name, String loginID, Role role, Gender gender, int age, String branch, String password)
-	{
+
+	public Staff(String name, String loginID, Role role, Gender gender, int age, String branch, String password) {
 		this.name = name;
 		this.loginID = loginID;
 		this.role = role;
@@ -22,58 +21,59 @@ public class Staff {
 		this.branch = branch;
 		this.password = password;
 	}
-	
-	public String getName(){
+
+	public String getName() {
 		return name;
 	}
-	
-	public String getLoginID(){
+
+	public String getLoginID() {
 		return loginID;
 	}
-	
-	public Role getRole(){
+
+	public Role getRole() {
 		return role;
 	}
-	
-	public Gender getGender(){
+
+	public Gender getGender() {
 		return gender;
 	}
-	
-	public int getAge(){
+
+	public int getAge() {
 		return age;
 	}
-	
-	public String getBranch(){
+
+	public String getBranch() {
 		return branch;
 	}
-	
-	public String getPassword(){
+
+	public String getPassword() {
 		return password;
 	}
-	
-	public void setRole(Role role)
-	{
+
+	public void setRole(Role role) {
 		this.role = role;
 	}
-	
-	public void setBranch(String branch)
-	{
-		this.branch = branch;
+
+	public boolean setBranch(String branch) {
+		if (this.branch == branch)
+			return false;
+		else {
+			this.branch = branch;
+			return true;
+		}
 	}
-	
-	public void setPassword(String password)
-	{
+
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public boolean equals(Object o)
-	{
-		if (o instanceof Staff);
+
+	public boolean equals(Object o) {
+		if (o instanceof Staff)
+			;
 		{
-			Staff s = (Staff)o;
+			Staff s = (Staff) o;
 			return (getName().equals(s.getName()));
 		}
 	}
-	
-	
+
 }

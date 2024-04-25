@@ -126,8 +126,8 @@ public class StaffTextDB {
 		List<Staff> staffs = readStaff(filename);
 		int c = 1;
 		for (Staff s : staffs) {
-			System.out.println("Name: " + s.getName() + ", LoginID:" + s.getLoginID() + ", Role:" + s.getRole()
-					+ ", Gender:" + s.getGender() + ", Age:" + s.getAge() + ", Branch:" + s.getBranch());
+			System.out.println(c + ")" + "Name: " + s.getName() + ", LoginID:" + s.getLoginID() + ", Role:"
+					+ s.getRole() + ", Branch:" + s.getBranch());
 			c++;
 		}
 	}

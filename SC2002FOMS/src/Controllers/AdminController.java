@@ -46,7 +46,8 @@ public class AdminController extends EmployeeController {
 				case (3):
 
 				case (4):
-
+					promoteStaff();
+					break;
 				case (5):
 					transferStaff();
 					break;
@@ -135,13 +136,44 @@ public class AdminController extends EmployeeController {
 		}
 	}
 
+	private static void promoteStaff() throws IOException {
+
+		int choice;
+		String confirm;
+
+		// select staff
+		System.out.println("Select a staff member");
+		StaffTextDB.printStaffList("staff.txt");
+		List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
+		choice = sc.nextInt();
+		sc.nextLine();
+		Staff selectedStaff = staffs.get(choice - 1);
+		Staff oldRole = selectedStaff;
+		Staff newRole = oldRole;
+
+		System.out.println("Promote " + selectedStaff.getName() + " ? <Y/N>");
+		confirm = sc.nextLine();
+		if (confirm.equalsIgnoreCase("Y")) {
+			newRole.setRole(Role.M);
+		}
+		// add input check and cancel if N(?)
+
+		StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
+		StaffTextDB.printStaffList("staff.txt");
+		System.out.println("Staff branch status updated successfully.\n");
+
+		return;
+
+	}
+
 	private static void transferStaff() throws IOException {
 
-		int set, choice;
+		int choice;
 
 		// select staff
 		StaffTextDB.printStaffList("staff.txt");
 		List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
+		System.out.println("Select a staff member");
 		choice = sc.nextInt();
 		Staff selectedStaff = staffs.get(choice - 1);
 		Staff oldRole = selectedStaff;
@@ -154,6 +186,7 @@ public class AdminController extends EmployeeController {
 		System.out.println("Choose a new branch");
 		String b = branches.get(choice - 1).getName();
 		newRole.setBranch(b);
+		// add input and branch check
 
 		StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
 		StaffTextDB.printStaffList("staff.txt");
