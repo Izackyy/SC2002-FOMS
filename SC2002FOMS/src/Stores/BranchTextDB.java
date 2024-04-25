@@ -86,6 +86,18 @@ public class BranchTextDB {
 		}
 		return data;
 	}
+	
+	public static void addBranch(String filename, Branch branch) throws IOException {
+	    List al = readBranchList(filename);
+	    al.add(branch);
+	    saveBranch(filename, al);
+	}
+
+	public static void removeBranch(String filename, Branch branch) throws IOException {
+	    List al = readBranchList(filename);
+	    al.remove(branch);
+	    saveBranch(filename, al);
+	}
 
 	public static void updateBranchStatus(String filename, Branch oldStatus, Branch newStatus) throws IOException {
 		List al = readBranchList(filename);
