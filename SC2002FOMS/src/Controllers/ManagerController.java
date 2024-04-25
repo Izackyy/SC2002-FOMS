@@ -249,7 +249,7 @@ public class ManagerController extends StaffController // inheritence
 			}
 		}
 		System.out.println("Updated Menu:");
-		MenuDisplay.printMenuItem(AuthStore.getCurrentStaff().getBranch());
+		MenuDisplay.printMenuItemS(AuthStore.getCurrentStaff().getBranch());
 	}
 	
 }

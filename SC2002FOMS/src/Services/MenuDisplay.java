@@ -44,5 +44,27 @@ public class MenuDisplay {
 		}
 		System.out.println("");
 	}
+
+	public static void printMenuItemS(String branch) 
+	  	{
+		String filename = "menu.txt" ;
+		
+		System.out.println("==========================================================" + branch + " Menu==========================================================");
+		try {
+			// read file containing Professor records.
+			ArrayList al = MenuTextDB.readMenuItem(filename) ;
+			for (int i = 0 ; i < al.size() ; i++) {
+					MenuItem menuitem = (MenuItem)al.get(i);
+					
+					if (menuitem.getBranch().equals(branch))
+					{
+						System.out.printf("Name: %-20s Price: $%-6.2f Category: %-20s Description: %-20s Availabilty %s\n", menuitem.getName(), menuitem.getPrice(), menuitem.getCategory(), menuitem.getDescription(), menuitem.getAvailability());
+					}
+				}
+			} catch (IOException e) {
+				System.out.println("IOException > " + e.getMessage());
+		}
+		System.out.println("");
+	}
 		
 }
