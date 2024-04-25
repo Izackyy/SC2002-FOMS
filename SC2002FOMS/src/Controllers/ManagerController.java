@@ -108,11 +108,25 @@ public class ManagerController extends StaffController // inheritence
 				sc.nextLine(); //input buffer
 				System.out.println("Category:");
 				String category = sc.nextLine();
+				System.out.println("Want to add description? (Y/N)");
+				String desc = sc.nextLine();
+
+				String description = null;
+
+				if(desc.equalsIgnoreCase("Y"))
+				{
+					System.out.println("Description: ");
+					description = sc.nextLine();
+				}
+				else
+				{
+					description = "NA";
+				}
 				
 				System.out.println("Item added:");
 				System.out.println("name:" + name + ", price:" + price + ", category:" + category);
 			
-				MenuItem menuitem = new MenuItem(name, price , AuthStore.getCurrentStaff().getBranch(), category);
+				MenuItem menuitem = new MenuItem(name, price , AuthStore.getCurrentStaff().getBranch(), category, description);
 				MenuTextDB.addMenuItem("menu.txt", menuitem);
 				break;
 			}

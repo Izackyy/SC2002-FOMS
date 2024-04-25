@@ -11,13 +11,13 @@ public class MenuItem {
 	private Availability availability;
 	
 	
-	public MenuItem(String name, double price, String branch, String category)
+	public MenuItem(String name, double price, String branch, String category, String decription)
 {
 		this.name = name;
 		this.price = price;
 		this.branch = branch;
 		this.category = category;
-		this.description = "NA";
+		this.description = description;
 		this.availability = Availability.AVAILABLE; //everytime a new item is added, itll auto set to available
 	}
 	
