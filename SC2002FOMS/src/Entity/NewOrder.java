@@ -117,6 +117,8 @@ public class NewOrder {
 		
 		order.orderID = generateRandomOrderID();
 		
+		System.out.println("");
+		
 		System.out.println("Order ID: " + order.orderID);
 		
 		Order storeOrder = new Order(orderID, branch.getName(), OrderStatus.PROCESSING);

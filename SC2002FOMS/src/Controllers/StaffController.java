@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
+import Entity.OrderCancellation;
 import Enums.OrderStatus;
 import Stores.AuthStore;
 import Stores.Order;
@@ -51,6 +52,9 @@ public class StaffController extends EmployeeController{ //inheritence
 	    Order newStatus = new Order(orderID, branch, OrderStatus.READY_TO_PICKUP);
 	    
 	    OrderTextDB.updateOrder("order.txt", oldStatus, newStatus);
+	    
+	    OrderCancellation orderCancellation = new OrderCancellation();
+	    orderCancellation.scheduleOrderCancellation(orderID, AuthStore.getCurrentStaff().getBranch());
 	    
 	    System.out.println("Order ID: " + orderID);
 	    

@@ -2,13 +2,15 @@ package Stores;
 
 import java.io.Serializable;
 
+import Enums.Availability;
+
 public class MenuItem {
 	private String name;
 	private double price;
 	private String branch;
 	private String category;
 	private String description;
-	// private boolean availabilty;
+	private Availability availability;
 	
 	
 	public MenuItem(String name, double price, String branch, String category)
@@ -18,15 +20,18 @@ public class MenuItem {
 		this.branch = branch;
 		this.category = category;
 		this.description = "NA";
+		this.availability = Availability.AVAILABLE; //everytime a new item is added, itll auto set to available
 	}
 	
-	public MenuItem(String name, double price, String branch, String category, String description)
+	
+	public MenuItem(String name, double price, String branch, String category, String description, Availability availability)
 	{
 		this.name = name;
 		this.price = price;
 		this.branch = branch;
 		this.category = category;
 		this.description = description;
+		this.availability = availability;
 	}
 	
 	public void setName(String name)
@@ -54,6 +59,11 @@ public class MenuItem {
 		this.description = description;
 	}
 	
+	public void setAvailability(Availability availability)
+	{
+		this.availability = availability;
+	}
+	
 	public String getName()
 	{
 		return name;
@@ -77,6 +87,11 @@ public class MenuItem {
 	public String getDescription()
 	{
 		return description;
+	}
+	
+	public Availability getAvailability()
+	{
+		return availability;
 	}
 	
 	public boolean equals(Object o)

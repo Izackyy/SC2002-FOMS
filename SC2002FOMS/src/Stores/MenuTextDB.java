@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import Enums.Availability;
+import Enums.OrderStatus;
+
 public class MenuTextDB {
 	public static final String SEPARATOR = "|";
 
@@ -28,8 +31,9 @@ public class MenuTextDB {
 				String  branch = star.nextToken().trim(); // third token
 				String  category = star.nextToken().trim(); // fourth token // to change to enum
 				String description = star.nextToken().trim();
+				Availability availability = Enums.Availability.valueOf(star.nextToken().trim());
 				// create MenuItem object from file data
-				MenuItem menuitem = new MenuItem(name, price, branch, category, description);
+				MenuItem menuitem = new MenuItem(name, price, branch, category, description, availability);
 				// add to Professors list
 				alr.add(menuitem);
 			}
@@ -53,6 +57,8 @@ public static void saveMenuItem(String filename, List al) throws IOException {
 				st.append(menuitem.getCategory());
 				st.append(SEPARATOR);
 				st.append(menuitem.getDescription());
+				st.append(SEPARATOR);
+				st.append(menuitem.getAvailability());
 				alw.add(st.toString()) ;
 			}
 			write(filename,alw);
