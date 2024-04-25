@@ -9,6 +9,8 @@ import Enums.Role;
 import Services.StaffDisplay;
 import Stores.Branch;
 import Stores.BranchTextDB;
+import Stores.Payment;
+import Stores.PaymentTextDB;
 
 public class AdminController extends EmployeeController {
 
@@ -46,7 +48,8 @@ public class AdminController extends EmployeeController {
 				case (5):
 
 				case (6):
-
+					editPayment();
+					break;
 				case (7):
 					setBranchStatus();
 					break;
@@ -166,4 +169,54 @@ public class AdminController extends EmployeeController {
 		return;
 	}
 
+	private static void editPayment() throws IOException {
+
+		PaymentTextDB.printPaymentMethod("payment.txt");
+		System.out.println("===========Payment Editor===========");
+		System.out.println("|| 1) Add Payment Method          ||");
+		System.out.println("|| 2) Remove Payment Method       ||");
+		System.out.println("|| 3) Quit                        ||");
+		System.out.println("====================================");
+		int Choice = sc.nextInt();
+		sc.nextLine(); // input buffer
+
+		do {
+			switch (Choice) {
+				case (1): {
+					System.out.println("Name:");
+					String name = sc.nextLine();
+
+					// Check for duplicate payment method names (ignoring case)
+					if (PaymentTextDB.compareName("payment.txt", name)) {
+						System.out.println("Payment method already exists.");
+						return;
+					}
+
+					Payment payment = new Payment(name);
+					PaymentTextDB.addPaymentType("payment.txt", payment);
+					System.out.println("Payment method added successfully.");
+					System.out.println("Updated Payment Methods:");
+					PaymentTextDB.printPaymentMethod("payment.txt");
+					return;
+				}
+
+				case (2): {
+					System.out.println("Name:");
+					String name = sc.nextLine();
+
+					// Check if the payment method exists
+					if (!PaymentTextDB.compareName("payment.txt", name)) {
+						System.out.println("Payment method does not exist.");
+						return;
+					}
+					Payment payment = new Payment(name);
+					PaymentTextDB.removePaymentType("payment.txt", payment);
+					System.out.println("Payment method removed successfully.");
+					System.out.println("Updated Payment Methods:");
+					PaymentTextDB.printPaymentMethod("payment.txt");
+					return;
+				}
+			}
+		} while (Choice < 3);
+	}
 }
