@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Stores.AuthStore;
 import Stores.MenuItem;
 import Stores.MenuTextDB;
 import Stores.OrderLine;
@@ -31,7 +30,12 @@ public class Cart {
 		System.out.println("Item name");
 	
 		try {
+<<<<<<< HEAD
 			name = sc.nextLine();
+=======
+			name = sc.nextLine().toUpperCase();
+			@SuppressWarnings("unchecked")
+>>>>>>> c5432e1ea0cfd2cb0c66345e97711c2f5616c303
 			List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");
 			for (MenuItem menuitem : al) {
 				if (menuitem.getName().equalsIgnoreCase(name) && menuitem.getBranch().equals(branch)) {
@@ -173,5 +177,4 @@ public class Cart {
             OrderLineTextDB.addOrder("orderline.txt", orderLine);
         }
 	}
-
 }
