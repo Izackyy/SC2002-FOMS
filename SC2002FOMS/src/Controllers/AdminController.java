@@ -20,9 +20,6 @@ import Stores.Payment;
 import Stores.PaymentTextDB;
 import Stores.Staff;
 import Stores.StaffTextDB;
-import Services.AuthStaffService;
-import Services.BranchManager;
-import Services.BranchManager;
 
 public class AdminController extends EmployeeController {
 
@@ -97,7 +94,7 @@ public class AdminController extends EmployeeController {
 		sc.nextLine(); //input buffer
 		switch (editChoice)
 		{
-			case(1): // Add staff
+			case(1):
 				System.out.println("Name:");
 				String name = sc.nextLine();
 				
@@ -129,7 +126,6 @@ public class AdminController extends EmployeeController {
 				{
 					role = Role.A;
 				}
-
 				System.out.println("Gender: ");
 				String sGender = sc.nextLine();
 				Gender gender = null;
@@ -158,19 +154,20 @@ public class AdminController extends EmployeeController {
 		        
 		        Branch branch = b.get(selection-1);
 				
+				
 				System.out.println("Staff has been successfully added");
 				Staff staff = new Staff(name, staffID, role, gender, age, branch.getName());
 			
 				StaffTextDB.addStaff("staff.txt", staff);
 				break;
 			
-			case(2): // Remove staff
+			case(2):
 			{
 				StaffTextDB.printStaffList("staff.txt");
 				System.out.println("Enter Staff Name:");
 				String sName = sc.nextLine();
 				
-				List<Staff> s = StaffTextDB.readStaff("staff.txt"); //test
+				List<Staff> s = StaffTextDB.readStaff("staff.txt");//test
 				Staff toRemove = null;
 		        for (Staff sf : s)
 		        {
@@ -182,16 +179,14 @@ public class AdminController extends EmployeeController {
 		        		break;
 		        	}
 		        }
-
 		        if (toRemove == null)
 		        {
 		        	System.out.println("Staff does not exist");
 		        }
 				break;
 			}
-
-			case(3): // Edit Staff
-			{ 	// loginID, password, age
+			case(3):
+			{ //loginID, password,age
 				Staff oldStaff = null;
 				System.out.println("========Staff list========");
 				StaffTextDB.printStaffList("staff.txt");
@@ -202,9 +197,10 @@ public class AdminController extends EmployeeController {
 				int choice = sc.nextInt();
 				oldStaff = s.get(choice - 1);
 				
-		        sc.nextLine(); // test input buffer
+		        sc.nextLine(); //test input buffer
 		        
 		        System.out.println("Current details of selected Staff:");
+		        
 		        System.out.println("Name: " + oldStaff.getName());
 		        System.out.println("StaffID: " + oldStaff.getLoginID());
 		        System.out.println("Password: " + oldStaff.getPassword());
@@ -215,7 +211,6 @@ public class AdminController extends EmployeeController {
 				
 				System.out.println("Update StaffID? (Y/N)");
 				yesNo = sc.nextLine();
-
 				if (yesNo.equalsIgnoreCase("Y"))
 				{
 					System.out.println("New Staff ID:");
@@ -223,7 +218,6 @@ public class AdminController extends EmployeeController {
 					newStaff.setLoginID(newID);
 					yesNo = "N";
 				}
-
 				System.out.println("Update Password? (Y/N)");
 				yesNo = sc.nextLine();
 				if (yesNo.equalsIgnoreCase("Y"))
@@ -245,17 +239,11 @@ public class AdminController extends EmployeeController {
 				}
 				
 				StaffTextDB.updateStaff("staff.txt", oldStaff, newStaff);
-				System.out.println("Staff details have been updated");
-				System.out.println("Updated Staff details:");
-				System.out.println("Name: " + newStaff.getName());
-				System.out.println("StaffID: " + newStaff.getLoginID());
-				System.out.println("Password: " + newStaff.getPassword());
-				System.out.println("Age: " + newStaff.getAge());
-				// dont know if you want to print and show updated
 				break;
 			}
 		}
 		System.out.println("Staff details have been updated");
+		// dont know if you want to print and show updated
 	}
 
 	private static void filterStaff() throws IOException {
@@ -276,8 +264,8 @@ public class AdminController extends EmployeeController {
 				String branch;
 				System.out.println("Select a branch: ");
 				List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
-
-				for (Branch b : al) {
+				for (Branch b : al)
+				{
 					System.out.println(i + ") " + b.getName());
 					i++;
 				}
@@ -285,9 +273,9 @@ public class AdminController extends EmployeeController {
 				choice = sc.nextInt();
 
 				branch = al.get(selection - 1).getName();
+
 				StaffDisplay.printStaffList(branch);
 				break;
-
 			case (2):
 				System.out.println("Select Role");
 				System.out.println("1) Staff");
@@ -298,7 +286,6 @@ public class AdminController extends EmployeeController {
 				Role role = (choice == 1) ? Role.S : Role.M;
 				StaffDisplay.printStaffList(role);
 				break;
-
 			case (3):
 				System.out.println("Select gender");
 				System.out.println("1) Female");
@@ -309,19 +296,20 @@ public class AdminController extends EmployeeController {
 				Gender gender = (choice == 1) ? Gender.F : Gender.M;
 				StaffDisplay.printStaffList(gender);
 				break;
-
 			case (4): // dont know if we can set a range
+			{
 				System.out.println("Enter age:");
 				choice = sc.nextInt();
 				StaffDisplay.printStaffList(selection);
 				break;
+			}
 			
 			case(5):
 				StaffTextDB.printStaffList("staff.txt");
 				break;
-
 			default:
 				System.out.println("Invalid choice.");
+
 		}
 	}
 
@@ -336,7 +324,6 @@ public class AdminController extends EmployeeController {
 		List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
 		choice = sc.nextInt();
 		sc.nextLine();
-
 		Staff selectedStaff = staffs.get(choice - 1);
 		Staff oldRole = selectedStaff;
 		Staff newRole = oldRole;
@@ -353,11 +340,12 @@ public class AdminController extends EmployeeController {
 		System.out.println("Staff branch status updated successfully.\n");
 
 		return;
+
 	}
 
-	public void transferStaff() throws IOException {
+	private static void transferStaff() throws IOException {
 
-		int choice, check;
+		int choice;
 
 		// select staff
 		StaffTextDB.printStaffList("staff.txt");
@@ -365,31 +353,19 @@ public class AdminController extends EmployeeController {
 		System.out.println("Select a staff member");
 		choice = sc.nextInt();
 		Staff selectedStaff = staffs.get(choice - 1);
-		Staff oldBranch = selectedStaff;
-		Staff newBranch = oldBranch;
+		Staff oldRole = selectedStaff;
+		Staff newRole = oldRole;
 
 		// select branch
-		BranchManager.printBranchStatus("branch.txt");
+		BranchTextDB.printBranch("branch.txt");
 		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
 		choice = sc.nextInt();
-		String bn = branches.get(choice - 1).getName();
-		Branch b = branches.get(choice - 1);
-		newBranch.setBranch(bn);
-
+		System.out.println("Choose a new branch");
+		String b = branches.get(choice - 1).getName();
+		newRole.setBranch(b);
 		// add input and branch check
-		// check staff
-		if (selectedStaff.getRole().equals(Role.S)) {
-			check = BranchManager.checkStaffQuota(b);
-			if (check == -1) {
-				System.out.println("Too many staff in " + bn + ". Remove some staff.");
-				return;
-			} else if (check >= 0) {
 
-			}
-
-		}
-
-		StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
+		StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
 		StaffTextDB.printStaffList("staff.txt");
 		System.out.println("Staff branch status updated successfully.\n");
 
@@ -450,6 +426,7 @@ public class AdminController extends EmployeeController {
 				}
 				default:
 					return;
+
 			}
 		} while (Choice != 3);
 	}
@@ -458,7 +435,7 @@ public class AdminController extends EmployeeController {
 
 		int set, choice;
 
-		BranchManager.printBranchStatus("branch.txt");
+		BranchTextDB.printBranch("branch.txt");
 		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
 		choice = sc.nextInt();
 		Branch selectedBranch = branches.get(choice - 1);
@@ -466,24 +443,87 @@ public class AdminController extends EmployeeController {
 		Branch newStatus = oldStatus;
 
 		System.out.println("Open/Close Branch");
-		System.out.println("<Press 1 to open Branch, Press 0 to close Branch>");
+		System.out.println("<Press 1 to open Branch or Press 0 to close Branch>");
 
 		set = sc.nextInt();
 		while (set != 1 && set != 0) {
 			System.out.println("Invalid choice! Enter 1 to open or 0 to close the branch.");
 			set = sc.nextInt();
 		}
-		
 		while (!newStatus.setBranchStatus(set)) {
 			set = sc.nextInt();
 		}
 
 		BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
 
-		BranchManager.printBranchStatus("branch.txt");
+		BranchTextDB.printBranch("branch.txt");
 		System.out.println("Branch status updated successfully.\n");
 
 		return;
+	}
+
+	public void addBranch() throws IOException
+	{
+		
+		System.out.println("Name:");
+		String name = sc.nextLine();
+		
+		
+		List<Branch> al = BranchTextDB.readBranchList("branch.txt");//test
+        for (Branch branch : al)
+        {
+        	if (branch.getName().equalsIgnoreCase(name))
+        	{
+        		System.out.println("Branch already exists");
+        		return;
+        	}
+        }
+       //String name, String location, int staffQuota, BranchStatus branchStatus
+		System.out.println("Location");
+		String location = sc.nextLine();
+		System.out.println("Staff Quota:");
+		int staffQuota = sc.nextInt();
+		sc.nextLine(); //input buffer
+		
+		//assumption that every new branch added will be set as open
+		
+		System.out.println("Branch has been succesfully added");
+	
+		Branch branch = new Branch(name, location , staffQuota, BranchStatus.OPEN);
+		BranchTextDB.addBranch("branch.txt", branch);
+		
+		
+	}
+
+	public void removeBranch() throws IOException
+	{
+		System.out.println("=======Branch List=======");
+		List<Branch> al = BranchTextDB.readBranchList("branch.txt");//test
+		
+		for (Branch branch: al)
+        {
+        	System.out.println(branch.getName());
+        }
+		// BranchTextDB.printBranch("branch.txt");
+		
+		System.out.println("Enter Branch Name:");
+		String name = sc.nextLine();
+		
+		Branch toRemove = null;
+        for (Branch branch: al)
+        {
+        	if (branch.getName().equals(name)) // assumptions that branch names are always unique
+        	{
+        		toRemove = branch;
+        		BranchTextDB.removeBranch("branch.txt", toRemove);
+        		System.out.println("Branch has been removed successfully.");
+        		break;
+        	}
+        }
+        if (toRemove == null)
+        {
+        	System.out.println("Branch does not exist");
+        }
 	}
 
 }
