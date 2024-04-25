@@ -531,28 +531,4 @@ public class AdminController extends EmployeeController implements IBranchManage
 		}
 	}
 
-	@Override
-	public void editBranch() throws IOException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'editBranch'");
-	}
-
-	@Override
-	public void deleteBranch() throws IOException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'deleteBranch'");
-	}
-
-	@Override
-	public void viewBranch() throws IOException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'viewBranch'");
-	}
-
-	@Override
-	public void filterBranch() throws IOException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'filterBranch'");
-	}
-
 }
