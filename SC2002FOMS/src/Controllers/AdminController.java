@@ -369,7 +369,7 @@ public class AdminController extends EmployeeController implements IStaffManagem
 		return;
 	}
 
-	private static void editPayment() throws IOException {
+	public void editPayment() throws IOException {
 
 		PaymentTextDB.printPaymentMethod("payment.txt");
 		System.out.println("===========Payment Editor===========");
@@ -512,6 +512,30 @@ public class AdminController extends EmployeeController implements IStaffManagem
 		if (toRemove == null) {
 			System.out.println("Branch does not exist");
 		}
+	}
+
+	@Override
+	public void editBranch() throws IOException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'editBranch'");
+	}
+
+	@Override
+	public void deleteBranch() throws IOException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'deleteBranch'");
+	}
+
+	@Override
+	public void viewBranch() throws IOException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'viewBranch'");
+	}
+
+	@Override
+	public void filterBranch() throws IOException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'filterBranch'");
 	}
 
 }
