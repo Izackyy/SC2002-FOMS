@@ -1,5 +1,3 @@
 Cash
 Debit/Credit
 E-Payment
-Nets
-Visa

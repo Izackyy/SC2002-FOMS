@@ -198,16 +198,21 @@ public class AdminController extends EmployeeController {
 					System.out.println("Name:");
 					String name = sc.nextLine();
 
-					// Check if the payment method exists
-					if (!PaymentTextDB.compareName("payment.txt", name)) {
-						System.out.println("Payment method does not exist.");
-						return;
+					List<Payment> al = PaymentTextDB.readPaymentType("payment.txt");// test
+					Payment toRemove = null;
+					for (Payment payment : al) {
+						if (payment.getName().equalsIgnoreCase(name)) {
+							toRemove = payment;
+							PaymentTextDB.removePaymentType("payment.txt", toRemove);
+							System.out.println("Payment method removed successfully.");
+							System.out.println("Updated Payment Methods:");
+							PaymentTextDB.printPaymentMethod("payment.txt");
+							return;
+						}
 					}
-					Payment payment = new Payment(name);
-					PaymentTextDB.removePaymentType("payment.txt", payment);
-					System.out.println("Payment method removed successfully.");
-					System.out.println("Updated Payment Methods:");
-					PaymentTextDB.printPaymentMethod("payment.txt");
+					if (toRemove == null) {
+						System.out.println("Payment method does not exist");
+					}
 					return;
 				}
 			}

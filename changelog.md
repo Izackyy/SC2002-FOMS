@@ -7,7 +7,7 @@
 
 <h1>under AdminController:</h1>
      added setBranchStatus, BUT text file isnt being read properly [RESOLVED]
-     added editPayment, BUT remove payment not working
+     added editPayment, BUT remove payment not working [RESOLVED]
 
 <h1>under Payment.txt:</h1>
      removed individual payment classes, made a text file with payment type instead

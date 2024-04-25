@@ -29,4 +29,13 @@ public class Payment implements IPayment {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public boolean equals(Object o) {
+		if (o instanceof Payment)
+			;
+		{
+			Payment m = (Payment) o;
+			return (getName().equals(m.getName()));
+		}
+	}
 }
