@@ -11,7 +11,7 @@ import Stores.MenuTextDB;
 import Services.MenuDisplay;
 import Services.StaffDisplay;
 
-public class ManagerController extends StaffController // inheritance
+public class ManagerController extends StaffController // inheritence
 {
 	
 	private static final Scanner sc = new Scanner(System.in);
@@ -122,7 +122,7 @@ public class ManagerController extends StaffController // inheritance
 				MenuItem toRemove = null;
 		        for (MenuItem menuitem : al)
 		        {
-		        	if (menuitem.getName().equals(name) && menuitem.getBranch().equals(AuthStore.getCurrentStaff().getBranch()))
+		        	if (menuitem.getName().equalsIgnoreCase(name) && menuitem.getBranch().equals(AuthStore.getCurrentStaff().getBranch()))
 		        	{
 		        		toRemove = menuitem;
 		        		MenuTextDB.removeMenuItem("menu.txt", toRemove);
@@ -146,7 +146,7 @@ public class ManagerController extends StaffController // inheritance
 				boolean found = false;
 		        for (MenuItem menuitem : al)
 		        {
-		        	if (menuitem.getName().equals(oldName) && menuitem.getBranch().equals(AuthStore.getCurrentStaff().getBranch()))
+		        	if (menuitem.getName().equalsIgnoreCase(oldName) && menuitem.getBranch().equals(AuthStore.getCurrentStaff().getBranch()))
 		        	{
 		        		found = true;
 		        		oldItem = menuitem;
