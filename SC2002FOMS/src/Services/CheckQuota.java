@@ -1,15 +1,10 @@
 package Services;
 
 import Stores.StaffTextDB;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.List;
-import java.util.ArrayList;
 import Stores.Staff;
 import Stores.Branch;
-import Enums.Role;
-import Stores.BranchTextDB;
 
 //define max staff and manager?
 
@@ -18,6 +13,7 @@ public class CheckQuota {
     private static int staffCount = 0, managerCount = 0;
 
     public static int staffQuota(Branch b) throws IOException {
+        @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
         for (Staff s : staffs) {
             if (s.getRole().equals(Enums.Role.S) && s.getBranch().equals(b.getName())) {
@@ -28,6 +24,7 @@ public class CheckQuota {
     }
 
     public static int managerQuota(Branch b) throws IOException {
+        @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
         for (Staff s : staffs) {
             if (s.getRole().equals(Enums.Role.M) && s.getBranch().equals(b.getName())) {
