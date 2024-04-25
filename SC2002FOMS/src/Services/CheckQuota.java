@@ -13,6 +13,7 @@ public class CheckQuota {
     private static int staffCount = 0, managerCount = 0;
 
     public static int staffQuota(Branch b) throws IOException {
+        @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
         for (Staff s : staffs) {
             if (s.getRole().equals(Enums.Role.S) && s.getBranch().equals(b.getName())) {
@@ -23,6 +24,7 @@ public class CheckQuota {
     }
 
     public static int managerQuota(Branch b) throws IOException {
+        @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
         for (Staff s : staffs) {
             if (s.getRole().equals(Enums.Role.M) && s.getBranch().equals(b.getName())) {

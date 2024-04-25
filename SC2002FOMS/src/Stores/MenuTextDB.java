@@ -89,7 +89,8 @@ public static void updateMenuItem(String filename, MenuItem oldItem, MenuItem ne
 
 
   /** Write fixed content to the given file. */
-  public static void write(String fileName, List data) throws IOException  {
+  public static void write(String fileName, List data) throws IOException  
+  {
     PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
     try {

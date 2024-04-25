@@ -86,17 +86,17 @@ public class BranchTextDB {
 		}
 		return data;
 	}
-	
+
 	public static void addBranch(String filename, Branch branch) throws IOException {
-	    List al = readBranchList(filename);
-	    al.add(branch);
-	    saveBranch(filename, al);
+		List al = readBranchList(filename);
+		al.add(branch);
+		saveBranch(filename, al);
 	}
 
 	public static void removeBranch(String filename, Branch branch) throws IOException {
-	    List al = readBranchList(filename);
-	    al.remove(branch);
-	    saveBranch(filename, al);
+		List al = readBranchList(filename);
+		al.remove(branch);
+		saveBranch(filename, al);
 	}
 
 	public static void updateBranchStatus(String filename, Branch oldStatus, Branch newStatus) throws IOException {
@@ -111,13 +111,4 @@ public class BranchTextDB {
 		}
 	}
 
-	public static void printBranch(String filename) throws IOException {
-		System.out.println("Select a branch: ");
-		List<Branch> branches = readBranchList(filename);
-		int c = 1;
-		for (Branch b : branches) {
-			System.out.println(c + ") " + b.getName() + " - " + b.getBranchStatus());
-			c++;
-		}
-	}
 }
