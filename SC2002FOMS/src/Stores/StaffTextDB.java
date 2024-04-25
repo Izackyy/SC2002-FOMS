@@ -126,53 +126,12 @@ public class StaffTextDB {
 		List<Staff> staffs = readStaff(filename);
 		int c = 1;
 		for (Staff s : staffs) {
-			System.out.println(c + ")" + "Name: " + s.getName() + ", LoginID:" + s.getLoginID() + ", Role:"
-					+ s.getRole() + ", Branch:" + s.getBranch());
+			//System.out.println(c + ")" + "Name: " + s.getName() + ", LoginID:" + s.getLoginID() + ", Role:"
+					//+ s.getRole() + ", Branch:" + s.getBranch());
+			
+			System.out.printf(c + ") Name: %-20s LoginID: %-20s Role: %-20s Branch: %s\n", s.getName(), s.getLoginID(), s.getRole(), s.getBranch());
 			c++;
 		}
 	}
-	/*
-	 * public static void printStaffList() //for admin to call
-	 * {
-	 * String filename = "staff.txt" ;
-	 * try {
-	 * // read file containing staff records.
-	 * ArrayList al = StaffTextDB.readStaff(filename) ;
-	 * for (int i = 0 ; i < al.size() ; i++) {
-	 * Staff staff = (Staff)al.get(i);
-	 * System.out.println("Name: " + staff.getName() + ", LoginID:" +
-	 * staff.getLoginID() + ", Role:" + staff.getRole() + ", Gender:" +
-	 * staff.getGender() + ", Age:" + staff.getAge() + ", Branch:" +
-	 * staff.getBranch());
-	 * }
-	 * 
-	 * }catch (IOException e) {
-	 * System.out.println("IOException > " + e.getMessage());
-	 * }
-	 * }
-	 * 
-	 * public static void printStaffList(String branch) //overload to call branch
-	 * staff list
-	 * {
-	 * String filename = "staff.txt" ;
-	 * try {
-	 * // read file containing staff records.
-	 * ArrayList al = StaffTextDB.readStaff(filename) ;
-	 * for (int i = 0 ; i < al.size() ; i++) {
-	 * Staff staff = (Staff)al.get(i);
-	 * if (staff.getBranch().equals(branch))
-	 * {
-	 * System.out.println("Name: " + staff.getName() + ", LoginID: " +
-	 * staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " +
-	 * staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " +
-	 * staff.getBranch());
-	 * }
-	 * }
-	 * 
-	 * }catch (IOException e) {
-	 * System.out.println("IOException > " + e.getMessage());
-	 * }
-	 * }
-	 */ // shifted to new class in services
 
 }

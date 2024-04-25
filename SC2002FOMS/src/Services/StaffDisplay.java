@@ -10,7 +10,7 @@ import Stores.StaffTextDB;
 
 public class StaffDisplay {
 	
-	public static void printStaffList() //for admin to call
+	public static void printStaffList() //for admin to call, not required
 	  {
 		  String filename = "staff.txt" ;
 			try {
@@ -37,7 +37,8 @@ public class StaffDisplay {
 						Staff staff = (Staff)al.get(i);
 						if (staff.getBranch().equals(branch))
 						{
-							System.out.println("Name: " + staff.getName() + ", LoginID: " + staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " + staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " + staff.getBranch());
+							System.out.printf("Name: %-20s LoginID: %-20s Role: %-20s Branch: %s\n", staff.getName(), staff.getLoginID(), staff.getRole(), staff.getBranch());
+							//System.out.println("Name: " + staff.getName() + ", LoginID: " + staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " + staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " + staff.getBranch());
 						}
 				}
 				
@@ -59,7 +60,8 @@ public class StaffDisplay {
 						Staff staff = (Staff)al.get(i);
 						if (staff.getAge() == age)
 						{
-							System.out.println("Name: " + staff.getName() + ", LoginID: " + staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " + staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " + staff.getBranch());
+							System.out.printf("Name: %-20s LoginID: %-20s Role: %-20s Branch: %s\n", staff.getName(), staff.getLoginID(), staff.getRole(), staff.getBranch());
+							//System.out.println("Name: " + staff.getName() + ", LoginID: " + staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " + staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " + staff.getBranch());
 						}
 				}
 				
@@ -79,7 +81,8 @@ public class StaffDisplay {
 						Staff staff = (Staff)al.get(i);
 						if (staff.getGender().equals(gender))
 						{
-							System.out.println("Name: " + staff.getName() + ", LoginID: " + staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " + staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " + staff.getBranch());
+							System.out.printf("Name: %-20s LoginID: %-20s Role: %-20s Branch: %s\n", staff.getName(), staff.getLoginID(), staff.getRole(), staff.getBranch());
+							//System.out.println("Name: " + staff.getName() + ", LoginID: " + staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " + staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " + staff.getBranch());
 						}
 				}
 				
@@ -99,7 +102,8 @@ public class StaffDisplay {
 						Staff staff = (Staff)al.get(i);
 						if (staff.getRole().equals(role))
 						{
-							System.out.println("Name: " + staff.getName() + ", LoginID: " + staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " + staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " + staff.getBranch());
+							System.out.printf("Name: %-20s LoginID: %-20s Role: %-20s Branch: %s\n", staff.getName(), staff.getLoginID(), staff.getRole(), staff.getBranch());
+							//System.out.println("Name: " + staff.getName() + ", LoginID: " + staff.getLoginID() + ", Role: " + staff.getRole() + ", Gender: " + staff.getGender() + ", Age: " + staff.getAge() + ", Branch: " + staff.getBranch());
 						}
 				}
 				
