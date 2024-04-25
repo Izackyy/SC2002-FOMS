@@ -15,7 +15,7 @@ import java.util.InputMismatchException;
 
 public class Cart {
 	
-	private static int totalItems;
+	private static int totalItems; // i think this is not needed already
 	
 	private static ArrayList<CartItem> cart;
 	private static final Scanner sc = new Scanner(System.in);
@@ -31,10 +31,10 @@ public class Cart {
 		System.out.println("Item name");
 	
 		try {
-			name = sc.nextLine().toUpperCase();
+			name = sc.nextLine();
 			List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");
 			for (MenuItem menuitem : al) {
-				if (menuitem.getName().equals(name) && menuitem.getBranch().equals(branch)) {
+				if (menuitem.getName().equalsIgnoreCase(name) && menuitem.getBranch().equals(branch)) {
 					item = menuitem;
 					break;
 				}
@@ -100,7 +100,7 @@ public class Cart {
 		
 		if (cart.isEmpty()) 
 		{
-		    System.out.println("Cart is empty. Nothing to remove.");
+		    System.out.println("Cart is empty. Nothing to edit.");
 		    return;
 		}	
 			
