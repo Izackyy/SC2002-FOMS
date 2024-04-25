@@ -21,7 +21,7 @@ public class AuthStaffService {
 				}
 			}
 		}
-		System.out.println("Wrong password. Please try again");
+		System.out.println("Error occurred during login. Please try again");
 		return false;
 	}
 

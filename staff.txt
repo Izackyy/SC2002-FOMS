@@ -13,5 +13,5 @@ aaron|abmsm|S|M|20|NTU|password
 dana|dnyk7|S|F|20|NTU|password
 jamie|jmiee|S|F|20|NTU|password
 idiot|dumb|S|M|25|NTU|password
-gpa|gg|S|M|1.0|NTU|password
+gpa|gg|S|M|1|NTU|password
 scse|shag|S|M|50|NTU|password
