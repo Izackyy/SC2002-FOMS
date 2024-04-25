@@ -25,13 +25,12 @@ public class AdminController extends EmployeeController {
 			System.out.println("==========Admin's Actions==========");
 			System.out.println("|| 1) Edit Staff Account         ||"); // just like how you edit menu
 			System.out.println("|| 2) Display Staff List         ||");
-			System.out.println("|| 3) Assign Manager             ||");
-			System.out.println("|| 4) Promote Staff To Manager   ||");
-			System.out.println("|| 5) Transfer Staff/Manager     ||");
-			System.out.println("|| 6) Add/Remove Payment Method  ||");
-			System.out.println("|| 7) Open/Close branch          ||");
-			System.out.println("|| 8) Change Password            ||");
-			System.out.println("|| 9) Quit                       ||");
+			System.out.println("|| 3) Promote Staff To Manager   ||");
+			System.out.println("|| 4) Transfer Staff/Manager     ||");
+			System.out.println("|| 5) Add/Remove Payment Method  ||");
+			System.out.println("|| 6) Open/Close branch          ||");
+			System.out.println("|| 7) Change Password            ||");
+			System.out.println("|| 8) Quit                       ||");
 			System.out.println("===================================");
 
 			selection = sc.nextInt();
@@ -44,27 +43,25 @@ public class AdminController extends EmployeeController {
 					filterStaff();
 					break;
 				case (3):
-
-				case (4):
 					promoteStaff();
 					break;
-				case (5):
+				case (4):
 					transferStaff();
 					break;
-				case (6):
+				case (5):
 					editPayment();
 					break;
-				case (7):
+				case (6):
 					setBranchStatus();
 					break;
-				case (8):
+				case (7):
 					changePassword();
 					break;
-				case (9):
+				default:
 					return;
 			}
 
-		} while (selection != 9);
+		} while (selection != 8);
 	}
 
 	private static void editStaffAcc() {
@@ -247,8 +244,11 @@ public class AdminController extends EmployeeController {
 					}
 					return;
 				}
+				default:
+					return;
+
 			}
-		} while (Choice < 3);
+		} while (Choice != 3);
 	}
 
 	private static void setBranchStatus() throws IOException {

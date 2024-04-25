@@ -43,7 +43,7 @@ public class AuthController {
 					authService = new AuthStaffService();
 					break;
 
-				case (3):
+				default:
 					return;
 			}
 
