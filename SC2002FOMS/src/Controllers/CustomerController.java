@@ -44,7 +44,7 @@ public class CustomerController {
         
         selection = sc.nextInt();
         
-        branch = al.get(selection-1);
+        branch = open.get(selection-1);
         
         do
         {

@@ -12,7 +12,7 @@ import Stores.OrderLine;
 import Stores.OrderLineTextDB;
 import Stores.OrderTextDB;
 
-public class StaffController extends EmployeeController{ //inheritence
+public class StaffController extends EmployeeController{ // inheritance
 	
 	private static final Scanner sc = new Scanner(System.in);
 
