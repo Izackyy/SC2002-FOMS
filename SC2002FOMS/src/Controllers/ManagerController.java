@@ -1,10 +1,12 @@
 package Controllers;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 import Enums.Availability;
+import Interfaces.IOrderManager;
 import Stores.AuthStore;
 import Stores.MenuItem;
 import Stores.MenuTextDB;
@@ -16,10 +18,14 @@ public class ManagerController extends StaffController // inheritence
 	
 	private static final Scanner sc = new Scanner(System.in);
 
+	public ManagerController(IOrderManager om) {
+		super(om);
+	}
+
 	public void start() throws IOException
 	{
 		boolean success = false;
-		int selection;
+		int selection = 0;
 		do
 		{
 			System.out.println("========Manager's Actions========");
@@ -32,6 +38,7 @@ public class ManagerController extends StaffController // inheritence
 			System.out.println("|| 7) Quit                     ||");
 			System.out.println("=================================");
 			
+			try{
 			selection = sc.nextInt();
 			
 			switch(selection)
@@ -40,10 +47,18 @@ public class ManagerController extends StaffController // inheritence
 					om.displayNewOrder(AuthStore.getCurrentStaff().getBranch());
 					break;
 				case(2):
-					om.processOrder();
+					try {
+						om.processOrder();
+					} catch (Exception e) {  // Catch all exceptions from processOrder
+						System.out.println(e.getMessage());
+					}
 					break;
 				case(3):
-					om.viewDetails();
+				try {
+						om.viewDetails();
+					} catch (Exception e) {  // Catch all exceptions from processOrder
+						System.out.println(e.getMessage());
+					}
 					break;
 				case(4):
 					editMenu();
@@ -63,8 +78,16 @@ public class ManagerController extends StaffController // inheritence
 					}
 					break;
 			}
-			
+			}catch (InputMismatchException e) {
+                System.out.println("Please enter a valid number.");
+                sc.next(); // Clear the incorrect input from scanner buffer
+            } catch (RuntimeException e) {  // Catching RuntimeException for general runtime issues, including unchecked exceptions
+                System.out.println("An error occurred: " + e.getMessage());
+            } catch (Exception e) {  // Catching Exception for general exceptions
+				System.out.println("An error occurred: " + e.getMessage());
+			}	
 		}while(selection!=7);
+	
 		
 		System.out.println("Exiting Manager's Actions");
 		AuthController.endSession();

@@ -4,16 +4,23 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Interfaces.IOrderManager;
 import Services.OrderManager;
 import Stores.AuthStore;
 
 public class StaffController extends EmployeeController {
-    int selection;
+    
     private static final Scanner sc = new Scanner(System.in);
-    protected OrderManager om = new OrderManager();
+    protected IOrderManager om;
+	
+
+	public StaffController(IOrderManager om) {
+		this.om = om;
+	}
 
     public void start() throws 	IOException{  // Removed 'throws IOException' because we are handling all IO exceptions inside
-        do {
+		int selection = 0;
+		do {
             System.out.println("======Staff Actions======");
             System.out.println("1) Display New Orders");
             System.out.println("2) Process Order");
@@ -38,11 +45,11 @@ public class StaffController extends EmployeeController {
                         }
                         break;
                     case 3:
-					try {
-						om.viewDetails();
-					} catch (Exception e) {  // Catch all exceptions from processOrder
-						System.out.println(e.getMessage());
-					}
+						try {
+							om.viewDetails();
+						} catch (Exception e) {  // Catch all exceptions from processOrder
+							System.out.println(e.getMessage());
+						}
 					break;
                     case 4:
                         changePassword();
@@ -59,9 +66,9 @@ public class StaffController extends EmployeeController {
                 sc.next(); // Clear the incorrect input from scanner buffer
             } catch (RuntimeException e) {  // Catching RuntimeException for general runtime issues, including unchecked exceptions
                 System.out.println("An error occurred: " + e.getMessage());
-            } finally {
-                // Optional: Can add cleanup code here if needed
-            }
+            } catch (Exception e) {  // Catching Exception for general exceptions
+				System.out.println("An error occurred: " + e.getMessage());
+			}
         } while (selection != 5);
     }
 }

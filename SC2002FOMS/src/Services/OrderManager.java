@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class OrderManager implements IOrderManager{
     
     Scanner sc = new Scanner(System.in);
+	@SuppressWarnings("unchecked")
 	public void processOrder() throws IOException {
 		String input;
 		int orderID;
@@ -87,6 +88,7 @@ public class OrderManager implements IOrderManager{
 			throw new IllegalArgumentException("Error! Invalid input. Order ID must be a number.");
 		}
 	
+		@SuppressWarnings("unchecked")
 		List<OrderLine> allOrderLines = OrderLineTextDB.readOrderLine("orderline.txt");//test
 	
 		System.out.println("Order details for order ID " + orderID);

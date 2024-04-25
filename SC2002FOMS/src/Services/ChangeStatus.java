@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import Enums.OrderStatus;
-import Enums.Role;
 import Stores.Order;
 import Stores.OrderTextDB;
 
@@ -22,6 +21,7 @@ public class ChangeStatus {
 		orderID = sc.nextInt();
 		
 		Order oldStatus = null;
+		@SuppressWarnings("unchecked")
 		List<Order> al = OrderTextDB.readOrder("order.txt");//test
 	    for (Order order : al)
 	    {
@@ -57,7 +57,8 @@ public class ChangeStatus {
 	    
 	    System.out.println("Order ID: " + orderID);
 	    
-	    List<Order> alr = OrderTextDB.readOrder("order.txt");//test
+	    @SuppressWarnings("unchecked")
+		List<Order> alr = OrderTextDB.readOrder("order.txt");//test
 	    for (Order order : alr)
 	    {
 	    	if (order.getOrderID() == orderID && order.getBranch().equals(branch))

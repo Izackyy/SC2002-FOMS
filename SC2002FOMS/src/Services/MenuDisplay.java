@@ -13,6 +13,7 @@ public class MenuDisplay {
 	  {
 		  String filename = "menu.txt" ;
 			try {
+				@SuppressWarnings("rawtypes")
 				ArrayList al = MenuTextDB.readMenuItem(filename) ;
 				for (int i = 0 ; i < al.size() ; i++) {
 						MenuItem menuitem = (MenuItem)al.get(i);
@@ -30,6 +31,7 @@ public class MenuDisplay {
 		System.out.println("=============================================" + branch + " Menu=============================================");
 		try {
 			// read file containing Professor records.
+			@SuppressWarnings("rawtypes")
 			ArrayList al = MenuTextDB.readMenuItem(filename) ;
 			for (int i = 0 ; i < al.size() ; i++) {
 					MenuItem menuitem = (MenuItem)al.get(i);
@@ -52,6 +54,7 @@ public class MenuDisplay {
 		System.out.println("==========================================================" + branch + " Menu==========================================================");
 		try {
 			// read file containing Professor records.
+			@SuppressWarnings("rawtypes")
 			ArrayList al = MenuTextDB.readMenuItem(filename) ;
 			for (int i = 0 ; i < al.size() ; i++) {
 					MenuItem menuitem = (MenuItem)al.get(i);

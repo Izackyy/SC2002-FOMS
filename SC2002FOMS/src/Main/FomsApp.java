@@ -7,6 +7,14 @@ import Controllers.AuthController;
 import Controllers.ManagerController;
 import Controllers.StaffController;
 import Enums.Role;
+import Interfaces.IBranchManagement;
+import Interfaces.IStaffManagement;
+import Interfaces.IOrderManager;
+import Interfaces.IPaymentManagement;
+import Services.BranchManager; 
+import Services.OrderManager; 
+import Services.PaymentManager;
+import Services.StaffManager;
 import Stores.AuthStore;
 import Stores.Staff;
 
@@ -25,17 +33,22 @@ public class FomsApp {
 		{	
 			if (staff.getRole().equals(Role.S)) //plan to change to enum
 			{
-				StaffController staffController = new StaffController();
+				IOrderManager om = new OrderManager();
+				StaffController staffController = new StaffController(om);
 				staffController.start();
 			}
 			else if (staff.getRole().equals(Role.M))
 			{
-				ManagerController managerController = new ManagerController();
+				IOrderManager om = new OrderManager();
+				ManagerController managerController = new ManagerController(om);
 				managerController.start();
 			}
 			else //admin
 			{
-				AdminController adminController = new AdminController();
+				IBranchManagement bm = new BranchManager();
+				IStaffManagement sm = new StaffManager();
+				IPaymentManagement pm = new PaymentManager();
+				AdminController adminController = new AdminController(bm,sm,pm);
 				adminController.start();
 			}
 		}

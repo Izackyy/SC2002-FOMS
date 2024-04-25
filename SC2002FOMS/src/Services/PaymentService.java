@@ -14,18 +14,18 @@ public class PaymentService {
 	public static void start() throws IOException {
 
 		int choice;
-		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Select a payment type: ");
-		List<Payment> payments = PaymentTextDB.readPaymentType("payment.txt");
-		int c = 1;
-		for (Payment p : payments) {
-			System.out.println(c + ") " + p.getName());
-			c++;
+		try (Scanner sc = new Scanner(System.in)) {
+			System.out.println("Select a payment type: ");
+			List<Payment> payments = PaymentTextDB.readPaymentType("payment.txt");
+			int c = 1;
+			for (Payment p : payments) {
+				System.out.println(c + ") " + p.getName());
+				c++;
+			}
+			choice = sc.nextInt();
+			Payment selectedPayment = payments.get(choice - 1);
+			selectedPayment.processPayment();
 		}
-		choice = sc.nextInt();
-		Payment selectedPayment = payments.get(choice - 1);
-		selectedPayment.processPayment();
 	}
 }
 

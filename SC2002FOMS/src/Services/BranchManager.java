@@ -18,6 +18,7 @@ public class BranchManager implements IBranchManagement {
         System.out.println("Name:");
         String name = sc.nextLine();
 
+        @SuppressWarnings("unchecked")
         List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
         for (Branch branch : al) {
             if (branch.getName().equalsIgnoreCase(name)) {
@@ -46,6 +47,7 @@ public class BranchManager implements IBranchManagement {
         int set, choice;
 
         printBranch("branch.txt");
+        @SuppressWarnings("unchecked")
         List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
         choice = sc.nextInt();
         Branch selectedBranch = branches.get(choice - 1);

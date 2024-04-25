@@ -15,6 +15,7 @@ all subclasses should be able to implement this, just need to inherit this metho
 public class EmployeeController{
 	
 	private static final Scanner sc = new Scanner(System.in);
+
 	
 	protected static boolean changePassword() throws IOException
 	{
