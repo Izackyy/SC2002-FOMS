@@ -1,14 +1,21 @@
 package Controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Enums.Availability;
+import Enums.BranchStatus;
 import Enums.Gender;
 import Enums.Role;
+import Services.MenuDisplay;
 import Services.StaffDisplay;
+import Stores.AuthStore;
 import Stores.Branch;
 import Stores.BranchTextDB;
+import Stores.MenuItem;
+import Stores.MenuTextDB;
 import Stores.Payment;
 import Stores.PaymentTextDB;
 import Stores.Staff;
@@ -64,8 +71,170 @@ public class AdminController extends EmployeeController {
 		} while (selection != 8);
 	}
 
-	private static void editStaffAcc() {
-		System.out.println("editing staff account");
+	private static void editStaffAcc() throws IOException {
+		// System.out.println("editing staff account");
+		
+		String yesNo; 
+		System.out.println("===========Staff Editor==========");
+		System.out.println("|| 1) Add Staff                ||");
+		System.out.println("|| 2) Remove Staff             ||");
+		System.out.println("|| 3) Edit Staff               ||");
+		System.out.println("=================================");
+		
+		int editChoice = sc.nextInt();
+		sc.nextLine(); //input buffer
+		switch (editChoice)
+		{
+			case(1):
+				System.out.println("Name:");
+				String name = sc.nextLine();
+				
+				List<Staff> al = StaffTextDB.readStaff("staff.txt");//test
+		        for (Staff staff : al)
+		        {
+		        	if (staff.getName().equalsIgnoreCase(name))
+		        	{
+		        		System.out.println("Staff already exists");
+		        		return;
+		        	}
+		        }
+		       
+				System.out.println("StaffID:");
+				String staffID = sc.nextLine();
+				System.out.println("Role: ");
+				String sRole = sc.nextLine();
+				
+				Role role = null;
+				if (sRole.equalsIgnoreCase("M"))
+				{
+					role = Role.M;
+				}
+				else if(sRole.equalsIgnoreCase("S"))
+				{
+					role = Role.S;
+				}
+				else
+				{
+					role = Role.A;
+				}
+				System.out.println("Gender: ");
+				String sGender = sc.nextLine();
+				Gender gender = null;
+				if(sGender.equalsIgnoreCase("F"))
+				{
+					gender = Gender.F;
+				}
+				else
+				{
+					gender = Gender.M;
+				}
+				System.out.println("Age:");
+				int age = sc.nextInt();
+				
+				int i=1;
+				System.out.println("Branch:");
+				System.out.println("======Branch Option======");
+				List<Branch> b = BranchTextDB.readBranchList("branch.txt");//test
+		        for (Branch branch : b)
+		        {	
+		        	System.out.println(i + ") " + branch.getName());
+		            i++;
+		        }
+		        
+		        int selection = sc.nextInt();
+		        
+		        Branch branch = b.get(selection-1);
+				
+				
+				System.out.println("Staff has been successfully added");
+				Staff staff = new Staff(name, staffID, role, gender, age, branch.getName());
+			
+				StaffTextDB.addStaff("staff.txt", staff);
+				break;
+			
+			case(2):
+			{
+				StaffTextDB.printStaffList("staff.txt");
+				System.out.println("Name:");
+				String sName = sc.nextLine();
+				
+				List<Staff> s = StaffTextDB.readStaff("staff.txt");//test
+				Staff toRemove = null;
+		        for (Staff sf : s)
+		        {
+		        	if (sf.getName().equals(sName))
+		        	{
+		        		toRemove = sf;
+		        		StaffTextDB.removeStaff("staff.txt", toRemove);
+		        		System.out.println("Staff removed successfully.");
+		        		break;
+		        	}
+		        }
+		        if (toRemove == null)
+		        {
+		        	System.out.println("Staff does not exist");
+		        }
+				break;
+			}
+			case(3):
+			{ //loginID, password,age
+				Staff oldStaff = null;
+				System.out.println("========Staff list========");
+				StaffTextDB.printStaffList("staff.txt");
+				
+				List<Staff> s = StaffTextDB.readStaff("staff.txt");//test
+				
+				System.out.println("Select a staff member");
+				int choice = sc.nextInt();
+				oldStaff = s.get(choice - 1);
+				
+		        sc.nextLine(); //test input buffer
+		        
+		        System.out.println("Current details of selected Staff:");
+		        
+		        System.out.println("Name: " + oldStaff.getName());
+		        System.out.println("StaffID: " + oldStaff.getLoginID());
+		        System.out.println("Password: " + oldStaff.getPassword());
+		        System.out.println("Age: " + oldStaff.getAge());
+		        System.out.println("");
+				
+				Staff newStaff = new Staff(oldStaff.getName(), oldStaff.getLoginID(), oldStaff.getRole(), oldStaff.getGender(), oldStaff.getAge(), oldStaff.getBranch(),oldStaff.getPassword());
+				
+				System.out.println("Update StaffID? (Y/N)");
+				yesNo = sc.nextLine();
+				if (yesNo.equalsIgnoreCase("Y"))
+				{
+					System.out.println("New Staff ID:");
+					String newID = sc.nextLine();
+					newStaff.setLoginID(newID);
+					yesNo = "N";
+				}
+				System.out.println("Update Password? (Y/N)");
+				yesNo = sc.nextLine();
+				if (yesNo.equalsIgnoreCase("Y"))
+				{
+					System.out.println("New password:");
+					String newPassword = sc.nextLine();
+					newStaff.setPassword(newPassword);
+					yesNo = "N";
+				}
+				
+				System.out.println("Update Age? (Y/N)");
+				yesNo = sc.nextLine();
+				if (yesNo.equalsIgnoreCase("Y"))
+				{
+					System.out.println("New age:");
+					int newAge = sc.nextInt();
+					newStaff.setAge(newAge);
+					yesNo = "N";
+				}
+				
+				StaffTextDB.updateStaff("staff.txt", oldStaff, newStaff);
+				break;
+			}
+		}
+		System.out.println("Staff details have been updated");
+		// dont know if you want to print and show updated
 	}
 
 	private static void filterStaff() throws IOException {
@@ -86,7 +255,6 @@ public class AdminController extends EmployeeController {
 				String branch;
 				System.out.println("Select a branch: ");
 				List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
-				int c = 1;
 				for (Branch b : al) // need to add condition that calls isopen() to only display branches that are
 									// open
 				{
@@ -129,6 +297,12 @@ public class AdminController extends EmployeeController {
 				StaffDisplay.printStaffList(selection);
 				break;
 			}
+			
+			case(5):
+				StaffTextDB.printStaffList("staff.txt");
+				break;
+			default:
+				System.out.println("Invalid choice.");
 
 		}
 	}
