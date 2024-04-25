@@ -72,7 +72,7 @@ public class Cart {
 
 		System.out.println("Items in the cart:");
 		for (int i = 0; i < cart.size(); i++) {
-			System.out.println((i + 1) + ". " + cart.get(i).getQuantity() + "x " + cart.get(i).getItem().getName());
+			System.out.println((i + 1) + ") " + cart.get(i).getQuantity() + "x " + cart.get(i).getItem().getName());
 		}
 
 		System.out.println("Number of the item you want to remove:");
