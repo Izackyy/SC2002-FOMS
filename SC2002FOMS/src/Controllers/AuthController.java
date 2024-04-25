@@ -10,7 +10,11 @@ public class AuthController {
 
     public static void start() {
         boolean authenticated = false;
-        System.out.println("Welcome to FOMS :)");
+        System.out.println("===========================");
+		System.out.println("||                       ||");
+		System.out.println("||   Welcome to FOMS :)  ||");
+		System.out.println("||                       ||");
+		System.out.println("===========================");
         do {
             try {
                 System.out.println("Login as: ");
