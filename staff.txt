@@ -1,17 +1,7 @@
-kumar Blackmore|kumarB|S|M|32|JP|password
-Alexei|Alexei|M|M|25|JP|Alexei1234
+kumar Blackmore|kumarB|S|M|32|NTU|password
+Alexei|Alexei|M|M|25|NTU|password
 Tom Chan|TomC|M|M|56|JP|password
 Alica Ang|AlicaA|M|F|27|JE|password
-Mary lee|MaryL|S|F|44|JP|password
-Justin Loh|JustinL|M|M|49|JP|password
+Mary lee|MaryL|S|F|44|JE|password
+Justin Loh|JustinL|S|M|49|JP|password
 Boss|boss|A|F|62|NA|password
-jennifer|jen1|M|F|32|JP|password
-isaac|iwong|M|M|21|NTU|password
-isabel|isabl|M|F|18|NTU|password
-junsheng|jxxsheng|M|M|22|NTU|password
-aaron|abmsm|S|M|20|JP|password
-dana|dnyk7|S|F|20|NTU|password
-jamie|jmiee|S|F|20|NTU|password
-idiot|dumb|S|M|25|NTU|password
-gpa|gg|S|M|1|NTU|password
-scse|shag|S|M|50|NTU|password

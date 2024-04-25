@@ -61,15 +61,24 @@ public class StaffController extends EmployeeController{ // inheritance
 		Order o = null;
 		@SuppressWarnings("unchecked")
 		List<Order> al = OrderTextDB.readOrder("order.txt");//test
+
+		boolean found = false;
 	    for (Order order : al)
 	    {
 	    	if (order.getOrderID() == orderID && order.getBranch().equals(AuthStore.getCurrentStaff().getBranch()))
 	    	{
+				found = true;
 	    		oldStatus = order;
 	    		branch = order.getBranch();
 	    		break;
 	    	}
 	    }
+
+		if(found == false)
+		{
+			System.out.println("OrderID does not exist");
+			return;
+		}
 	    
 	    Order newStatus = new Order(orderID, branch, OrderStatus.READY_TO_PICKUP);
 	    
