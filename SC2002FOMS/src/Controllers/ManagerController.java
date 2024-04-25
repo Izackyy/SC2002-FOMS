@@ -11,7 +11,7 @@ import Stores.MenuTextDB;
 import Services.MenuDisplay;
 import Services.StaffDisplay;
 
-public class ManagerController extends StaffController // inheritence
+public class ManagerController extends StaffController // inheritance
 {
 	
 	private static final Scanner sc = new Scanner(System.in);

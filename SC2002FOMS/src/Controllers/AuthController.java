@@ -6,8 +6,6 @@ import java.util.*;
 import Services.AuthStaffService;
 import Stores.AuthStore;
 
-//import Services.AuthStaffService;
-
 public class AuthController {
 
 	private static final Scanner sc = new Scanner(System.in);
