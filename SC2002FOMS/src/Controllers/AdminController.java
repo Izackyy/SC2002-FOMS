@@ -255,13 +255,10 @@ public class AdminController extends EmployeeController {
 				String branch;
 				System.out.println("Select a branch: ");
 				List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
-				for (Branch b : al) // need to add condition that calls isopen() to only display branches that are
-									// open
+				for (Branch b : al)
 				{
-					if (b.isOpen()) {
-						System.out.println(i + ") " + b.getName());
-						i++;
-					}
+					System.out.println(i + ") " + b.getName());
+					i++;
 				}
 
 				choice = sc.nextInt();
