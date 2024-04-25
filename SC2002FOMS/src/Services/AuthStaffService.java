@@ -24,7 +24,7 @@ public class AuthStaffService {
 				}
 			}
 		}
-		System.out.println("Error occurred during login. Please try again");
+		System.out.println("Invalid UserID/Password.");
 		return false;
 	}
 

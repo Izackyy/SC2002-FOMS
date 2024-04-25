@@ -73,6 +73,8 @@ public class ManagerController extends StaffController // inheritence
 
 	private static void editMenu() throws IOException
 	{
+		// print menu so they can refer
+		MenuDisplay.printMenuItem(AuthStore.getCurrentStaff().getBranch());
 		String yesNo; 
 		System.out.println("===========Menu Editor===========");
 		System.out.println("|| 1) Add Item                 ||");
