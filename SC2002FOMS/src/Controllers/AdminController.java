@@ -20,8 +20,9 @@ import Stores.Payment;
 import Stores.PaymentTextDB;
 import Stores.Staff;
 import Stores.StaffTextDB;
+import Interfaces.IStaffManagement;
 
-public class AdminController extends EmployeeController {
+public class AdminController extends EmployeeController implements Interfaces.IStaffManagement{
 
 	private static final Scanner sc = new Scanner(System.in);
 
@@ -71,7 +72,7 @@ public class AdminController extends EmployeeController {
 		} while (selection != 8);
 	}
 
-	private static void editStaffAcc() throws IOException {
+	public void editStaffAcc() throws IOException {
 		// System.out.println("editing staff account");
 		
 		String yesNo; 
@@ -237,7 +238,7 @@ public class AdminController extends EmployeeController {
 		// dont know if you want to print and show updated
 	}
 
-	private static void filterStaff() throws IOException {
+	public void filterStaff() throws IOException {
 		int selection;
 		int choice;
 		int i = 1;
@@ -304,7 +305,7 @@ public class AdminController extends EmployeeController {
 		}
 	}
 
-	private static void promoteStaff() throws IOException {
+	public void promoteStaff() throws IOException {
 
 		int choice;
 		String confirm;
@@ -334,7 +335,7 @@ public class AdminController extends EmployeeController {
 
 	}
 
-	private static void transferStaff() throws IOException {
+	public void transferStaff() throws IOException {
 
 		int choice;
 
