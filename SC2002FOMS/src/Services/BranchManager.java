@@ -1,113 +1,114 @@
 package Services;
 
-import Stores.StaffTextDB;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.List;
-import java.util.ArrayList;
-import Stores.Staff;
-import Stores.Branch;
-import Enums.Role;
+import Interfaces.IBranchManagement;
 import Stores.BranchTextDB;
+import Stores.Branch;
+import Enums.BranchStatus;
 
-//define max staff and manager?
+public class BranchManager implements IBranchManagement {
 
-public class BranchManager {
+    private static final Scanner sc = new Scanner(System.in);
 
-    private static int staffCount = 0, managerCount = 0;
+    @Override
+    public void addBranch() throws IOException {
 
-    public static int staffQuota(Branch b) throws IOException {
-        List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
-        for (Staff s : staffs) {
-            if (s.getRole().equals(Enums.Role.S) && s.getBranch().equals(b.getName())) {
-                staffCount++;
+        System.out.println("Name:");
+        String name = sc.nextLine();
+
+        List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
+        for (Branch branch : al) {
+            if (branch.getName().equalsIgnoreCase(name)) {
+                System.out.println("Branch already exists");
+                return;
             }
         }
-        return staffCount;
+        // String name, String location, int staffQuota, BranchStatus branchStatus
+        System.out.println("Location");
+        String location = sc.nextLine();
+        System.out.println("Staff Quota:");
+        int staffQuota = sc.nextInt();
+        sc.nextLine(); // input buffer
+
+        // assumption that every new branch added will be set as open
+
+        System.out.println("Branch has been succesfully added");
+
+        Branch branch = new Branch(name, location, staffQuota, BranchStatus.OPEN);
+        BranchTextDB.addBranch("branch.txt", branch);
     }
 
-    public static int managerQuota(Branch b) throws IOException {
-        List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
-        for (Staff s : staffs) {
-            if (s.getRole().equals(Enums.Role.M) && s.getBranch().equals(b.getName())) {
-                managerCount++;
+    @Override
+    public void setBranchStatus() throws IOException {
+        // TODO Auto-generated method stub
+        int set, choice;
+
+        BranchTextDB.printBranch("branch.txt");
+        List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
+        choice = sc.nextInt();
+        Branch selectedBranch = branches.get(choice - 1);
+        Branch oldStatus = selectedBranch;
+        Branch newStatus = oldStatus;
+
+        System.out.println("Open/Close Branch");
+        System.out.println("<Press 1 to open Branch or Press 0 to close Branch>");
+
+        set = sc.nextInt();
+        while (set != 1 && set != 0) {
+            System.out.println("Invalid choice! Enter 1 to open or 0 to close the branch.");
+            set = sc.nextInt();
+        }
+        while (!newStatus.setBranchStatus(set)) {
+            set = sc.nextInt();
+        }
+
+        BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
+
+        BranchTextDB.printBranch("branch.txt");
+        System.out.println("Branch status updated successfully.\n");
+    }
+
+    @Override
+    public void removeBranch() throws IOException {
+
+        System.out.println("=======Branch List=======");
+        List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
+
+        for (Branch branch : al) {
+            System.out.println(branch.getName());
+        }
+        // BranchTextDB.printBranch("branch.txt");
+
+        System.out.println("Enter Branch Name:");
+        String name = sc.nextLine();
+
+        Branch toRemove = null;
+        for (Branch branch : al) {
+            if (branch.getName().equals(name)) // assumptions that branch names are always unique
+            {
+                toRemove = branch;
+                BranchTextDB.removeBranch("branch.txt", toRemove);
+                System.out.println("Branch has been removed successfully.");
+                break;
             }
         }
-        return managerCount;
+        if (toRemove == null) {
+            System.out.println("Branch does not exist");
+        }
     }
 
-    public static int remainderStaffQuota(Branch b) throws IOException {
-
-        int s = staffQuota(b);
-        int max_s = b.getStaffQuota();
-
-        // overstaffed
-        if (max_s - s < 0)
-            return -1;
-        else
-            return max_s - s;
+    @Override
+    public void viewBranch() throws IOException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'viewBranch'");
     }
 
-    public static int remainderManagerQuota(Branch b) throws IOException {
-
-        int s = staffQuota(b);
-        int m = managerQuota(b);
-
-        // check manager quota, too many managers = -1
-        if (1 <= s && s <= 4) {
-            if (1 - m <= 0)
-                return -1;
-            else
-                return 1 - m;
-        }
-
-        if (5 <= s && s <= 8) {
-            if (2 - m <= 0)
-                return -1;
-            else
-                return 2 - m;
-        }
-
-        if (9 <= s && s <= 15) {
-            if (3 - m <= 0)
-                return -1;
-            else
-                return 3 - m;
-        }
-        return -1;
-    }
-
-    public static boolean checkStaffQuota(Branch b) throws IOException {
-        int check;
-        check = remainderStaffQuota(b);
-        if (check < 0) {
-            System.out.println("Too many staffs in " + b.getName() + ". Remove some staffs.");
-            return false;
-        } else if (check == 0) {
-            System.out.println("No more staff slots left in" + b.getName() + ". Choose another branch.");
-            return false;
-        } else if (check > 0) {
-            System.out.println(check + " staff slot(s) remaining.");
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean checkManagerQuota(Branch b) throws IOException {
-        int check;
-        check = remainderManagerQuota(b);
-        if (check < 0) {
-            System.out.println("Too many managers in " + b.getName() + ". Remove some managers.");
-            return false;
-        } else if (check == 0) {
-            System.out.println("No more manager slots left in" + b.getName() + ". Choose another branch.");
-            return false;
-        } else if (check > 0) {
-            System.out.println(check + " manager slot(s) remaining.");
-            return true;
-        }
-        return false;
+    @Override
+    public void filterBranch() throws IOException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'filterBranch'");
     }
 
 }

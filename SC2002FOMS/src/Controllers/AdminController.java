@@ -11,7 +11,10 @@ import Enums.Gender;
 import Enums.Role;
 import Services.MenuDisplay;
 import Services.StaffDisplay;
+import Services.CheckQuota;
 import Services.BranchManager;
+import Services.StaffManager;
+import Services.AuthStaffService;
 import Stores.AuthStore;
 import Stores.Branch;
 import Stores.BranchTextDB;
@@ -21,11 +24,8 @@ import Stores.Payment;
 import Stores.PaymentTextDB;
 import Stores.Staff;
 import Stores.StaffTextDB;
-import Services.AuthStaffService;
-import Interfaces.IBranchManagement;
-import Interfaces.IStaffManagement;
 
-public class AdminController extends EmployeeController implements IStaffManagement, IBranchManagement {
+public class AdminController extends EmployeeController {
 
 	private static final Scanner sc = new Scanner(System.in);
 
@@ -47,6 +47,7 @@ public class AdminController extends EmployeeController implements IStaffManagem
 			System.out.println("===================================");
 
 			selection = sc.nextInt();
+			BranchManager bm = new BranchManager();
 
 			switch (selection) {
 				case (1):
@@ -65,15 +66,16 @@ public class AdminController extends EmployeeController implements IStaffManagem
 					editPayment();
 					break;
 				case (6):
-					setBranchStatus();
+					bm.setBranchStatus();
 					break;
 				case (7):
 					sc.nextLine();// input buffer
-					addBranch();
+					bm.addBranch();
 					break;
 				case (8):
 					sc.nextLine();// input buffer
-					removeBranch();
+					bm.removeBranch();
+					;
 					break;
 				case (9):
 					changePassword();
@@ -84,7 +86,6 @@ public class AdminController extends EmployeeController implements IStaffManagem
 		} while (selection != 10);
 	}
 
-	@Override
 	public void editStaffAcc() throws IOException {
 		// System.out.println("editing staff account");
 
@@ -231,7 +232,6 @@ public class AdminController extends EmployeeController implements IStaffManagem
 		// dont know if you want to print and show updated
 	}
 
-	@Override
 	public void filterStaff() throws IOException {
 		int selection;
 		int choice;
@@ -298,7 +298,6 @@ public class AdminController extends EmployeeController implements IStaffManagem
 		}
 	}
 
-	@Override
 	public void promoteStaff() throws IOException {
 
 		int choice;
@@ -352,7 +351,7 @@ public class AdminController extends EmployeeController implements IStaffManagem
 		// add input and branch check
 		// check staff
 		if (selectedStaff.getRole().equals(Role.S)) {
-			if (BranchManager.checkStaffQuota(b)) {
+			if (CheckQuota.checkStaffQuota(b)) {
 				StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
 				StaffTextDB.printStaffList("staff.txt");
 				System.out.println("Staff transferred successfully.\n");
@@ -360,7 +359,7 @@ public class AdminController extends EmployeeController implements IStaffManagem
 		}
 		// check manager
 		else if (selectedStaff.getRole().equals(Role.M)) {
-			if (BranchManager.checkManagerQuota(b)) {
+			if (CheckQuota.checkManagerQuota(b)) {
 				StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
 				StaffTextDB.printStaffList("staff.txt");
 				System.out.println("Staff transferred successfully.\n");
@@ -426,116 +425,6 @@ public class AdminController extends EmployeeController implements IStaffManagem
 
 			}
 		} while (Choice != 3);
-	}
-
-	private static void setBranchStatus() throws IOException {
-
-		int set, choice;
-
-		BranchTextDB.printBranch("branch.txt");
-		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
-		choice = sc.nextInt();
-		Branch selectedBranch = branches.get(choice - 1);
-		Branch oldStatus = selectedBranch;
-		Branch newStatus = oldStatus;
-
-		System.out.println("Open/Close Branch");
-		System.out.println("<Press 1 to open Branch or Press 0 to close Branch>");
-
-		set = sc.nextInt();
-		while (set != 1 && set != 0) {
-			System.out.println("Invalid choice! Enter 1 to open or 0 to close the branch.");
-			set = sc.nextInt();
-		}
-		while (!newStatus.setBranchStatus(set)) {
-			set = sc.nextInt();
-		}
-
-		BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
-
-		BranchTextDB.printBranch("branch.txt");
-		System.out.println("Branch status updated successfully.\n");
-
-		return;
-	}
-
-	public void addBranch() throws IOException {
-
-		System.out.println("Name:");
-		String name = sc.nextLine();
-
-		List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
-		for (Branch branch : al) {
-			if (branch.getName().equalsIgnoreCase(name)) {
-				System.out.println("Branch already exists");
-				return;
-			}
-		}
-		// String name, String location, int staffQuota, BranchStatus branchStatus
-		System.out.println("Location");
-		String location = sc.nextLine();
-		System.out.println("Staff Quota:");
-		int staffQuota = sc.nextInt();
-		sc.nextLine(); // input buffer
-
-		// assumption that every new branch added will be set as open
-
-		System.out.println("Branch has been succesfully added");
-
-		Branch branch = new Branch(name, location, staffQuota, BranchStatus.OPEN);
-		BranchTextDB.addBranch("branch.txt", branch);
-
-	}
-
-	public void removeBranch() throws IOException {
-		System.out.println("=======Branch List=======");
-		List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
-
-		for (Branch branch : al) {
-			System.out.println(branch.getName());
-		}
-		// BranchTextDB.printBranch("branch.txt");
-
-		System.out.println("Enter Branch Name:");
-		String name = sc.nextLine();
-
-		Branch toRemove = null;
-		for (Branch branch : al) {
-			if (branch.getName().equals(name)) // assumptions that branch names are always unique
-			{
-				toRemove = branch;
-				BranchTextDB.removeBranch("branch.txt", toRemove);
-				System.out.println("Branch has been removed successfully.");
-				break;
-			}
-		}
-		if (toRemove == null) {
-			System.out.println("Branch does not exist");
-		}
-	}
-
-	@Override
-	public void editBranch() throws IOException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'editBranch'");
-	}
-
-	@Override
-	public void deleteBranch() throws IOException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'deleteBranch'");
-	}
-
-	@Override
-	public void viewBranch() throws IOException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'viewBranch'");
-	}
-
-	@Override
-	public void filterBranch() throws IOException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'filterBranch'");
 	}
 
 }
