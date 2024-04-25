@@ -3,6 +3,7 @@ package Services;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Enums.Availability;
 import Stores.MenuItem;
 import Stores.MenuTextDB;
 
@@ -15,7 +16,7 @@ public class MenuDisplay {
 				ArrayList al = MenuTextDB.readMenuItem(filename) ;
 				for (int i = 0 ; i < al.size() ; i++) {
 						MenuItem menuitem = (MenuItem)al.get(i);
-						System.out.printf("Name: %-20s Price: $%-10.2f Category: %s\n", menuitem.getName(), menuitem.getPrice(), menuitem.getCategory());
+						System.out.printf("Name: %-20s Price: $%-10.2f Category: %-20s Description: %s\n", menuitem.getName(), menuitem.getPrice(), menuitem.getCategory(), menuitem.getDescription());
 				}
 				
 			}catch (IOException e) {
@@ -34,15 +35,10 @@ public class MenuDisplay {
 				for (int i = 0 ; i < al.size() ; i++) {
 						MenuItem menuitem = (MenuItem)al.get(i);
 						
-						if (menuitem.getBranch().equals(branch))
+						if (menuitem.getBranch().equals(branch) && menuitem.getAvailability().equals(Availability.AVAILABLE))
 						{
 							System.out.printf("Name: %-20s Price: $%-10.2f Category: %s\n", menuitem.getName(), menuitem.getPrice(), menuitem.getCategory());
 						}
-						/*
-						System.out.println("Name " + menuitem.getName() );
-						System.out.println("Price " + menuitem.getPrice() );
-						System.out.println("Category " + menuitem.getCategory());
-						*/
 				}
 				
 			}catch (IOException e) {
