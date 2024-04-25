@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import Entity.Cart;
 import Entity.NewOrder;
+import Enums.BranchStatus;
 import Services.ChangeStatus;
 import Services.CheckStatus;
 import Services.MenuDisplay;
@@ -27,11 +28,17 @@ public class CustomerController {
 		int selection;
 		System.out.println("Select branch");
 		
+		List<Branch> open = new ArrayList<>();
+		
 		List<Branch> al = BranchTextDB.readBranchList("branch.txt");//test
         for (Branch branch : al)
-        {	//need to add condition that calls isopen() to only display branches that are open
-        	System.out.println(i + ") " + branch.getName());
-        	i++;
+        {	
+        	if(branch.getBranchStatus().equals(BranchStatus.OPEN))
+        	{
+        		System.out.println(i + ") " + branch.getName());
+            	i++;
+            	open.add(branch);
+        	}
         }
         
         selection = sc.nextInt();
