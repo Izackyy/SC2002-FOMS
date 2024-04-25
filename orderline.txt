@@ -1,3 +1,5 @@
 24134|FRIES|2
 54225|3PC set meal|1
 54225|chicken nugget|1
+9585|3PC set meal|4
+99632|CAJUN FISH|4
