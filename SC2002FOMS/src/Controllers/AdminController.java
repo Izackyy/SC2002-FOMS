@@ -1,29 +1,11 @@
 package Controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-import Enums.Availability;
-import Enums.BranchStatus;
-import Enums.Gender;
-import Enums.Role;
-import Services.MenuDisplay;
-import Services.StaffDisplay;
-import Services.CheckQuota;
 import Services.BranchManager;
 import Services.StaffManager;
-import Services.AuthStaffService;
-import Stores.AuthStore;
-import Stores.Branch;
-import Stores.BranchTextDB;
-import Stores.MenuItem;
-import Stores.MenuTextDB;
-import Stores.Payment;
-import Stores.PaymentTextDB;
-import Stores.Staff;
-import Stores.StaffTextDB;
+import Services.PaymentManager;
 
 public class AdminController extends EmployeeController {
 
@@ -49,6 +31,7 @@ public class AdminController extends EmployeeController {
 			selection = sc.nextInt();
 			BranchManager bm = new BranchManager();
 			StaffManager sm = new StaffManager();
+			PaymentManager pm = new PaymentManager();
 
 			switch (selection) {
 				case (1):
@@ -64,7 +47,7 @@ public class AdminController extends EmployeeController {
 					sm.transferStaff();
 					break;
 				case (5):
-					editPayment();
+					pm.editPayment();
 					break;
 				case (6):
 					bm.setBranchStatus();
@@ -86,64 +69,4 @@ public class AdminController extends EmployeeController {
 
 		} while (selection != 10);
 	}
-
-	public void editPayment() throws IOException {
-
-		PaymentTextDB.printPaymentMethod("payment.txt");
-		System.out.println("===========Payment Editor===========");
-		System.out.println("|| 1) Add Payment Method          ||");
-		System.out.println("|| 2) Remove Payment Method       ||");
-		System.out.println("|| 3) Quit                        ||");
-		System.out.println("====================================");
-		int Choice = sc.nextInt();
-		sc.nextLine(); // input buffer
-
-		do {
-			switch (Choice) {
-				case (1): {
-					System.out.println("Name:");
-					String name = sc.nextLine();
-
-					// Check for duplicate payment method names (ignoring case)
-					if (PaymentTextDB.compareName("payment.txt", name)) {
-						System.out.println("Payment method already exists.");
-						return;
-					}
-
-					Payment payment = new Payment(name);
-					PaymentTextDB.addPaymentType("payment.txt", payment);
-					System.out.println("Payment method added successfully.");
-					System.out.println("Updated Payment Methods:");
-					PaymentTextDB.printPaymentMethod("payment.txt");
-					return;
-				}
-
-				case (2): {
-					System.out.println("Name:");
-					String name = sc.nextLine();
-
-					List<Payment> al = PaymentTextDB.readPaymentType("payment.txt");// test
-					Payment toRemove = null;
-					for (Payment payment : al) {
-						if (payment.getName().equalsIgnoreCase(name)) {
-							toRemove = payment;
-							PaymentTextDB.removePaymentType("payment.txt", toRemove);
-							System.out.println("Payment method removed successfully.");
-							System.out.println("Updated Payment Methods:");
-							PaymentTextDB.printPaymentMethod("payment.txt");
-							return;
-						}
-					}
-					if (toRemove == null) {
-						System.out.println("Payment method does not exist");
-					}
-					return;
-				}
-				default:
-					return;
-
-			}
-		} while (Choice != 3);
-	}
-
 }
