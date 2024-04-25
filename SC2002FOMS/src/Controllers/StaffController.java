@@ -13,7 +13,7 @@ import Stores.OrderLineTextDB;
 import Stores.OrderTextDB;
 
 public class StaffController extends EmployeeController{ // inheritance
-	
+	int selection;
 	private static final Scanner sc = new Scanner(System.in);
 
 	public void start() throws IOException
@@ -24,6 +24,27 @@ public class StaffController extends EmployeeController{ // inheritance
 		System.out.println("3) View details of Order");
 		System.out.println("4) Quit");
 		System.out.println("=========================");
+
+		selection = sc.nextInt();
+
+		switch(selection)
+		{
+			case(1):
+				displayNewOrder(AuthStore.getCurrentStaff().getBranch());
+				break;
+			case(2):
+				processOrder();
+				break;
+			case(3):
+				viewDetails();
+				break;
+			case(4):
+				System.out.println("Quitting...");
+				break;
+			default:
+				System.out.println("Invalid selection");
+				break;
+		}
 	}
 
 	public void processOrder() throws IOException 

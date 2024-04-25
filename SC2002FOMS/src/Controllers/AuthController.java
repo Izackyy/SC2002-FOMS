@@ -52,5 +52,6 @@ public class AuthController {
     public static void endSession() {
         authService.logout();
         System.out.println("You have been logged out.");
+        start();
     }
 }
