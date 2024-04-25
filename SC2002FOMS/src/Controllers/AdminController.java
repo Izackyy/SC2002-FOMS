@@ -11,6 +11,8 @@ import Stores.Branch;
 import Stores.BranchTextDB;
 import Stores.Payment;
 import Stores.PaymentTextDB;
+import Stores.Staff;
+import Stores.StaffTextDB;
 
 public class AdminController extends EmployeeController {
 
@@ -46,7 +48,8 @@ public class AdminController extends EmployeeController {
 				case (4):
 
 				case (5):
-
+					transferStaff();
+					break;
 				case (6):
 					editPayment();
 					break;
@@ -132,33 +135,29 @@ public class AdminController extends EmployeeController {
 		}
 	}
 
-	private static void setBranchStatus() throws IOException {
+	private static void transferStaff() throws IOException {
 
 		int set, choice;
 
+		// select staff
+		StaffTextDB.printStaffList("staff.txt");
+		List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
+		choice = sc.nextInt();
+		Staff selectedStaff = staffs.get(choice - 1);
+		Staff oldRole = selectedStaff;
+		Staff newRole = oldRole;
+
+		// select branch
 		BranchTextDB.printBranch("branch.txt");
 		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
 		choice = sc.nextInt();
-		Branch selectedBranch = branches.get(choice - 1);
-		Branch oldStatus = selectedBranch;
-		Branch newStatus = oldStatus;
+		System.out.println("Choose a new branch");
+		String b = branches.get(choice - 1).getName();
+		newRole.setBranch(b);
 
-		System.out.println("Open/Close Branch");
-		System.out.println("<Press 1 to open Branch or Press 0 to close Branch>");
-
-		set = sc.nextInt();
-		while (set != 1 && set != 0) {
-			System.out.println("Invalid choice! Enter 1 to open or 0 to close the branch.");
-			set = sc.nextInt();
-		}
-		while (!newStatus.setBranchStatus(set)) {
-			set = sc.nextInt();
-		}
-
-		BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
-
-		System.out.println(selectedBranch.getName() + " - " + selectedBranch.getBranchStatus());
-		System.out.println("Branch status updated successfully.\n");
+		StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
+		StaffTextDB.printStaffList("staff.txt");
+		System.out.println("Staff branch status updated successfully.\n");
 
 		return;
 	}
@@ -218,4 +217,36 @@ public class AdminController extends EmployeeController {
 			}
 		} while (Choice < 3);
 	}
+
+	private static void setBranchStatus() throws IOException {
+
+		int set, choice;
+
+		BranchTextDB.printBranch("branch.txt");
+		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
+		choice = sc.nextInt();
+		Branch selectedBranch = branches.get(choice - 1);
+		Branch oldStatus = selectedBranch;
+		Branch newStatus = oldStatus;
+
+		System.out.println("Open/Close Branch");
+		System.out.println("<Press 1 to open Branch or Press 0 to close Branch>");
+
+		set = sc.nextInt();
+		while (set != 1 && set != 0) {
+			System.out.println("Invalid choice! Enter 1 to open or 0 to close the branch.");
+			set = sc.nextInt();
+		}
+		while (!newStatus.setBranchStatus(set)) {
+			set = sc.nextInt();
+		}
+
+		BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
+
+		BranchTextDB.printBranch("branch.txt");
+		System.out.println("Branch status updated successfully.\n");
+
+		return;
+	}
+
 }

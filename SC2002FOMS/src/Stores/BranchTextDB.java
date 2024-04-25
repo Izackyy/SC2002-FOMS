@@ -95,12 +95,12 @@ public class BranchTextDB {
 			saveBranch(filename, al);
 			;
 		} else {
-			System.out.println("Item not found.");
+			System.out.println("Branch not found.");
 		}
 	}
 
 	public static void printBranch(String filename) throws IOException {
-		System.out.println("Select a branchh: ");
+		System.out.println("Select a branch: ");
 		List<Branch> branches = readBranchList(filename);
 		int c = 1;
 		for (Branch b : branches) {
