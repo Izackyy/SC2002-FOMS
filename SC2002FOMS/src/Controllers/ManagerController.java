@@ -37,13 +37,13 @@ public class ManagerController extends StaffController // inheritence
 			switch(selection)
 			{
 				case(1):
-					displayNewOrder(AuthStore.getCurrentStaff().getBranch());
+					om.displayNewOrder(AuthStore.getCurrentStaff().getBranch());
 					break;
 				case(2):
-					processOrder();
+					om.processOrder();
 					break;
 				case(3):
-					viewDetails();
+					om.viewDetails();
 					break;
 				case(4):
 					editMenu();
