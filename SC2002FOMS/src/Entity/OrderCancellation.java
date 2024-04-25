@@ -43,7 +43,7 @@ public class OrderCancellation {
 					}
                 }
             }
-        }, 30000); //5 * 60 * 1000); // parameter here is mil sec
+        }, 30000*2); //5 * 60 * 1000); // parameter here is mil sec
     }
 
     public void cancelOrder(int orderID, String branch) throws IOException {
