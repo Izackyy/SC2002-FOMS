@@ -58,16 +58,17 @@ public class PaymentManager implements IPaymentManagement {
     @Override
     public void editPayment() throws IOException {
 
-        PaymentTextDB.printPaymentMethod("payment.txt");
-        System.out.println("===========Payment Editor===========");
-        System.out.println("|| 1) Add Payment Method          ||");
-        System.out.println("|| 2) Remove Payment Method       ||");
-        System.out.println("|| 3) Quit                        ||");
-        System.out.println("====================================");
-        int Choice = sc.nextInt();
-        sc.nextLine(); // input buffer
-
+        int Choice;
         do {
+            PaymentTextDB.printPaymentMethod("payment.txt");
+            System.out.println("===========Payment Editor===========");
+            System.out.println("|| 1) Add Payment Method          ||");
+            System.out.println("|| 2) Remove Payment Method       ||");
+            System.out.println("|| 3) Quit                        ||");
+            System.out.println("====================================");
+            Choice = sc.nextInt();
+            sc.nextLine(); // input buffer
+
             switch (Choice) {
                 case (1):
                     addPaymentMethod();
