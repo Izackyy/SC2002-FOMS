@@ -36,8 +36,10 @@ public class AdminController extends EmployeeController {
 			System.out.println("|| 4) Transfer Staff/Manager     ||");
 			System.out.println("|| 5) Add/Remove Payment Method  ||");
 			System.out.println("|| 6) Open/Close branch          ||");
-			System.out.println("|| 7) Change Password            ||");
-			System.out.println("|| 8) Quit                       ||");
+			System.out.println("|| 7) Add Branch                 ||");
+			System.out.println("|| 8) Remove branch              ||");
+			System.out.println("|| 9) Change Password            ||");
+			System.out.println("|| 10) Quit                       ||");
 			System.out.println("===================================");
 
 			selection = sc.nextInt();
@@ -62,13 +64,20 @@ public class AdminController extends EmployeeController {
 					setBranchStatus();
 					break;
 				case (7):
-					changePassword();
+					sc.nextLine();//input buffer
+					addBranch();
 					break;
+				case (8):
+					sc.nextLine();//input buffer
+					removeBranch();
+					break;
+				case (9):
+					changePassword();
 				default:
 					return;
 			}
 
-		} while (selection != 8);
+		} while (selection != 10);
 	}
 
 	private static void editStaffAcc() throws IOException {
@@ -451,6 +460,70 @@ public class AdminController extends EmployeeController {
 		System.out.println("Branch status updated successfully.\n");
 
 		return;
+	}
+
+	public void addBranch() throws IOException
+	{
+		
+		System.out.println("Name:");
+		String name = sc.nextLine();
+		
+		
+		List<Branch> al = BranchTextDB.readBranchList("branch.txt");//test
+        for (Branch branch : al)
+        {
+        	if (branch.getName().equalsIgnoreCase(name))
+        	{
+        		System.out.println("Branch already exists");
+        		return;
+        	}
+        }
+       //String name, String location, int staffQuota, BranchStatus branchStatus
+		System.out.println("Location");
+		String location = sc.nextLine();
+		System.out.println("Staff Quota:");
+		int staffQuota = sc.nextInt();
+		sc.nextLine(); //input buffer
+		
+		//assumption that every new branch added will be set as open
+		
+		System.out.println("Branch has been succesfully added");
+	
+		Branch branch = new Branch(name, location , staffQuota, BranchStatus.OPEN);
+		BranchTextDB.addBranch("branch.txt", branch);
+		
+		
+	}
+
+	public void removeBranch() throws IOException
+	{
+		System.out.println("=======Branch List=======");
+		List<Branch> al = BranchTextDB.readBranchList("branch.txt");//test
+		
+		for (Branch branch: al)
+        {
+        	System.out.println(branch.getName());
+        }
+		// BranchTextDB.printBranch("branch.txt");
+		
+		System.out.println("Enter Branch Name:");
+		String name = sc.nextLine();
+		
+		Branch toRemove = null;
+        for (Branch branch: al)
+        {
+        	if (branch.getName().equals(name)) // assumptions that branch names are always unique
+        	{
+        		toRemove = branch;
+        		BranchTextDB.removeBranch("branch.txt", toRemove);
+        		System.out.println("Branch has been removed successfully.");
+        		break;
+        	}
+        }
+        if (toRemove == null)
+        {
+        	System.out.println("Branch does not exist");
+        }
 	}
 
 }
