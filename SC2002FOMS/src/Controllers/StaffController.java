@@ -18,6 +18,7 @@ public class StaffController extends EmployeeController{ // inheritance
 
 	public void start() throws IOException
 	{
+	do{
 		System.out.println("======Staff Actions======");
 		System.out.println("1) Display New Orders");
 		System.out.println("2) Process Order");
@@ -26,7 +27,6 @@ public class StaffController extends EmployeeController{ // inheritance
 		System.out.println("=========================");
 
 		selection = sc.nextInt();
-
 		switch(selection)
 		{
 			case(1):
@@ -45,6 +45,7 @@ public class StaffController extends EmployeeController{ // inheritance
 				System.out.println("Invalid selection");
 				break;
 		}
+	}while(selection!=4);
 	}
 
 	public void processOrder() throws IOException 

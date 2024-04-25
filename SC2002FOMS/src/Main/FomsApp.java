@@ -16,7 +16,6 @@ public class FomsApp {
 
 	public static void main(String[]aArgs) throws IOException
 	{
-		
 		AuthController.start(); //to log in
 		
 		
