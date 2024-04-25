@@ -27,14 +27,22 @@ public class CheckStatus {
 		orderID = sc.nextInt();
 		
 		List<Order> al = OrderTextDB.readOrder("order.txt");//test
+		boolean found = false;
 	    for (Order order : al)
 	    {
 	    	if (order.getOrderID() == orderID && order.getBranch().equals(branch))
 	    	{
+				found = true;
 	    		o = order;
 	    		break;
 	    	}
 	    }
+
+		if(found == false)
+		{
+			System.out.println("OrderID does not exist");
+			return;
+		}
 	    
 	    System.out.println("Order Status: " + o.getOrderStatus());
 	}
