@@ -30,7 +30,7 @@ public class AdminController extends EmployeeController {
 
 		do {
 			System.out.println("==========Admin's Actions==========");
-			System.out.println("|| 1) Edit Staff Account         ||"); // just like how you edit menu
+			System.out.println("|| 1) Edit Staff List            ||"); // just like how you edit menu
 			System.out.println("|| 2) Display Staff List         ||");
 			System.out.println("|| 3) Promote Staff To Manager   ||");
 			System.out.println("|| 4) Transfer Staff/Manager     ||");
@@ -155,7 +155,7 @@ public class AdminController extends EmployeeController {
 			case(2):
 			{
 				StaffTextDB.printStaffList("staff.txt");
-				System.out.println("Name:");
+				System.out.println("Enter Staff Name:");
 				String sName = sc.nextLine();
 				
 				List<Staff> s = StaffTextDB.readStaff("staff.txt");//test
