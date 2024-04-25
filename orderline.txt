@@ -1,1 +1,3 @@
 24134|FRIES|2
+54225|3PC set meal|1
+54225|chicken nugget|1
