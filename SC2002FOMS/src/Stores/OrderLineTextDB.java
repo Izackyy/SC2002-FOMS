@@ -28,8 +28,9 @@ public class OrderLineTextDB {
 				int  orderID = Integer.parseInt(star.nextToken().trim());// first token
 				String  name = star.nextToken().trim(); // second token
 				int  quantity = Integer.parseInt(star.nextToken().trim()); // third token
+				String  customisation = star.nextToken().trim(); 
 				// create Order object from file data
-				OrderLine orderLine = new OrderLine(orderID,name, quantity);
+				OrderLine orderLine = new OrderLine(orderID,name, quantity, customisation);
 				// add to Order list
 				alr.add(orderLine);
 			}
@@ -49,6 +50,8 @@ public static void saveOrderLine(String filename, List al) throws IOException {
 				st.append(orderLine.getName().trim());
 				st.append(SEPARATOR);
 				st.append(orderLine.getQuantity()); //this is a double
+				st.append(SEPARATOR);
+				st.append(orderLine.getCustomisation().trim());
 				alw.add(st.toString()) ;
 			}
 			write(filename,alw);

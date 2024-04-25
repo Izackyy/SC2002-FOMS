@@ -5,12 +5,14 @@ public class OrderLine {
 	private int orderID;
 	private String name;
 	private int quantity;
+	private String customisation;
 	
-	public OrderLine(int orderID, String name, int quantity)
+	public OrderLine(int orderID, String name, int quantity, String customisation)
 	{
 		this.orderID = orderID;
 		this.name = name;
 		this.quantity = quantity;
+		this.customisation = customisation;
 	}
 	
 	public int getQuantity()
@@ -26,6 +28,11 @@ public class OrderLine {
 	public int getOrderID()
 	{
 		return orderID;
+	}
+
+	public String getCustomisation()
+	{
+		return customisation;
 	}
 	
 	public boolean equals(Object o)

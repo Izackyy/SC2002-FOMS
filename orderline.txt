@@ -1,0 +1,4 @@
+33227|FRIES|2|no salt
+33227|Green tea|5|no
+33227|chicken nugget|4|chilli sauce
+13688|Green tea|1|no

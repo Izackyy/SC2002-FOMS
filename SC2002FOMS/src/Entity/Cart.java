@@ -26,6 +26,7 @@ public class Cart {
 	public void addItem(String branch) {
 		String name;
 		int quantity;
+		String customisation;
 		MenuItem item = null;
 		System.out.println("Item name");
 
@@ -48,8 +49,12 @@ public class Cart {
 			quantity = sc.nextInt();
 			sc.nextLine(); // Clear the input buffer
 
-			CartItem newItem = new CartItem(item, quantity);
+			System.out.println("Any special request? (Customisation): ");
+			customisation = sc.nextLine();
+
+			CartItem newItem = new CartItem(item, quantity,customisation);
 			cart.add(newItem);
+
 			System.out.println("Item added to cart.");
 			totalItems++;
 		} catch (InputMismatchException ime) {
@@ -158,7 +163,7 @@ public class Cart {
 
 	public void addOrderline(int orderID) throws IOException {
 		for (CartItem item : cart) {
-			OrderLine orderLine = new OrderLine(orderID, item.getItem().getName(), item.getQuantity());
+			OrderLine orderLine = new OrderLine(orderID, item.getItem().getName(), item.getQuantity(),item.getCustomisation());
 			OrderLineTextDB.addOrder("orderline.txt", orderLine);
 		}
 	}

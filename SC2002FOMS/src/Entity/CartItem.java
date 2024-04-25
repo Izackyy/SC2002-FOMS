@@ -7,12 +7,14 @@ public class CartItem {
 	private MenuItem item;
 	private int quantity;
 	private double price;
+	private String customisation;
 	
-	public CartItem(MenuItem menuItem, int quantity)
+	public CartItem(MenuItem menuItem, int quantity, String customisation)
 	{
 		this.item = menuItem;
 		this.quantity = quantity;
 		this.price = menuItem.getPrice();
+		this.customisation = customisation;
 	}
 	
 	public void setQuantity(int quantity)
@@ -33,6 +35,11 @@ public class CartItem {
 	public double getPrice()
 	{
 		return price;
+	}
+
+	public String getCustomisation()
+	{
+		return customisation;
 	}
 
 }

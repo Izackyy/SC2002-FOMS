@@ -126,7 +126,7 @@ public class StaffController extends EmployeeController{ // inheritance
 	    	if (orderLine.getOrderID() == orderID)
 	    	{
 	    		exist = 1;
-	    		System.out.printf("Name: %-20s Quantity: %-10d\n", orderLine.getName(), orderLine.getQuantity());
+	    		System.out.printf("Name: %-20s Quantity: %-10d Customisation: %s\n", orderLine.getName(), orderLine.getQuantity(), orderLine.getCustomisation());
 	    	}
 	    }
 	    
