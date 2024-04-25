@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Stores.AuthStore;
 import Stores.MenuItem;
 import Stores.MenuTextDB;
 import Stores.OrderLine;
@@ -32,6 +31,7 @@ public class Cart {
 	
 		try {
 			name = sc.nextLine().toUpperCase();
+			@SuppressWarnings("unchecked")
 			List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");
 			for (MenuItem menuitem : al) {
 				if (menuitem.getName().equals(name) && menuitem.getBranch().equals(branch)) {
@@ -173,5 +173,4 @@ public class Cart {
             OrderLineTextDB.addOrder("orderline.txt", orderLine);
         }
 	}
-
 }
