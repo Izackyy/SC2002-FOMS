@@ -7,8 +7,6 @@ import java.util.TimerTask;
 
 import Enums.OrderStatus;
 import Stores.Order;
-import Stores.OrderLine;
-import Stores.OrderLineTextDB;
 import Stores.OrderTextDB;
 
 public class OrderCancellation {
@@ -22,7 +20,8 @@ public class OrderCancellation {
     public void scheduleOrderCancellation(int orderID, String branch) throws IOException {
     	
     	
-    	List<Order> al = OrderTextDB.readOrder("order.txt");
+    	@SuppressWarnings("unchecked")
+		List<Order> al = OrderTextDB.readOrder("order.txt");
 		
 	    for (Order order : al)
 	    {
@@ -49,7 +48,8 @@ public class OrderCancellation {
 
     public void cancelOrder(int orderID, String branch) throws IOException {
         
-    	List<Order> al = OrderTextDB.readOrder("order.txt");
+    	@SuppressWarnings("unchecked")
+		List<Order> al = OrderTextDB.readOrder("order.txt");
     	
     	Order oldOrder=null;
     	

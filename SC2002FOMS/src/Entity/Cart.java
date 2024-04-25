@@ -5,15 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Stores.AuthStore;
 import Stores.MenuItem;
 import Stores.MenuTextDB;
 import Stores.OrderLine;
 import Stores.OrderLineTextDB;
+import Exceptions.ItemNotFoundException;
+import java.util.InputMismatchException;
 
 public class Cart {
 	
-	private static int totalItems;
+	private static int totalItems; // i think this is not needed already
 	
 	private static ArrayList<CartItem> cart;
 	private static final Scanner sc = new Scanner(System.in);
@@ -22,40 +23,51 @@ public class Cart {
         cart = new ArrayList<>(); // Initialize the cart ArrayList
     }
 	
-	public void addItem(String branch) throws IOException
-	{
+	public void addItem(String branch) {
 		String name;
 		int quantity;
 		MenuItem item = null;
 		System.out.println("Item name");
-		name = sc.nextLine();	
-
-		List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");//test
-        for (MenuItem menuitem : al)
-        {
-        	if (menuitem.getName().equalsIgnoreCase(name) && menuitem.getBranch().equals(branch))
-        	{
-        		item = menuitem;
-        		break;
-        	}
-        }
-        
-        if (item == null) {
-            System.out.println("Item does not exist");
-            return;
-        }
-        
-        System.out.println("Quantity");
-        quantity = sc.nextInt();
-        sc.nextLine(); //input buffer
-        
-        CartItem newItem = new CartItem(item,quantity);
-        cart.add(newItem); 
-        
-        System.out.println("Item added to cart.");
-        totalItems++;
-       
+	
+		try {
+<<<<<<< HEAD
+			name = sc.nextLine();
+=======
+			name = sc.nextLine().toUpperCase();
+			@SuppressWarnings("unchecked")
+>>>>>>> c5432e1ea0cfd2cb0c66345e97711c2f5616c303
+			List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");
+			for (MenuItem menuitem : al) {
+				if (menuitem.getName().equalsIgnoreCase(name) && menuitem.getBranch().equals(branch)) {
+					item = menuitem;
+					break;
+				}
+			}
+	
+			if (item == null) {
+				throw new ItemNotFoundException("Item does not exist");
+			}
+	
+			System.out.println("Quantity");
+			quantity = sc.nextInt();
+			sc.nextLine(); // Clear the input buffer
+	
+			CartItem newItem = new CartItem(item, quantity);
+			cart.add(newItem);
+			System.out.println("Item added to cart.");
+			totalItems++;
+		} catch (InputMismatchException ime) {
+			System.out.println("Please enter a valid number for quantity.");
+			sc.next(); // Clear the scanner buffer
+		} catch (ItemNotFoundException infe) {
+			System.out.println(infe.getMessage());
+		} catch (IOException ioe) {
+			System.out.println("An error occurred when trying to read the menu: " + ioe.getMessage());
+		} catch (Exception e) {
+			System.out.println("An unexpected error occurred: " + e.getMessage());
+		}
 	}
+	
 	
 	public void removeItem()
 	{
@@ -92,7 +104,7 @@ public class Cart {
 		
 		if (cart.isEmpty()) 
 		{
-		    System.out.println("Cart is empty. Nothing to remove.");
+		    System.out.println("Cart is empty. Nothing to edit.");
 		    return;
 		}	
 			
@@ -165,5 +177,4 @@ public class Cart {
             OrderLineTextDB.addOrder("orderline.txt", orderLine);
         }
 	}
-
 }

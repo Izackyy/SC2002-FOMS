@@ -48,8 +48,6 @@ public class NewOrder {
 		
 		Cart cart = new Cart();
 		
-		MenuDisplay.printMenuItem(branch.getName());
-		
 		do
 		{
 			System.out.println("======Cart Actions======");

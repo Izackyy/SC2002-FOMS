@@ -43,6 +43,21 @@ public class CheckStatus {
 			System.out.println("OrderID does not exist");
 			return;
 		}
+
+		if(o.getOrderStatus().equals(OrderStatus.PROCESSING) || o.getOrderStatus().equals(OrderStatus.CANCELLED))
+		{
+
+			if(o.getOrderStatus().equals(OrderStatus.PROCESSING))
+			{
+				System.out.println("Order is not ready yet.");
+				return;
+			}
+			else
+			{
+				System.out.println("Order has been cancelled");
+				return;
+			}
+		}
 	    
 	    System.out.println("Order Status: " + o.getOrderStatus());
 	}

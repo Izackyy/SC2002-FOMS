@@ -21,8 +21,11 @@ import Stores.Payment;
 import Stores.PaymentTextDB;
 import Stores.Staff;
 import Stores.StaffTextDB;
+import Services.AuthStaffService;
+import Interfaces.IBranchManagement;
+import Interfaces.IStaffManagement;
 
-public class AdminController extends EmployeeController {
+public class AdminController extends EmployeeController implements IStaffManagement, IBranchManagement {
 
 	private static final Scanner sc = new Scanner(System.in);
 
@@ -31,7 +34,7 @@ public class AdminController extends EmployeeController {
 
 		do {
 			System.out.println("==========Admin's Actions==========");
-			System.out.println("|| 1) Edit Staff List            ||"); // just like how you edit menu
+			System.out.println("|| 1) Edit Staff Account         ||"); // just like how you edit menu
 			System.out.println("|| 2) Display Staff List         ||");
 			System.out.println("|| 3) Promote Staff To Manager   ||");
 			System.out.println("|| 4) Transfer Staff/Manager     ||");
@@ -81,7 +84,8 @@ public class AdminController extends EmployeeController {
 		} while (selection != 10);
 	}
 
-	private static void editStaffAcc() throws IOException {
+	@Override
+	public void editStaffAcc() throws IOException {
 		// System.out.println("editing staff account");
 
 		String yesNo;
@@ -227,7 +231,8 @@ public class AdminController extends EmployeeController {
 		// dont know if you want to print and show updated
 	}
 
-	private static void filterStaff() throws IOException {
+	@Override
+	public void filterStaff() throws IOException {
 		int selection;
 		int choice;
 		int i = 1;
@@ -293,7 +298,8 @@ public class AdminController extends EmployeeController {
 		}
 	}
 
-	private static void promoteStaff() throws IOException {
+	@Override
+	public void promoteStaff() throws IOException {
 
 		int choice;
 		String confirm;
