@@ -1,7 +1,5 @@
 package Stores;
 
-import java.io.Serializable;
-
 import Enums.Availability;
 
 public class MenuItem {
@@ -14,7 +12,7 @@ public class MenuItem {
 	
 	
 	public MenuItem(String name, double price, String branch, String category)
-	{
+{
 		this.name = name;
 		this.price = price;
 		this.branch = branch;
@@ -25,7 +23,7 @@ public class MenuItem {
 	
 	
 	public MenuItem(String name, double price, String branch, String category, String description, Availability availability)
-	{
+{
 		this.name = name;
 		this.price = price;
 		this.branch = branch;

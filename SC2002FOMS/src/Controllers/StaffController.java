@@ -26,9 +26,8 @@ public class StaffController extends EmployeeController{ // inheritance
 		System.out.println("=========================");
 	}
 
-	public void processOrder() throws IOException {
-		
-		int selection;
+	public void processOrder() throws IOException 
+	{	
 		int orderID;
 		String branch = null;
 			
@@ -66,13 +65,9 @@ public class StaffController extends EmployeeController{ // inheritance
 	    		o = order;
 	    		break;
 	    	}
-	    }
-	    
-	    
+	    }	    
 	    System.out.println("Order Status: " + o.getOrderStatus());
-	}
-	
-	
+	}	
 	
 	public void viewDetails() throws IOException { // need to create orderline to retrieve details of order
 		
@@ -101,8 +96,6 @@ public class StaffController extends EmployeeController{ // inheritance
 		
 	}
 
-	
-	
 	public void displayNewOrder(String branch) throws IOException {
 		
 		System.out.println("New Orders: ");
@@ -115,8 +108,5 @@ public class StaffController extends EmployeeController{ // inheritance
 	    		System.out.println(order.getOrderID());
 	    	}
 	    }
-	    
-		
 	}
-	
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import Enums.OrderStatus;
-import Enums.Role;
 import Stores.Order;
 import Stores.OrderTextDB;
 
@@ -15,8 +14,6 @@ public class ChangeStatus {
 	
 	public static void changeStatus(String branch) throws IOException
 	{
-		
-		int selection;
 		int orderID;
 			
 		System.out.println("Please enter OrderID:");
@@ -25,7 +22,7 @@ public class ChangeStatus {
 		
 		Order oldStatus = null;
 		Order o = null;
-		List<Order> al = OrderTextDB.readOrder("order.txt");//test
+		List<Order> al = OrderTextDB.readOrder("order.txt");
 	    for (Order order : al)
 	    {
 	    	if (order.getOrderID() == orderID && order.getBranch().equals(branch))
@@ -41,7 +38,7 @@ public class ChangeStatus {
 	    
 	    System.out.println("Order ID: " + orderID);
 	    
-	    List<Order> alr = OrderTextDB.readOrder("order.txt");//test
+	    List<Order> alr = OrderTextDB.readOrder("order.txt");
 	    for (Order order : alr)
 	    {
 	    	if (order.getOrderID() == orderID && order.getBranch().equals(branch))
@@ -50,10 +47,6 @@ public class ChangeStatus {
 	    		break;
 	    	}
 	    }
-	    
-	    
 	    System.out.println("Order Status: " + o.getOrderStatus());
 	}
-	
-
 }

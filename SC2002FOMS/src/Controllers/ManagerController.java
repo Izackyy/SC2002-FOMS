@@ -89,6 +89,8 @@ public class ManagerController extends StaffController // inheritence
 				System.out.println("Name:");
 				String name = sc.nextLine();
 				
+				@SuppressWarnings("unchecked") 
+				// telling the compiler to ignore warnings related to unchecked operations within the scope of the annotated element.
 				List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");//test
 		        for (MenuItem menuitem : al)
 		        {
@@ -117,7 +119,8 @@ public class ManagerController extends StaffController // inheritence
 			{
 				System.out.println("Name:");
 				String name = sc.nextLine();
-				
+
+				@SuppressWarnings("unchecked")
 				List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");//test
 				MenuItem toRemove = null;
 		        for (MenuItem menuitem : al)
@@ -142,6 +145,7 @@ public class ManagerController extends StaffController // inheritence
 				System.out.println("Item to update:");
 				String oldName = sc.nextLine(); //need to check if this item exists
 				
+				@SuppressWarnings("unchecked")
 				List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");//test
 				boolean found = false;
 		        for (MenuItem menuitem : al)

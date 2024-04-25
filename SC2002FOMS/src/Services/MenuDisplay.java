@@ -25,7 +25,7 @@ public class MenuDisplay {
 	  	}
 	
 	public static void printMenuItem(String branch) // print specific branch menu // Method overloading
-	  {
+	  	{
 		  String filename = "menu.txt" ;
 		  
 		  System.out.println("============================" + branch + " Menu============================");
@@ -40,10 +40,10 @@ public class MenuDisplay {
 							System.out.printf("Name: %-20s Price: $%-10.2f Category: %s\n", menuitem.getName(), menuitem.getPrice(), menuitem.getCategory());
 						}
 				}
-				
-			}catch (IOException e) {
+			} catch (IOException e) {
 				System.out.println("IOException > " + e.getMessage());
-			}
-			System.out.println("");
-	  	}
+		}
+		System.out.println("");
+	}
+		
 }
