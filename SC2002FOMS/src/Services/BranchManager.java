@@ -56,26 +56,33 @@ public class BranchManager {
 
         // check manager quota, too many managers = -1
         if (1 <= s && s <= 4) {
-            if (1 - m < 0)
+            if (1 - m <= 0)
                 return -1;
             else
                 return 1 - m;
         }
 
         if (5 <= s && s <= 8) {
-            if (2 - m < 0)
+            if (2 - m <= 0)
                 return -1;
             else
                 return 2 - m;
         }
 
         if (9 <= s && s <= 15) {
-            if (3 - m < 0)
+            if (3 - m <= 0)
                 return -1;
             else
                 return 3 - m;
         }
         return -1;
+    }
+
+    public static void updateStaffQuota(Branch b) throws IOException {
+        if (checkStaffQuota(b) == -1) {
+            System.out.println("Too many staffs in " + b.getName() + ". Remove some staff.");
+
+        }
     }
 
     public static void printBranchStatus(String filename) throws IOException {
@@ -84,16 +91,6 @@ public class BranchManager {
         int c = 1;
         for (Branch b : branches) {
             System.out.println(c + ") " + b.getName() + " - " + b.getBranchStatus());
-            c++;
-        }
-    }
-
-    public static void printBranchQuota(String filename) throws IOException {
-        System.out.println("Select a branch: ");
-        List<Branch> branches = BranchTextDB.readBranchList(filename);
-        int c = 1;
-        for (Branch b : branches) {
-            System.out.println(c + ") " + b.getName() + " - " + b.getStaffQuota());
             c++;
         }
     }
