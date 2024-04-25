@@ -15,8 +15,6 @@ public class ChangeStatus {
 	
 	public static void changeStatus(String branch) throws IOException
 	{
-		
-		int selection;
 		int orderID;
 			
 		System.out.println("Please enter OrderID:");

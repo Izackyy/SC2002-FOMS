@@ -1,14 +1,9 @@
 package Services;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Enums.OrderStatus;
-import Stores.AuthStore;
-import Stores.MenuItem;
-import Stores.MenuTextDB;
 import Stores.Order;
 import Stores.OrderTextDB;
 
@@ -26,6 +21,7 @@ public class CheckStatus {
 		
 		orderID = sc.nextInt();
 		
+		@SuppressWarnings("unchecked")
 		List<Order> al = OrderTextDB.readOrder("order.txt");//test
 	    for (Order order : al)
 	    {
