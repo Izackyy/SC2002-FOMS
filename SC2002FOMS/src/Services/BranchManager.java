@@ -45,7 +45,7 @@ public class BranchManager implements IBranchManagement {
         // TODO Auto-generated method stub
         int set, choice;
 
-        BranchTextDB.printBranch("branch.txt");
+        printBranch("branch.txt");
         List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
         choice = sc.nextInt();
         Branch selectedBranch = branches.get(choice - 1);
@@ -66,7 +66,7 @@ public class BranchManager implements IBranchManagement {
 
         BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
 
-        BranchTextDB.printBranch("branch.txt");
+        printBranch("branch.txt");
         System.out.println("Branch status updated successfully.\n");
     }
 
@@ -100,15 +100,14 @@ public class BranchManager implements IBranchManagement {
     }
 
     @Override
-    public void viewBranch() throws IOException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'viewBranch'");
-    }
+    public void printBranch(String filename) throws IOException {
 
-    @Override
-    public void filterBranch() throws IOException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'filterBranch'");
+        System.out.println("All branches: ");
+        List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
+        int c = 1;
+        for (Branch b : branches) {
+            System.out.println(c + ") " + b.getName() + " - " + b.getBranchStatus());
+            c++;
+        }
     }
-
 }
