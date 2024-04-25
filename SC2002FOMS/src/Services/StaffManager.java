@@ -233,7 +233,7 @@ public class StaffManager implements IStaffManagement {
     @Override
     public void promoteStaff() throws IOException {
 
-        int choice;
+        int choice, i = 0;
         String confirm;
 
         // select staff
@@ -245,25 +245,35 @@ public class StaffManager implements IStaffManagement {
         Staff selectedStaff = staffs.get(choice - 1);
         Staff oldRole = selectedStaff;
         Staff newRole = oldRole;
+        List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
+        Branch b = null;
+        for (Branch branch : branches) {
+            if (selectedStaff.getBranch().equals(branch.getName())) {
+                b = branches.get(i);
+                break;
+            }
+            i++;
+        }
 
         System.out.println("Promote " + selectedStaff.getName() + " ? <Y/N>");
         confirm = sc.nextLine();
         if (confirm.equalsIgnoreCase("Y")) {
-            newRole.setRole(Role.M);
-        }
-        // add input check and cancel if N(?)
-
-        StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
-        StaffTextDB.printStaffList("staff.txt");
-        System.out.println("Staff branch status updated successfully.\n");
-
-        return;
+            if (selectedStaff.getRole().equals(Role.S)) {
+                if (!CheckQuota.checkManagerQuota(b)) {
+                    newRole.setRole(Role.M);
+                    StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
+                    StaffTextDB.printStaffList("staff.txt");
+                    System.out.println("Staff branch status updated successfully.\n");
+                }
+            }
+        } else
+            return;
     }
 
     @Override
     public void transferStaff() throws IOException {
 
-        int choice, check;
+        int choice;
 
         // select staff
         StaffTextDB.printStaffList("staff.txt");
@@ -289,6 +299,7 @@ public class StaffManager implements IStaffManagement {
                 StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
                 StaffTextDB.printStaffList("staff.txt");
                 System.out.println("Staff transferred successfully.\n");
+                return;
             }
         }
         // check manager
@@ -297,6 +308,7 @@ public class StaffManager implements IStaffManagement {
                 StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
                 StaffTextDB.printStaffList("staff.txt");
                 System.out.println("Staff transferred successfully.\n");
+                return;
             }
         }
     }

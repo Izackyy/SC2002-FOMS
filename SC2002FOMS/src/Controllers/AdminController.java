@@ -43,7 +43,7 @@ public class AdminController extends EmployeeController {
 			System.out.println("|| 7) Add Branch                 ||");
 			System.out.println("|| 8) Remove branch              ||");
 			System.out.println("|| 9) Change Password            ||");
-			System.out.println("|| 10) Quit                       ||");
+			System.out.println("|| 10) Quit                      ||");
 			System.out.println("===================================");
 
 			selection = sc.nextInt();
