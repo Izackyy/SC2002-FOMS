@@ -88,22 +88,24 @@ public class BranchTextDB {
 	}
 
 	public static void updateBranchStatus(String filename, Branch oldStatus, Branch newStatus) throws IOException {
-		List<String> lines = read(filename);
-
-		for (int i = 0; i < lines.size(); i++) {
-			String line = lines.get(i);
-			String[] parts = line.split("\\|");
-			String name = parts[0].trim();
-
-			if (name.equals(oldStatus.getName())) {
-				Enums.BranchStatus newBranchStatus = newStatus.getBranchStatus();
-				parts[3] = newBranchStatus.toString(); // Update branch status with enum value
-				lines.set(i, String.join(SEPARATOR, parts));
-				break; // Once updated, exit the loop
-			}
+		List al = readBranchList(filename);
+		if (al.contains(oldStatus)) {
+			int index = al.indexOf(oldStatus);
+			al.set(index, newStatus);
+			saveBranch(filename, al);
+			;
+		} else {
+			System.out.println("Item not found.");
 		}
-
-		write(filename, lines);
 	}
 
+	public static void printBranch(String filename) throws IOException {
+		System.out.println("Select a branchh: ");
+		List<Branch> branches = readBranchList(filename);
+		int c = 1;
+		for (Branch b : branches) {
+			System.out.println(c + ") " + b.getName() + " - " + b.getBranchStatus());
+			c++;
+		}
+	}
 }

@@ -13,7 +13,7 @@ public class Branch {
 		this.name = name;
 		this.location = location;
 		this.staffQuota = staffQuota;
-		this.branchStatus = branchStatus.OPEN;
+		this.branchStatus = branchStatus;
 	}
 
 	public void setStaffQuota(String branch) // not sure if this is needed tho

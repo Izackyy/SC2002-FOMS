@@ -136,17 +136,12 @@ public class AdminController extends EmployeeController {
 
 		int set, choice;
 
-		String branch;
-		System.out.println("Select a branch: ");
+		BranchTextDB.printBranch("branch.txt");
 		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
-		int c = 1;
-		for (Branch b : branches) {
-			System.out.println(c + ") " + b.getName() + " - " + b.getBranchStatus());
-			c++;
-		}
 		choice = sc.nextInt();
 		Branch selectedBranch = branches.get(choice - 1);
 		Branch oldStatus = selectedBranch;
+		Branch newStatus = oldStatus;
 
 		System.out.println("Open/Close Branch");
 		System.out.println("<Press 1 to open Branch or Press 0 to close Branch>");
@@ -156,11 +151,10 @@ public class AdminController extends EmployeeController {
 			System.out.println("Invalid choice! Enter 1 to open or 0 to close the branch.");
 			set = sc.nextInt();
 		}
-		while (!selectedBranch.setBranchStatus(set)) {
+		while (!newStatus.setBranchStatus(set)) {
 			set = sc.nextInt();
 		}
 
-		Branch newStatus = selectedBranch;
 		BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
 
 		System.out.println(selectedBranch.getName() + " - " + selectedBranch.getBranchStatus());
