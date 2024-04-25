@@ -73,6 +73,8 @@ public class ManagerController extends StaffController // inheritence
 
 	private static void editMenu() throws IOException
 	{
+		// print menu so they can refer
+		MenuDisplay.printMenuItem(AuthStore.getCurrentStaff().getBranch());
 		String yesNo; 
 		System.out.println("===========Menu Editor===========");
 		System.out.println("|| 1) Add Item                 ||");
@@ -106,11 +108,24 @@ public class ManagerController extends StaffController // inheritence
 				sc.nextLine(); //input buffer
 				System.out.println("Category:");
 				String category = sc.nextLine();
+				System.out.println("Want to add description? (Y/N)");
+				String desc = sc.nextLine();
+
+				String description;
+
+				if(desc.equalsIgnoreCase("Y"))
+				{
+					System.out.println("Description: ");
+					description = sc.nextLine();
+				}
+				else
+				{
+					description = "NA";
+				}
 				
-				System.out.println("Item added:");
-				System.out.println("name:" + name + ", price:" + price + ", category:" + category);
+				System.out.println("Item has been successfully added:");
 			
-				MenuItem menuitem = new MenuItem(name, price , AuthStore.getCurrentStaff().getBranch(), category);
+				MenuItem menuitem = new MenuItem(name, price , AuthStore.getCurrentStaff().getBranch(), category, description);
 				MenuTextDB.addMenuItem("menu.txt", menuitem);
 				break;
 			}

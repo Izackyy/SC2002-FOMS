@@ -27,7 +27,7 @@ public class MenuDisplay {
 	  	{
 		String filename = "menu.txt" ;
 		
-		System.out.println("============================" + branch + " Menu============================");
+		System.out.println("=============================================" + branch + " Menu=============================================");
 		try {
 			// read file containing Professor records.
 			ArrayList al = MenuTextDB.readMenuItem(filename) ;
@@ -36,7 +36,7 @@ public class MenuDisplay {
 					
 					if (menuitem.getBranch().equals(branch) && menuitem.getAvailability().equals(Availability.AVAILABLE))
 					{
-						System.out.printf("Name: %-20s Price: $%-10.2f Category: %s\n", menuitem.getName(), menuitem.getPrice(), menuitem.getCategory());
+						System.out.printf("Name: %-20s Price: $%-10.2f Category: %-20s Description: %s\n", menuitem.getName(), menuitem.getPrice(), menuitem.getCategory(), menuitem.getDescription());
 					}
 				}
 			} catch (IOException e) {

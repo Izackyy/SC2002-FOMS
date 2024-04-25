@@ -64,7 +64,7 @@ public class PaymentManager implements IPaymentManagement {
             System.out.println("===========Payment Editor===========");
             System.out.println("|| 1) Add Payment Method          ||");
             System.out.println("|| 2) Remove Payment Method       ||");
-            System.out.println("|| 3) Quit                        ||");
+            System.out.println("|| 3) Back                        ||");
             System.out.println("====================================");
             Choice = sc.nextInt();
             sc.nextLine(); // input buffer
