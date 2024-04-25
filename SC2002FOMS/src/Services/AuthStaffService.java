@@ -24,8 +24,9 @@ public class AuthStaffService {
 		return false;
 	}
 
-	public void logout() {
+	public boolean logout() {
 		AuthStore.setCurrentStaff(null); // remove current user
+		return true;
 	}
 
 }

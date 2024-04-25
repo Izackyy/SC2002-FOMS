@@ -15,6 +15,8 @@ import Stores.PaymentTextDB;
 import Stores.Staff;
 import Stores.StaffTextDB;
 import Services.AuthStaffService;
+import Services.BranchManager;
+import Services.BranchManager;
 
 public class AdminController extends EmployeeController {
 
@@ -165,9 +167,9 @@ public class AdminController extends EmployeeController {
 
 	}
 
-	private static void transferStaff() throws IOException {
+	public void transferStaff() throws IOException {
 
-		int choice;
+		int choice, check;
 
 		// select staff
 		StaffTextDB.printStaffList("staff.txt");
@@ -175,19 +177,31 @@ public class AdminController extends EmployeeController {
 		System.out.println("Select a staff member");
 		choice = sc.nextInt();
 		Staff selectedStaff = staffs.get(choice - 1);
-		Staff oldRole = selectedStaff;
-		Staff newRole = oldRole;
+		Staff oldBranch = selectedStaff;
+		Staff newBranch = oldBranch;
 
 		// select branch
-		BranchTextDB.printBranch("branch.txt");
+		BranchManager.printBranchStatus("branch.txt");
 		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
 		choice = sc.nextInt();
-		System.out.println("Choose a new branch");
-		String b = branches.get(choice - 1).getName();
-		newRole.setBranch(b);
-		// add input and branch check
+		String bn = branches.get(choice - 1).getName();
+		Branch b = branches.get(choice - 1);
+		newBranch.setBranch(bn);
 
-		StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
+		// add input and branch check
+		// check staff
+		if (selectedStaff.getRole().equals(Role.S)) {
+			check = BranchManager.checkStaffQuota(b);
+			if (check == -1) {
+				System.out.println("Too many staff in " + bn + ". Remove some staff.");
+				return;
+			} else if (check >= 0) {
+
+			}
+
+		}
+
+		StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
 		StaffTextDB.printStaffList("staff.txt");
 		System.out.println("Staff branch status updated successfully.\n");
 
@@ -257,7 +271,7 @@ public class AdminController extends EmployeeController {
 
 		int set, choice;
 
-		BranchTextDB.printBranch("branch.txt");
+		BranchManager.printBranchStatus("branch.txt");
 		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
 		choice = sc.nextInt();
 		Branch selectedBranch = branches.get(choice - 1);
@@ -278,7 +292,7 @@ public class AdminController extends EmployeeController {
 
 		BranchTextDB.updateBranchStatus("branch.txt", oldStatus, newStatus);
 
-		BranchTextDB.printBranch("branch.txt");
+		BranchManager.printBranchStatus("branch.txt");
 		System.out.println("Branch status updated successfully.\n");
 
 		return;
