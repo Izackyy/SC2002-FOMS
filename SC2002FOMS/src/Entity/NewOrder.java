@@ -93,7 +93,12 @@ public class NewOrder {
 		System.out.println("Dine-in/Takeaway?");
 		System.out.println("<Press 1 for Dine-in or Press 2 for Takeaway>");
 		
-		selection = sc.nextInt();
+		do{
+			selection = sc.nextInt();
+		}while(selection !=1 || selection != 2);
+		
+
+
 		sc.nextLine(); // input buffer;
 		
 		if (selection == 1) 
