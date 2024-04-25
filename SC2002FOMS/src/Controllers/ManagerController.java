@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
+import Enums.Availability;
 import Stores.AuthStore;
 import Stores.MenuItem;
 import Stores.MenuTextDB;
@@ -25,7 +26,7 @@ public class ManagerController extends StaffController // inheritence
 			System.out.println("|| 1) Display New Order        ||");
 			System.out.println("|| 2) Process Order            ||");
 			System.out.println("|| 3) View Details of Order    ||");
-			System.out.println("|| 4) Edit Menu                ||");
+			System.out.println("|| 4) Edit Menu                ||"); //setting availability is here
 			System.out.println("|| 5) View Staff List          ||");
 			System.out.println("|| 6) Change Password          ||");
 			System.out.println("|| 7) Quit                     ||");
@@ -91,7 +92,7 @@ public class ManagerController extends StaffController // inheritence
 				List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");//test
 		        for (MenuItem menuitem : al)
 		        {
-		        	if (menuitem.getName().equals(name) && menuitem.getBranch().equals(AuthStore.getCurrentStaff().getBranch()))
+		        	if (menuitem.getName().equalsIgnoreCase(name) && menuitem.getBranch().equals(AuthStore.getCurrentStaff().getBranch()))
 		        	{
 		        		System.out.println("Item already exists");
 		        		return;
@@ -142,16 +143,31 @@ public class ManagerController extends StaffController // inheritence
 				String oldName = sc.nextLine(); //need to check if this item exists
 				
 				List<MenuItem> al = MenuTextDB.readMenuItem("menu.txt");//test
+				boolean found = false;
 		        for (MenuItem menuitem : al)
 		        {
 		        	if (menuitem.getName().equals(oldName) && menuitem.getBranch().equals(AuthStore.getCurrentStaff().getBranch()))
 		        	{
+		        		found = true;
 		        		oldItem = menuitem;
 		        		break;
 		        	}
 		        }
+		        
+		        if(found==false)
+		        {
+		        	break;
+		        }
+		        
+		        System.out.println("Current details of selected item:");
+		        
+		        System.out.println("Name: " + oldItem.getName());
+		        System.out.println("Price: $" + oldItem.getPrice());
+		        System.out.println("Category: " + oldItem.getCategory());
+		        System.out.println("Availability: " + oldItem.getAvailability());
+		        System.out.println("");
 				
-				MenuItem newItem = new MenuItem(oldItem.getName(), oldItem.getPrice(), oldItem.getBranch(), oldItem.getCategory(), oldItem.getCategory());
+				MenuItem newItem = new MenuItem(oldItem.getName(), oldItem.getPrice(), oldItem.getBranch(), oldItem.getCategory(), oldItem.getCategory(),oldItem.getAvailability());
 				
 				System.out.println("Update name? (Y/N)");
 				yesNo = sc.nextLine();
@@ -190,6 +206,22 @@ public class ManagerController extends StaffController // inheritence
 					System.out.println("New description");
 					String newDescription = sc.nextLine();
 					newItem.setDescription(newDescription);
+					yesNo = "N";
+				}
+				
+				System.out.println("Update availability? (Y/N)");
+				
+				yesNo = sc.nextLine();
+				if (yesNo.equalsIgnoreCase("Y"))
+				{
+					if(oldItem.getAvailability().equals(Availability.AVAILABLE))
+					{
+						newItem.setAvailability(Availability.UNAVAILABLE);
+					}
+					else
+					{
+						newItem.setAvailability(Availability.AVAILABLE);
+					}
 					yesNo = "N";
 				}
 				
