@@ -11,6 +11,7 @@ import Enums.Gender;
 import Enums.Role;
 import Services.MenuDisplay;
 import Services.StaffDisplay;
+import Services.BranchManager;
 import Stores.AuthStore;
 import Stores.Branch;
 import Stores.BranchTextDB;
@@ -322,9 +323,9 @@ public class AdminController extends EmployeeController {
 
 	}
 
-	private static void transferStaff() throws IOException {
+	public void transferStaff() throws IOException {
 
-		int choice;
+		int choice, check;
 
 		// select staff
 		StaffTextDB.printStaffList("staff.txt");
@@ -332,22 +333,33 @@ public class AdminController extends EmployeeController {
 		System.out.println("Select a staff member");
 		choice = sc.nextInt();
 		Staff selectedStaff = staffs.get(choice - 1);
-		Staff oldRole = selectedStaff;
-		Staff newRole = oldRole;
+		Staff oldBranch = selectedStaff;
+		Staff newBranch = oldBranch;
 
 		// select branch
 		BranchTextDB.printBranch("branch.txt");
 		List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
 		choice = sc.nextInt();
-		System.out.println("Choose a new branch");
-		String b = branches.get(choice - 1).getName();
-		newRole.setBranch(b);
+		Branch b = branches.get(choice - 1);
+		newBranch.setBranch(b.getName());
+
 		// add input and branch check
-
-		StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
-		StaffTextDB.printStaffList("staff.txt");
-		System.out.println("Staff branch status updated successfully.\n");
-
+		// check staff
+		if (selectedStaff.getRole().equals(Role.S)) {
+			if (BranchManager.checkStaffQuota(b)) {
+				StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
+				StaffTextDB.printStaffList("staff.txt");
+				System.out.println("Staff transferred successfully.\n");
+			}
+		}
+		// check manager
+		else if (selectedStaff.getRole().equals(Role.M)) {
+			if (BranchManager.checkManagerQuota(b)) {
+				StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
+				StaffTextDB.printStaffList("staff.txt");
+				System.out.println("Staff transferred successfully.\n");
+			}
+		}
 		return;
 	}
 

@@ -37,7 +37,7 @@ public class BranchManager {
         return managerCount;
     }
 
-    public static int checkStaffQuota(Branch b) throws IOException {
+    public static int remainderStaffQuota(Branch b) throws IOException {
 
         int s = staffQuota(b);
         int max_s = b.getStaffQuota();
@@ -49,7 +49,7 @@ public class BranchManager {
             return max_s - s;
     }
 
-    public static int checkManagerQuota(Branch b) throws IOException {
+    public static int remainderManagerQuota(Branch b) throws IOException {
 
         int s = staffQuota(b);
         int m = managerQuota(b);
@@ -78,20 +78,36 @@ public class BranchManager {
         return -1;
     }
 
-    public static void updateStaffQuota(Branch b) throws IOException {
-        if (checkStaffQuota(b) == -1) {
-            System.out.println("Too many staffs in " + b.getName() + ". Remove some staff.");
-
+    public static boolean checkStaffQuota(Branch b) throws IOException {
+        int check;
+        check = remainderStaffQuota(b);
+        if (check < 0) {
+            System.out.println("Too many staffs in " + b.getName() + ". Remove some staffs.");
+            return false;
+        } else if (check == 0) {
+            System.out.println("No more staff slots left in" + b.getName() + ". Choose another branch.");
+            return false;
+        } else if (check > 0) {
+            System.out.println(check + " staff slot(s) remaining.");
+            return true;
         }
+        return false;
     }
 
-    public static void printBranchStatus(String filename) throws IOException {
-        System.out.println("Select a branch: ");
-        List<Branch> branches = BranchTextDB.readBranchList(filename);
-        int c = 1;
-        for (Branch b : branches) {
-            System.out.println(c + ") " + b.getName() + " - " + b.getBranchStatus());
-            c++;
+    public static boolean checkManagerQuota(Branch b) throws IOException {
+        int check;
+        check = remainderManagerQuota(b);
+        if (check < 0) {
+            System.out.println("Too many managers in " + b.getName() + ". Remove some managers.");
+            return false;
+        } else if (check == 0) {
+            System.out.println("No more manager slots left in" + b.getName() + ". Choose another branch.");
+            return false;
+        } else if (check > 0) {
+            System.out.println(check + " manager slot(s) remaining.");
+            return true;
         }
+        return false;
     }
+
 }
