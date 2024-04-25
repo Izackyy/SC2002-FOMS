@@ -4,11 +4,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import Stores.AuthStore;
-import Stores.MenuItem;
 import Stores.Staff;
 import Stores.StaffTextDB;
 
-/*This controller lays out the fundamental actions every employee in the branch can do in the system
+/* This controller lays out the fundamental actions every employee in the branch can do in the system
 ie change password action, view order, process order etc
 all subclasses should be able to implement this, just need to inherit this method from superclass
  */
@@ -34,14 +33,11 @@ public class EmployeeController{
 		{
 			return false;
 		}
-		
+
 		newStaff.setPassword(newPassword);
 		
 		StaffTextDB.updateStaff("staff.txt", oldStaff , newStaff);
 		
-		
 		return true;
 	}
-
-
 }

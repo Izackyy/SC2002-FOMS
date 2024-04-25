@@ -14,12 +14,11 @@ public class Payment implements IPayment {
 	}
 
 	@Override
-	public void processPayment() {
-
+	public void processPayment() 
+	{
 		System.out.println("Processing " + this.getName() + " payment...");
 
 		System.out.println("Successful");
-
 	}
 
 	public String getName() {
@@ -32,7 +31,7 @@ public class Payment implements IPayment {
 
 	public boolean equals(Object o) {
 		if (o instanceof Payment)
-			;
+			; // from the course site
 		{
 			Payment m = (Payment) o;
 			return (getName().equals(m.getName()));

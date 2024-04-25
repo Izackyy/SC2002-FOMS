@@ -10,6 +10,7 @@ public class AuthStaffService {
 
 	public boolean login(String staffID, String password) throws IOException {
 
+		@SuppressWarnings("unchecked")
 		List<Staff> al = StaffTextDB.readStaff("staff.txt");// test
 		for (Staff staff : al) {
 
