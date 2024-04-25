@@ -37,6 +37,7 @@ public class StaffController extends EmployeeController{ // inheritance
 		
 		Order oldStatus = null;
 		Order o = null;
+		@SuppressWarnings("unchecked")
 		List<Order> al = OrderTextDB.readOrder("order.txt");//test
 	    for (Order order : al)
 	    {
@@ -57,7 +58,8 @@ public class StaffController extends EmployeeController{ // inheritance
 	    
 	    System.out.println("Order ID: " + orderID);
 	    
-	    List<Order> alr = OrderTextDB.readOrder("order.txt");//test
+	    @SuppressWarnings("unchecked")
+		List<Order> alr = OrderTextDB.readOrder("order.txt");//test
 	    for (Order order : alr)
 	    {
 	    	if (order.getOrderID() == orderID && order.getBranch().equals(branch))
@@ -75,6 +77,7 @@ public class StaffController extends EmployeeController{ // inheritance
 		System.out.println("Order ID:");
 		orderID = sc.nextInt();
 		
+		@SuppressWarnings("unchecked")
 		List<OrderLine> al = OrderLineTextDB.readOrderLine("orderline.txt");//test
 		
 		System.out.println("Order details for orderID " + orderID);
@@ -100,6 +103,7 @@ public class StaffController extends EmployeeController{ // inheritance
 		
 		System.out.println("New Orders: ");
 		
+		@SuppressWarnings("unchecked")
 		List<Order> al = OrderTextDB.readOrder("order.txt"); 
 	    for (Order order : al)
 	    {

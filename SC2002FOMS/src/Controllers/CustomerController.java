@@ -5,17 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-import Entity.Cart;
 import Entity.NewOrder;
 import Enums.BranchStatus;
 import Services.ChangeStatus;
 import Services.CheckStatus;
-import Services.MenuDisplay;
-import Stores.AuthStore;
 import Stores.Branch;
 import Stores.BranchTextDB;
-import Stores.MenuItem;
-import Stores.MenuTextDB;
 
 public class CustomerController {
 	
@@ -31,6 +26,7 @@ public class CustomerController {
 		
 		List<Branch> open = new ArrayList<>();
 		
+		@SuppressWarnings("unchecked")
 		List<Branch> al = BranchTextDB.readBranchList("branch.txt");//test
         for (Branch branch : al)
         {	
