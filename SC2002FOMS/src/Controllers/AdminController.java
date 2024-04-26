@@ -43,7 +43,7 @@ public class AdminController extends EmployeeController {
 
 			switch (selection) {
 				case (1):
-					sm.editStaffAcc();
+					sm.editStaff();
 					break;
 				case (2):
 					sm.filterStaff();

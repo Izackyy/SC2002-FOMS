@@ -95,7 +95,7 @@ public class StaffManager implements IStaffManagement {
         }
     }
 
-    @Override
+    
     public void editStaffAcc() throws IOException {
         String yesNo;
         Staff oldStaff = null;
@@ -150,6 +150,7 @@ public class StaffManager implements IStaffManagement {
         StaffTextDB.updateStaff("staff.txt", oldStaff, newStaff);
     }
 
+    @Override
     public void editStaff() throws IOException {
         System.out.println("===========Staff Editor==========");
         System.out.println("|| 1) Add Staff                ||");
@@ -272,12 +273,11 @@ public class StaffManager implements IStaffManagement {
         confirm = sc.nextLine();
         if (confirm.equalsIgnoreCase("Y")) {
             if (selectedStaff.getRole().equals(Role.S)) {
-                if (!CheckQuota.checkManagerQuota(b)) {
-                    newRole.setRole(Role.M);
-                    StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
-                    StaffTextDB.printStaffList("staff.txt");
-                    System.out.println("SStaff has been promoted successfully.\n");
-                }
+                newRole.setRole(Role.M);
+                newRole.setBranch("UNASSIGNED");
+                StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
+                StaffTextDB.printStaffList("staff.txt");
+                System.out.println("Staff has been promoted successfully.\n");
             }
         } else
             return;
