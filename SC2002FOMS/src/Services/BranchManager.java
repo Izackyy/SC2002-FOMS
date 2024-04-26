@@ -65,7 +65,6 @@ public class BranchManager implements IBranchManagement {
      */
     @Override
     public void setBranchStatus() throws IOException {
-        // TODO Auto-generated method stub
         int set, choice;
 
         printBranch("branch.txt");
