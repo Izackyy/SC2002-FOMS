@@ -93,6 +93,7 @@ public class AdminController extends EmployeeController {
 					break;
 				case (9):
 					changePassword();
+                    break;
 				default:
 					return;
 			}
