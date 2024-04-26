@@ -33,6 +33,10 @@ public class Payment implements IPayment {
 		System.out.println("Successful");
 	}
 
+	
+	/** 
+	 * @return String
+	 */
 	public String getName() {
 		return this.name;
 	}

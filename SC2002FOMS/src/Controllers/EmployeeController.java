@@ -57,6 +57,10 @@ public class EmployeeController {
         
         return true; // Password changed successfully
     }
-	public void start()	throws IOException{
+	
+    /** 
+     * @throws IOException
+     */
+    public void start()	throws IOException{
 	}
 }

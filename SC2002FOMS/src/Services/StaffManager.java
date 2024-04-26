@@ -191,6 +191,10 @@ public class StaffManager implements IStaffManagement {
         }
     }
 
+    
+    /** 
+     * @throws IOException
+     */
     public void promoteStaff() throws IOException {
 
         int choice, i = 0;
