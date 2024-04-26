@@ -2,3 +2,4 @@
 33227|Green tea|5|no
 33227|chicken nugget|4|chilli sauce
 13688|Green tea|1|no
+5486|FRIES|12|no
