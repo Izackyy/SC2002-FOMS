@@ -108,7 +108,7 @@ public class NewOrder {
 			System.out.println("Invalid selection. Please try again.");
 		}
 	}
-		
+		sc.nextLine();
 		// check out
 		PaymentService.start();
 		Receipt receipt = new Receipt();
