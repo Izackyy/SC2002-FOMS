@@ -17,15 +17,15 @@ public class OrderManager implements IOrderManager{
     
     Scanner sc = new Scanner(System.in);
 	@SuppressWarnings("unchecked")
-	public void processOrder() throws IOException {
+	public void processOrder(String branch) throws IOException {
         int orderID;
-        String branch = null;
         Order oldStatus = null;
         Order o = null;
-        boolean validInput = false;
 
-        while (!validInput) {
-            System.out.println("Please enter OrderID:");
+        while (true) {
+            System.out.println("Select OrderID to process:");
+			System.out.println("Enter -1 to return to home screen");
+            displayNewOrder(branch);  // Display orders before asking for input
             String input = sc.nextLine().trim();  // Read the entire line of input
 
             if (input.isEmpty()) {
@@ -33,9 +33,13 @@ public class OrderManager implements IOrderManager{
                 continue;  // Go back to the start of the loop
             }
 
+            if (input.equals("-1")) {
+                System.out.println("Returning to home screen...");
+                break;  // Break the loop and exit
+            }
+
             try {
                 orderID = Integer.parseInt(input);  // Try to parse the integer
-                validInput = true;  // Break the loop if input is valid
             } catch (NumberFormatException e) {
                 System.out.println("Error! Invalid input. Order ID must be a number.");
                 continue;  // Go back to the start of the loop
@@ -54,7 +58,6 @@ public class OrderManager implements IOrderManager{
 
             if (!found) {
                 System.out.println("Error! Order does not exist");
-                validInput = false;  // Ensure the loop continues
                 continue;
             }
 

@@ -48,7 +48,7 @@ public class ManagerController extends StaffController // inheritence
 					break;
 				case(2):
 					try {
-						om.processOrder();
+						om.processOrder(AuthStore.getCurrentStaff().getBranch());
 					} catch (Exception e) {  // Catch all exceptions from processOrder
 						System.out.println(e.getMessage());
 					}
