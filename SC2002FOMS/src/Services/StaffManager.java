@@ -218,17 +218,16 @@ public class StaffManager implements IStaffManagement {
             }
             i++;
         }
-
+        // when staff is promoted, branch will be set as UNASSIGNED
         System.out.println("Promote " + selectedStaff.getName() + " ? <Y/N>");
         confirm = sc.nextLine();
         if (confirm.equalsIgnoreCase("Y")) {
             if (selectedStaff.getRole().equals(Role.S)) {
-                if (!CheckQuota.checkManagerQuota(b)) {
-                    newRole.setRole(Role.M);
-                    StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
-                    StaffTextDB.printStaffList("staff.txt");
-                    System.out.println("SStaff has been promoted successfully.\n");
-                }
+                newRole.setRole(Role.M);
+                newRole.setBranch("UNASSIGNED");
+                StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
+                StaffTextDB.printStaffList("staff.txt");
+                System.out.println("Staff has been promoted successfully.\n");
             }
         } else
             return;

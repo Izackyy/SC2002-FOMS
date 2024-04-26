@@ -43,6 +43,12 @@ public class ChangeStatus {
 	    		break;
 	    	}
 	    }
+
+		if (oldStatus == null)
+		{
+			System.out.println("OrderID does not exist.");
+			return;
+		}
 	    
 	    // to check
 	    
@@ -79,6 +85,7 @@ public class ChangeStatus {
 	    		break;
 	    	}
 	    }  
+		
 	    System.out.println("Order Status: " + o.getOrderStatus());
 	}
 }

@@ -258,7 +258,7 @@ public class ManagerController extends StaffController {
 					newItem.setCategory(newCategory);
 					yesNo = "N";
 				}
-				System.out.println("Update description? (Y/N)"); // something wrong with this i can change existing items, but not the ones i created
+				System.out.println("Update description? (Y/N)"); 
 				
 				yesNo = sc.nextLine();
 				if (yesNo.equalsIgnoreCase("Y"))

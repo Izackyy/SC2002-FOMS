@@ -47,7 +47,7 @@ public class FomsApp {
 		
 		if(staff!=null)//if null then is customer
 		{	
-			if (staff.getRole().equals(Role.S)) //plan to change to enum
+			if (staff.getRole().equals(Role.S)) 
 			{
 				IOrderManager om = new OrderManager();
 				StaffController staffController = new StaffController(om);
