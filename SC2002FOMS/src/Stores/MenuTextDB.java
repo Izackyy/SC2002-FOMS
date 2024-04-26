@@ -11,11 +11,27 @@ import java.util.StringTokenizer;
 
 import Enums.Availability;
 import Enums.OrderStatus;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
+/**
+ * MenuTextDB is a utility class that reads and writes MenuItem data to and from
+ * a text file.
+ */
 public class MenuTextDB {
 	public static final String SEPARATOR = "|";
 
     // an example of reading
+
+	/**
+	 * Reads the MenuItem data from the specified file and returns a list of MenuItem
+	 * @param filename
+	 * @return
+	 * @throws IOException
+	 */
 	public static ArrayList readMenuItem(String filename) throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
@@ -42,6 +58,13 @@ public class MenuTextDB {
 	}
 
   // an example of saving
+
+  /**
+   * Writes the MenuItem data to the specified file.
+   * @param filename
+   * @param al
+   * @throws IOException
+   */
 public static void saveMenuItem(String filename, List al) throws IOException {
 		List alw = new ArrayList() ;// to store MenuItem data
 
@@ -63,6 +86,13 @@ public static void saveMenuItem(String filename, List al) throws IOException {
 			}
 			write(filename,alw);
 	}
+	
+	/**
+	 * Adds a new menu item to the menu.
+	 * @param filename The name of the file to write to.
+	 * @param menuitem The menu item to add.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 
 public static void addMenuItem(String filename, MenuItem menuitem) throws IOException {
     List al = readMenuItem(filename);
@@ -70,11 +100,25 @@ public static void addMenuItem(String filename, MenuItem menuitem) throws IOExce
     saveMenuItem(filename, al);
 }
 
+/**
+ * Removes a menu item from the menu.
+ * @param filename The name of the file to write to.
+ * @param menuitem The menu item to remove.
+ * @throws IOException If an error occurs during file operations.
+ */
+
 public static void removeMenuItem(String filename, MenuItem menuitem) throws IOException {
     List al = readMenuItem(filename);
     al.remove(menuitem);
     saveMenuItem(filename, al);
 }
+/**
+ * Updates a menu item in the menu.
+ * @param filename The name of the file to write to.
+ * @param oldItem The old menu item to update.
+ * @param newItem The new menu item to update.
+ * @throws IOException If an error occurs during file operations.
+ */
 
 public static void updateMenuItem(String filename, MenuItem oldItem, MenuItem newItem) throws IOException {
     List al = readMenuItem(filename);
@@ -89,6 +133,12 @@ public static void updateMenuItem(String filename, MenuItem oldItem, MenuItem ne
 
 
   /** Write fixed content to the given file. */
+  /**
+   * Writes the given data to the specified file.
+   * @param fileName
+   * @param data
+   * @throws IOException
+   */
   public static void write(String fileName, List data) throws IOException  
   {
     PrintWriter out = new PrintWriter(new FileWriter(fileName));
@@ -104,6 +154,12 @@ public static void updateMenuItem(String filename, MenuItem oldItem, MenuItem ne
   }
 
   /** Read the contents of the given file. */
+  /**
+   * Reads the contents of the specified file and returns a list of strings.
+   * @param fileName
+   * @return
+   * @throws IOException
+   */
   public static List read(String fileName) throws IOException {
 	List data = new ArrayList() ;
     Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -117,23 +173,5 @@ public static void updateMenuItem(String filename, MenuItem oldItem, MenuItem ne
     }
     return data;
   }
-  
-  /*public void printMenuItem() // should be able to take in branch parameter and filter on the items from the branch
-  {
-	  String filename = "menu.txt" ;
-		try {
-			// read file containing Professor records.
-			ArrayList al = MenuTextDB.readMenuItem(filename) ;
-			for (int i = 0 ; i < al.size() ; i++) {
-					MenuItem menuitem = (MenuItem)al.get(i);
-					System.out.println("Name " + menuitem.getName() );
-					System.out.println("Price " + menuitem.getPrice() );
-			}
-			
-		}catch (IOException e) {
-			System.out.println("IOException > " + e.getMessage());
-		}
-  	}*/
- 
 }
 

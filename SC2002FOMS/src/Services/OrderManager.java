@@ -12,65 +12,94 @@ import Stores.OrderLine;
 import Stores.OrderLineTextDB;
 import Stores.OrderTextDB;
 import java.util.Scanner;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
+/**
+ * OrderManager class allows the staff to process orders and view order details.
+ */
 public class OrderManager implements IOrderManager{
     
     Scanner sc = new Scanner(System.in);
+
+	
 	@SuppressWarnings("unchecked")
-	public void processOrder() throws IOException {
-		String input;
-		int orderID;
-		String branch = null;
-		Order oldStatus = null;
-		Order o = null;
+	/**
+	 * Processes an order by changing its status to READY_TO_PICKUP.
+	 * @param branch The branch where the order is located.
+	 * @throws IOException If an error occurs during file operations.
+	 */
+	public void processOrder(String branch) throws IOException {
+        int orderID;
+        Order oldStatus = null;
+        Order o = null;
+
+        while (true) {
+            System.out.println("Select OrderID to process:");
+			System.out.println("Enter -1 to return to home screen");
+            displayNewOrder(branch);  // Display orders before asking for input
+            String input = sc.nextLine().trim();  // Read the entire line of input
+
+            if (input.isEmpty()) {
+                System.out.println("ERROR! Please enter an Order ID.");
+                continue;  // Go back to the start of the loop
+            }
+
+            if (input.equals("-1")) {
+                System.out.println("Returning to home screen...");
+                break;  // Break the loop and exit
+            }
+
+            try {
+                orderID = Integer.parseInt(input);  // Try to parse the integer
+            } catch (NumberFormatException e) {
+                System.out.println("Error! Invalid input. Order ID must be a number.");
+                continue;  // Go back to the start of the loop
+            }
+
+            List<Order> allOrders = OrderTextDB.readOrder("order.txt");
+            boolean found = false;
+            for (Order order : allOrders) {
+                if (order.getOrderID() == orderID && order.getBranch().equals(AuthStore.getCurrentStaff().getBranch())) {
+                    found = true;
+                    oldStatus = order;
+                    branch = order.getBranch();
+                    break;
+                }
+            }
+
+            if (!found) {
+                System.out.println("Error! Order does not exist");
+                continue;
+            }
+
+            Order newStatus = new Order(orderID, branch, OrderStatus.READY_TO_PICKUP);
+            OrderTextDB.updateOrder("order.txt", oldStatus, newStatus);
+
+            OrderCancellation orderCancellation = new OrderCancellation();
+            orderCancellation.scheduleOrderCancellation(orderID, AuthStore.getCurrentStaff().getBranch());
+
+            System.out.println("Order ID: " + orderID);
+
+            allOrders = OrderTextDB.readOrder("order.txt");
+            for (Order order : allOrders) {
+                if (order.getOrderID() == orderID && order.getBranch().equals(branch)) {
+                    o = order;
+                    break;
+                }
+            }
+            System.out.println("Order Status: " + o.getOrderStatus());
+        }
+    }
 	
-		System.out.println("Please enter OrderID:");
-		input = sc.nextLine().trim();  // Read the entire line of input
-	
-		if (input.isEmpty()) {
-			throw new IllegalArgumentException("No input provided");
-		}
-	
-		try {
-			orderID = Integer.parseInt(input);  // Try to parse the integer
-		} catch (NumberFormatException e) {
-			throw new IllegalArgumentException("Error! Invalid input. Order ID must be a number.");
-		}
-	
-		List<Order> allOrders = OrderTextDB.readOrder("order.txt");
-		boolean found = false;
-		for (Order order : allOrders) {
-			if (order.getOrderID() == orderID && order.getBranch().equals(AuthStore.getCurrentStaff().getBranch())) {
-				found = true;
-				oldStatus = order;
-				branch = order.getBranch();
-				break;
-			}
-		}
-	
-		if (!found) {
-			throw new IllegalArgumentException("Error! Order does not exist");
-		}
-	
-		Order newStatus = new Order(orderID, branch, OrderStatus.READY_TO_PICKUP);
-		OrderTextDB.updateOrder("order.txt", oldStatus, newStatus);
-	
-		OrderCancellation orderCancellation = new OrderCancellation();
-		orderCancellation.scheduleOrderCancellation(orderID, AuthStore.getCurrentStaff().getBranch());
-	
-		System.out.println("Order ID: " + orderID);
-	
-		allOrders = OrderTextDB.readOrder("order.txt");
-		for (Order order : allOrders) {
-			if (order.getOrderID() == orderID && order.getBranch().equals(branch)) {
-				o = order;
-				break;
-			}
-		}
-		System.out.println("Order Status: " + o.getOrderStatus());
-	}
-	
-	
+	/**
+	 * Cancels an order.
+	 * @param branch The branch where the order is located.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public void viewDetails() throws IOException {
 		String input;
 		int orderID;
@@ -104,7 +133,11 @@ public class OrderManager implements IOrderManager{
 			throw new IllegalArgumentException("Error! Order ID does not exist");
 		}
 	}
-	
+	/**
+	 * Displays all new orders that are ready to be processed.
+	 * @param branch The branch where the order is located.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public void displayNewOrder(String branch) throws IOException {
 		
 		System.out.println("New Orders: ");

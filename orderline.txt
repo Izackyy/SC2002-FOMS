@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 33227|FRIES|2|no salt
 33227|Green tea|5|no
 33227|chicken nugget|4|chilli sauce
 13688|Green tea|1|no
 5486|FRIES|12|no
+=======
+50074|FRIES|23|no
+52306|FRIES|123|no
+>>>>>>> c827ca94e1963482edb15dc699fbf191fd46a8fe

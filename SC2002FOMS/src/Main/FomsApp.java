@@ -1,3 +1,5 @@
+
+
 package Main;
 
 import java.io.IOException;
@@ -18,10 +20,24 @@ import Services.StaffManager;
 import Stores.AuthStore;
 import Stores.Staff;
 
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
+/**
+ * The {@code FomsApp} class is the main class that starts the application.
+ * It checks the role of the current user and starts the appropriate controller.
+ */
 public class FomsApp {
 	
-
+	/**
+	 * The main method of the application.
+	 * It starts the application by checking the role of the current user and starting the appropriate controller.
+	 * @param aArgs The arguments passed to the application.
+	 * @throws IOException If an I/O error occurs.
+	 */
 	public static void main(String[]aArgs) throws IOException
 	{
 		AuthController.start(); //to log in
@@ -53,7 +69,7 @@ public class FomsApp {
 			}
 		}
 		
-		
-        //StaffTextDB.printStaffList();
+		System.out.println("Thank you for using FOMS!");
 	}
 }
+

@@ -7,15 +7,22 @@ import java.util.Scanner;
 
 import Enums.DiningOption;
 import Enums.OrderStatus;
-import Services.MenuDisplay;
+import View.MenuDisplay;
 import Services.PaymentService;
 import Stores.Branch;
 import Stores.Order;
 import Stores.OrderTextDB;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+
+/**
+ * Represents a new order made by a customer.
+ */
 
 public class NewOrder {
-
-	// to include time and date
 
 	private Branch branch;
 
@@ -29,14 +36,21 @@ public class NewOrder {
 	private static final Random random = new Random();
 
 	// private timeOrder;
-
+	/**
+	 * Creates a new order with an empty cart and the specified branch.
+	 * @param branch
+	 */
 	public NewOrder(Branch branch) {
 
 		cart = new Cart();
 		option = DiningOption.TAKEAWAY;
 		this.branch = branch;
 	}
-
+	/**
+	 * Starts the order process by allowing the customer to add, remove, or edit items in the cart.
+	 * @param branch
+	 * @throws IOException
+	 */
 	public static void startOrder(Branch branch) throws IOException {
 		String wantReceipt;
 		NewOrder order = new NewOrder(branch);
@@ -116,17 +130,33 @@ public class NewOrder {
 		order.cart.addOrderline(orderID);
 	}
 
+	/**
+	 * Generates a random order ID for the order.
+	 * @return
+	 */
+
 	private static int generateRandomOrderID() {
 		return random.nextInt(100000);
 	}
-
+	/**
+	 * Returns the branch where the order was made.
+	 * @return
+	 */
 	public Branch getBranch() {
 		return branch;
 	}
+	/**
+	 * Returns the cart containing items in the order.
+	 * @return
+	 */
 
 	public Cart getCart() {
 		return cart;
 	}
+	/**
+	 * Returns the dining option for the order.
+	 * @return
+	 */
 
 	public DiningOption getDiningOption() {
 		return option;
