@@ -45,6 +45,12 @@ public class CheckStatus {
 	    		break;
 	    	}
 	    }
+
+		if(o == null)
+		{
+			System.out.println("OrderID does not exist");
+			return;
+		}
 	    
 	    System.out.println("Order Status: " + o.getOrderStatus());
 	}
