@@ -15,6 +15,7 @@ public class StaffDisplay {
 		  String filename = "staff.txt" ;
 			try {
 				// read file containing staff records.
+				@SuppressWarnings("rawtypes")
 				ArrayList al = StaffTextDB.readStaff(filename) ;
 				for (int i = 0 ; i < al.size() ; i++) {
 						Staff staff = (Staff)al.get(i);
@@ -33,6 +34,7 @@ public class StaffDisplay {
 		String filename = "staff.txt" ;
 		try {
 			// read file containing staff records.
+			@SuppressWarnings("rawtypes")
 			ArrayList al = StaffTextDB.readStaff(filename) ;
 			for (int i = 0 ; i < al.size() ; i++) { 
 					Staff staff = (Staff)al.get(i);
@@ -55,6 +57,7 @@ public class StaffDisplay {
 		String filename = "staff.txt" ;
 		try {
 			// read file containing staff records.
+			@SuppressWarnings("rawtypes")
 			ArrayList al = StaffTextDB.readStaff(filename) ;
 			for (int i = 0 ; i < al.size() ; i++) { 
 				Staff staff = (Staff)al.get(i); // al is the array list
@@ -76,6 +79,7 @@ public class StaffDisplay {
 		String filename = "staff.txt" ;
 		try {
 			// read file containing staff records.
+			@SuppressWarnings("rawtypes")
 			ArrayList al = StaffTextDB.readStaff(filename) ;
 			for (int i = 0 ; i < al.size() ; i++) { 
 				Staff staff = (Staff)al.get(i);
@@ -96,6 +100,7 @@ public class StaffDisplay {
 		String filename = "staff.txt" ;
 		try {
 			// read file containing staff records.
+			@SuppressWarnings("rawtypes")
 			ArrayList al = StaffTextDB.readStaff(filename) ;
 			for (int i = 0 ; i < al.size() ; i++) { 
 				Staff staff = (Staff)al.get(i);

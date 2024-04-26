@@ -7,7 +7,6 @@ import Stores.Staff;
 import Stores.StaffTextDB;
 import Stores.Branch;
 import Stores.BranchTextDB;
-import Services.BranchManager;
 import Enums.Role;
 import Enums.Gender;
 
@@ -21,6 +20,7 @@ public class StaffManager implements IStaffManagement {
         System.out.println("Name:");
         String name = sc.nextLine();
 
+        @SuppressWarnings("unchecked")
         List<Staff> al = StaffTextDB.readStaff("staff.txt");// test
         for (Staff staff : al) {
             if (staff.getName().equalsIgnoreCase(name)) {
@@ -56,6 +56,7 @@ public class StaffManager implements IStaffManagement {
         int i = 1;
         System.out.println("Branch:");
         System.out.println("======Branch Option======");
+        @SuppressWarnings("unchecked")
         List<Branch> b = BranchTextDB.readBranchList("branch.txt");// test
         for (Branch branch : b) {
             System.out.println(i + ") " + branch.getName());
@@ -78,6 +79,7 @@ public class StaffManager implements IStaffManagement {
         System.out.println("Enter Staff Name:");
         String sName = sc.nextLine();
 
+        @SuppressWarnings("unchecked")
         List<Staff> s = StaffTextDB.readStaff("staff.txt");// test
         Staff toRemove = null;
         for (Staff sf : s) {
@@ -100,6 +102,7 @@ public class StaffManager implements IStaffManagement {
         System.out.println("========Staff list========");
         StaffTextDB.printStaffList("staff.txt");
 
+        @SuppressWarnings("unchecked")
         List<Staff> s = StaffTextDB.readStaff("staff.txt");// test
 
         System.out.println("Select a staff member");
@@ -189,7 +192,7 @@ public class StaffManager implements IStaffManagement {
             case (1):
                 String branch;
                 System.out.println("Select a branch: ");
-                List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
+                @SuppressWarnings("unchecked") List<Branch> al = BranchTextDB.readBranchList("branch.txt");// test
                 for (Branch b : al) {
                     System.out.println(i + ") " + b.getName());
                     i++;
@@ -247,12 +250,14 @@ public class StaffManager implements IStaffManagement {
         // select staff
         System.out.println("Select a staff member");
         StaffTextDB.printStaffList("staff.txt");
+        @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
         choice = sc.nextInt();
         sc.nextLine();
         Staff selectedStaff = staffs.get(choice - 1);
         Staff oldRole = selectedStaff;
         Staff newRole = oldRole;
+        @SuppressWarnings("unchecked")
         List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
         Branch b = null;
         for (Branch branch : branches) {
@@ -285,6 +290,7 @@ public class StaffManager implements IStaffManagement {
 
         // select staff
         StaffTextDB.printStaffList("staff.txt");
+        @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
         System.out.println("Select a staff member");
         choice = sc.nextInt();
@@ -295,6 +301,7 @@ public class StaffManager implements IStaffManagement {
         // select branch
         BranchManager bm = new BranchManager();
         bm.printBranch("branch.txt");
+        @SuppressWarnings("unchecked")
         List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
         choice = sc.nextInt();
         Branch b = branches.get(choice - 1);
