@@ -44,8 +44,6 @@ public class NewOrder {
 		boolean confirm = false;
 		int selection;
 
-		Cart cart = new Cart();
-
 		do {
 			System.out.println("======Cart Actions======");
 			System.out.println("1) Add Item to cart");

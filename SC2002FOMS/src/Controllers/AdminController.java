@@ -3,13 +3,24 @@ package Controllers;
 import java.io.IOException;
 import java.util.Scanner;
 
-import Services.BranchManager;
-import Services.StaffManager;
-import Services.PaymentManager;
+import Interfaces.IBranchManagement;
+import Interfaces.IPaymentManagement;
+import Interfaces.IStaffManagement;
+
 
 public class AdminController extends EmployeeController {
 
+	private IBranchManagement bm;
+	private IStaffManagement sm;
+	protected IPaymentManagement pm;
+
 	private static final Scanner sc = new Scanner(System.in);
+
+	public AdminController(IBranchManagement bm, IStaffManagement sm, IPaymentManagement pm) {
+		this.bm = bm;
+		this.sm = sm;
+		this.pm = pm;
+	}
 
 	public void start() throws IOException {
 		int selection;
@@ -29,13 +40,10 @@ public class AdminController extends EmployeeController {
 			System.out.println("===================================");
 
 			selection = sc.nextInt();
-			BranchManager bm = new BranchManager();
-			StaffManager sm = new StaffManager();
-			PaymentManager pm = new PaymentManager();
 
 			switch (selection) {
 				case (1):
-					sm.editStaff();
+					sm.editStaffAcc();
 					break;
 				case (2):
 					sm.filterStaff();
