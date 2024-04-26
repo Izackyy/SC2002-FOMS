@@ -51,9 +51,16 @@ public class StaffManager implements IStaffManagement {
             System.out.println("Age:");
             int age = sc.nextInt(); sc.nextLine();
 
-            System.out.println("Branch:");
             List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
-            branches.forEach(branch -> System.out.println(branch.getName()));
+            int i = 1;
+            System.out.println("Branch:");
+            System.out.println("======Branch Option======");
+            List<Branch> b = BranchTextDB.readBranchList("branch.txt");// test
+            for (Branch branch : b) {
+                System.out.println(i + ") " + branch.getName());
+                i++;
+            }
+
             int selection = sc.nextInt(); sc.nextLine();
 
             Branch branch = branches.get(selection - 1);
@@ -251,6 +258,7 @@ public class StaffManager implements IStaffManagement {
         bm.printBranch("branch.txt");
         List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
         choice = sc.nextInt();
+        sc.nextLine();//input buffer
         Branch b = branches.get(choice - 1);
         newBranch.setBranch(b.getName());
 
