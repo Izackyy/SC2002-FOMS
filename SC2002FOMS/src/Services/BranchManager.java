@@ -35,7 +35,7 @@ public class BranchManager implements IBranchManagement {
 
         // assumption that every new branch added will be set as open
 
-        System.out.println("Branch has been succesfully added");
+        System.out.println("Branch has been successfully added");
 
         Branch branch = new Branch(name, location, staffQuota, BranchStatus.OPEN);
         BranchTextDB.addBranch("branch.txt", branch);
