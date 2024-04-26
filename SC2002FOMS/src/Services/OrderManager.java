@@ -12,11 +12,26 @@ import Stores.OrderLine;
 import Stores.OrderLineTextDB;
 import Stores.OrderTextDB;
 import java.util.Scanner;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
+/**
+ * OrderManager class allows the staff to process orders and view order details.
+ */
 public class OrderManager implements IOrderManager{
     
     Scanner sc = new Scanner(System.in);
+
+	
 	@SuppressWarnings("unchecked")
+	/**
+	 * Processes an order by changing its status to READY_TO_PICKUP.
+	 * @param branch The branch where the order is located.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public void processOrder(String branch) throws IOException {
         int orderID;
         Order oldStatus = null;
@@ -80,7 +95,11 @@ public class OrderManager implements IOrderManager{
         }
     }
 	
-	
+	/**
+	 * Cancels an order.
+	 * @param branch The branch where the order is located.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public void viewDetails() throws IOException {
 		String input;
 		int orderID;
@@ -114,7 +133,11 @@ public class OrderManager implements IOrderManager{
 			throw new IllegalArgumentException("Error! Order ID does not exist");
 		}
 	}
-	
+	/**
+	 * Displays all new orders that are ready to be processed.
+	 * @param branch The branch where the order is located.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public void displayNewOrder(String branch) throws IOException {
 		
 		System.out.println("New Orders: ");

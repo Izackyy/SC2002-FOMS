@@ -7,11 +7,23 @@ import java.util.Scanner;
 import Enums.OrderStatus;
 import Stores.Order;
 import Stores.OrderTextDB;
-
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+/**
+ * ChangeStatus class allows the staff to change the status of an order to COMPLETED.
+ */
 public class ChangeStatus {
 	
 	private static final Scanner sc = new Scanner(System.in);
-	
+	/**
+	 * Changes the status of an order to COMPLETED.
+	 * 
+	 * @param branch The branch where the order is located.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public static void changeStatus(String branch) throws IOException
 	{
 		int orderID;
@@ -51,7 +63,7 @@ public class ChangeStatus {
 	    
 	    Order o = null;
 	    
-	    Order newStatus = new Order(orderID, branch, OrderStatus.COLLECTED);
+	    Order newStatus = new Order(orderID, branch, OrderStatus.COMPLETED);
 	    
 	    OrderTextDB.updateOrder("order.txt", oldStatus, newStatus);
 	    
@@ -66,11 +78,7 @@ public class ChangeStatus {
 	    		o = order;
 	    		break;
 	    	}
-	    }
-	    
-	    
+	    }  
 	    System.out.println("Order Status: " + o.getOrderStatus());
 	}
-	
-
 }

@@ -5,13 +5,27 @@ import java.io.IOException;
 import java.util.List;
 import Stores.Staff;
 import Stores.Branch;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
-//define max staff and manager?
+/**
+ * CheckQuota class checks the quota of staff and managers in a branch.
+ */
 
 public class CheckQuota {
 
     private static int staffCount = 0, managerCount = 0;
 
+    /**
+     * Returns the number of staff in a branch.
+     * 
+     * @param b the branch to check
+     * @return the number of staff in the branch
+     * @throws IOException if an I/O error occurs when reading the staff list
+     */
     public static int staffQuota(Branch b) throws IOException {
         @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
@@ -22,6 +36,13 @@ public class CheckQuota {
         }
         return staffCount;
     }
+    /**
+     * Returns the number of managers in a branch.
+     * 
+     * @param b the branch to check
+     * @return the number of managers in the branch
+     * @throws IOException if an I/O error occurs when reading the staff list
+     */
 
     public static int managerQuota(Branch b) throws IOException {
         @SuppressWarnings("unchecked")
@@ -33,6 +54,13 @@ public class CheckQuota {
         }
         return managerCount;
     }
+    /**
+     * Returns the remaining staff quota in a branch.
+     * 
+     * @param b the branch to check
+     * @return the remaining staff quota in the branch
+     * @throws IOException if an I/O error occurs when reading the staff list
+     */
 
     public static int remainderStaffQuota(Branch b) throws IOException {
 
@@ -45,6 +73,13 @@ public class CheckQuota {
         else
             return max_s - s;
     }
+    /**
+     * Returns the remaining manager quota in a branch.
+     * 
+     * @param b the branch to check
+     * @return the remaining manager quota in the branch
+     * @throws IOException if an I/O error occurs when reading the staff list
+     */
 
     public static int remainderManagerQuota(Branch b) throws IOException {
 
@@ -74,6 +109,13 @@ public class CheckQuota {
         }
         return -1;
     }
+    /**
+     * Checks if the staff quota in a branch is exceeded.
+     * 
+     * @param b the branch to check
+     * @return true if the staff quota is not exceeded, false otherwise
+     * @throws IOException if an I/O error occurs when reading the staff list
+     */
 
     public static boolean checkStaffQuota(Branch b) throws IOException {
         int check;
@@ -90,6 +132,13 @@ public class CheckQuota {
         }
         return false;
     }
+    /**
+     * Checks if the manager quota in a branch is exceeded.
+     * 
+     * @param b the branch to check
+     * @return true if the manager quota is not exceeded, false otherwise
+     * @throws IOException if an I/O error occurs when reading the staff list
+     */
 
     public static boolean checkManagerQuota(Branch b) throws IOException {
         int check;

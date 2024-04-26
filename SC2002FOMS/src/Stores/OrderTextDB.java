@@ -10,12 +10,27 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import Enums.OrderStatus;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+/**
+ * OrderLineTextDB is a utility class that reads and writes OrderLine data to and from
+ * a text file.
+ */
 
 public class OrderTextDB {
 	
 	public static final String SEPARATOR = "|";
 
     // an example of reading
+    /**
+     * Reads the Order data from the specified file and returns a list of Order
+     * @param filename
+     * @return
+     * @throws IOException
+     */
 	public static ArrayList readOrder(String filename) throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
@@ -39,6 +54,13 @@ public class OrderTextDB {
 	}
 
   // an example of saving
+
+  /**
+   * Writes the Order data to the specified file.
+   * @param filename
+   * @param al
+   * @throws IOException
+   */
 public static void saveOrder(String filename, List al) throws IOException {
 		List alw = new ArrayList() ;// to store MenuItem data
 
@@ -54,18 +76,38 @@ public static void saveOrder(String filename, List al) throws IOException {
 			}
 			write(filename,alw);
 	}
+  // an example of adding
+  /**
+   * Adds an Order to the specified file.
+   * @param filename
+   * @param order
+   * @throws IOException
+   */
 
 public static void addOrder(String filename, Order order) throws IOException {
     List al = readOrder(filename);
     al.add(order);
     saveOrder(filename, al);
 }
+/**
+ * Removes an Order from the specified file.
+ * @param filename
+ * @param order
+ * @throws IOException
+ */
 
 public static void removeOrder(String filename, Order order) throws IOException {
     List al = readOrder(filename);
     al.remove(order);
     saveOrder(filename, al);
 }
+/**
+ * Updates an Order in the specified file.
+ * @param filename
+ * @param oldOrder
+ * @param newOrder
+ * @throws IOException
+ */
 
 public static void updateOrder(String filename, Order oldOrder, Order newOrder) throws IOException {
     List al = readOrder(filename);
@@ -78,8 +120,13 @@ public static void updateOrder(String filename, Order oldOrder, Order newOrder) 
     }
 }
 
-
   /** Write fixed content to the given file. */
+  /**
+   * Writes the given data to the specified file.
+   * @param fileName
+   * @param data
+   * @throws IOException
+   */
   public static void write(String fileName, List data) throws IOException  {
     PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -94,6 +141,12 @@ public static void updateOrder(String filename, Order oldOrder, Order newOrder) 
   }
 
   /** Read the contents of the given file. */
+  /**
+   * Reads the data from the specified file and returns a list of data.
+   * @param fileName
+   * @return
+   * @throws IOException
+   */
   public static List read(String fileName) throws IOException {
 	List data = new ArrayList() ;
     Scanner scanner = new Scanner(new FileInputStream(fileName));

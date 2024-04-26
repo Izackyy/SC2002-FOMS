@@ -8,7 +8,15 @@ import java.util.TimerTask;
 import Enums.OrderStatus;
 import Stores.Order;
 import Stores.OrderTextDB;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
+/**
+ * Handles the cancellation of orders.
+ */
 public class OrderCancellation {
     private Timer timer;
     private static OrderStatus os = null;
@@ -16,6 +24,13 @@ public class OrderCancellation {
     public OrderCancellation() {
         this.timer = new Timer();
     }
+
+	/**
+     * Schedules the cancellation of an order.
+     * @param orderID The ID of the order to cancel.
+     * @param branch The branch where the order was made.
+     * @throws IOException If an input/output error occurs.
+     */
 
     public void scheduleOrderCancellation(int orderID, String branch) throws IOException {
     	
@@ -45,7 +60,12 @@ public class OrderCancellation {
             }
         }, 30000*2); //5 * 60 * 1000); // parameter here is mil sec
     }
-
+	/**
+	 * Cancels an order.
+	 * @param orderID
+	 * @param branch
+	 * @throws IOException
+	 */
     public void cancelOrder(int orderID, String branch) throws IOException {
         
     	@SuppressWarnings("unchecked")

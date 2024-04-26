@@ -11,6 +11,16 @@ import Stores.OrderLine;
 import Stores.OrderLineTextDB;
 import Exceptions.ItemNotFoundException;
 import java.util.InputMismatchException;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+
+	/**
+ 	* The {@code Cart} class represents a shopping cart containing items selected by the customer.
+ 	* It includes methods for adding, removing, and editing items, as well as calculating the total price.
+ 	*/
 
 public class Cart {
 
@@ -18,10 +28,20 @@ public class Cart {
 
 	private static ArrayList<CartItem> cart;
 	private static final Scanner sc = new Scanner(System.in);
+	
 
 	public Cart() {
 		cart = new ArrayList<>(); // Initialize the cart ArrayList
 	}
+	/**
+     * Adds a menu item to the cart after validating its existence based on the provided name and branch.
+     * Prompts the user for item details such as name, quantity, and any customizations.
+     *
+     * @param branch The branch identifier to match the menu item.
+     * @throws IOException If an error occurs during reading the menu item from the file.
+     * @throws ItemNotFoundException If the item with the specified name does not exist.
+     * @throws InputMismatchException If an incorrect format is used for quantity.
+     */
 
 	public void addItem(String branch) {
 		String name;
@@ -68,6 +88,10 @@ public class Cart {
 			System.out.println("An unexpected error occurred: " + e.getMessage());
 		}
 	}
+	/**
+     * Removes a selected item from the cart. Prompts the user to select an item by number.
+     * Displays an error message if the cart is empty or if an invalid number is entered.
+     */
 
 	public void removeItem() {
 		if (cart.isEmpty()) {
@@ -94,6 +118,10 @@ public class Cart {
 		totalItems--;
 
 	}
+	/**
+     * Edits the quantity of a selected item in the cart. Prompts the user to select an item by number
+     * and to input a new quantity. Displays an error if the cart is empty or an invalid number is selected.
+     */
 
 	public void editItem() {
 		int newQuantity;
@@ -126,6 +154,10 @@ public class Cart {
 
 		System.out.println("Quantity updated.");
 	}
+	/**
+     * Prints all items in the cart with their quantities and names.
+     * Displays a message if the cart is empty.
+     */
 
 	public void printCart() {
 		int i = 1;
@@ -139,7 +171,12 @@ public class Cart {
 			}
 		}
 	}
-
+	/**
+     * Calculates the total price of all items in the cart based on their quantities and prices.
+     * Outputs each item's details to the console during calculation.
+     *
+     * @return double The total price of all items in the cart.
+     */
 	public double calculateCart() {
 		System.out.println("Items in the cart:");
 		double total = 0;
@@ -148,6 +185,11 @@ public class Cart {
 		}
 		return total;
 	}
+	/**
+     * Checks if the cart contains any items.
+     *
+     * @return boolean True if the cart has items, false otherwise.
+     */
 
 	public boolean checkItems() {
 		if (cart.isEmpty()) {
@@ -156,10 +198,22 @@ public class Cart {
 		return true;
 
 	}
+	/**
+     * Gets the total number of items in the cart.
+     *
+     * @return int The total count of items in the cart.
+     */
 
 	public int getTotalItems() {
 		return totalItems;
 	}
+	/**
+     * Adds all items in the cart as order lines to a specified order ID.
+     * Creates an OrderLine for each CartItem and writes it to the order line database.
+     *
+     * @param orderID The identifier of the order to which the items will be added.
+     * @throws IOException If an error occurs during writing to the order line file.
+     */
 
 	public void addOrderline(int orderID) throws IOException {
 		for (CartItem item : cart) {

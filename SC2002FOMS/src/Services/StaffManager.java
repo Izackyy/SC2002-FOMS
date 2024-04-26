@@ -6,14 +6,28 @@ import java.util.List;
 import java.util.Scanner;
 import Stores.Staff;
 import Stores.StaffTextDB;
+import View.StaffDisplay;
 import Stores.Branch;
 import Stores.BranchTextDB;
 import Enums.Role;
 import Enums.Gender;
 import Interfaces.IStaffManagement;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+/**
+ * StaffManager class allows the manager to manage staff accounts.
+ */
 
 public class StaffManager implements IStaffManagement {
     private static final Scanner sc = new Scanner(System.in);
+    /**
+     * Adds a new staff account to the system.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
 
     public void addStaffAcc() {
         try {
