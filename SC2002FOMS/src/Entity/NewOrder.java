@@ -15,6 +15,10 @@ import Stores.OrderTextDB;
 
 public class NewOrder {
 
+	/**
+ 	* Represents a new order made by a customer.
+ 	*/
+
 	// to include time and date
 
 	private Branch branch;

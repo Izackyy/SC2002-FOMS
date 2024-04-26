@@ -13,3 +13,8 @@ public interface IBranchManagement {
     void printBranch(String filename) throws IOException;
 
 }
+/**
+ * The {@code IBranchManagement} interface provides methods for managing branches.
+ * It supports adding, setting the status of, removing, and printing branch details to a file,
+ * with each method capable of throwing an {@code IOException} due to I/O operations.
+ */

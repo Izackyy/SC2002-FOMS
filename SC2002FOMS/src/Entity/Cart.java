@@ -18,6 +18,10 @@ public class Cart {
 
 	private static ArrayList<CartItem> cart;
 	private static final Scanner sc = new Scanner(System.in);
+	/**
+ 	* The {@code Cart} class represents a shopping cart containing items selected by the customer.
+ 	* It includes methods for adding, removing, and editing items, as well as calculating the total price.
+ 	*/
 
 	public Cart() {
 		cart = new ArrayList<>(); // Initialize the cart ArrayList

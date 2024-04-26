@@ -51,7 +51,7 @@ public class ChangeStatus {
 	    
 	    Order o = null;
 	    
-	    Order newStatus = new Order(orderID, branch, OrderStatus.COLLECTED);
+	    Order newStatus = new Order(orderID, branch, OrderStatus.COMPLETED);
 	    
 	    OrderTextDB.updateOrder("order.txt", oldStatus, newStatus);
 	    
@@ -66,11 +66,7 @@ public class ChangeStatus {
 	    		o = order;
 	    		break;
 	    	}
-	    }
-	    
-	    
+	    }  
 	    System.out.println("Order Status: " + o.getOrderStatus());
 	}
-	
-
 }

@@ -8,19 +8,33 @@ import Interfaces.IOrderManager;
 import Services.OrderManager;
 import Stores.AuthStore;
 
+/**
+ * StaffController extends the EmployeeController to provide general staff-related actions
+ * like displaying new orders, processing orders, and changing passwords.
+ * This controller serves as a base for more specific staff roles by providing common functionalities.
+ */
 public class StaffController extends EmployeeController {
     
     private static final Scanner sc = new Scanner(System.in);
     protected IOrderManager om;
-	
 
-	public StaffController(IOrderManager om) {
-		this.om = om;
-	}
+    /**
+     * Constructs a StaffController with an order manager to manage order-related actions.
+     * 
+     * @param om the order manager interface implementation that this controller will use.
+     */
+    public StaffController(IOrderManager om) {
+        this.om = om;
+    }
 
-    public void start() throws 	IOException{  // Removed 'throws IOException' because we are handling all IO exceptions inside
-		int selection = 0;
-		do {
+    /**
+     * Starts the interactive session for the staff, providing a menu of actions including
+     * order display, order processing, order details viewing, password changing, and quitting the session.
+     * Handles user inputs and exceptions related to order management tasks.
+     */
+    public void start() {
+        int selection = 0;
+        do {
             System.out.println("======Staff Actions======");
             System.out.println("1) Display New Orders");
             System.out.println("2) Process Order");
@@ -40,17 +54,17 @@ public class StaffController extends EmployeeController {
                     case 2:
                         try {
                             om.processOrder(AuthStore.getCurrentStaff().getBranch());
-                        } catch (Exception e) {  // Catch all exceptions from processOrder
+                        } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
                         break;
                     case 3:
-						try {
-							om.viewDetails();
-						} catch (Exception e) {  // Catch all exceptions from processOrder
-							System.out.println(e.getMessage());
-						}
-					break;
+                        try {
+                            om.viewDetails();
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                        break;
                     case 4:
                         changePassword();
                         break;
@@ -64,11 +78,11 @@ public class StaffController extends EmployeeController {
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a valid number.");
                 sc.next(); // Clear the incorrect input from scanner buffer
-            } catch (RuntimeException e) {  // Catching RuntimeException for general runtime issues, including unchecked exceptions
+            } catch (RuntimeException e) {
                 System.out.println("An error occurred: " + e.getMessage());
-            } catch (Exception e) {  // Catching Exception for general exceptions
-				System.out.println("An error occurred: " + e.getMessage());
-			}
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            }
         } while (selection != 5);
     }
 }
