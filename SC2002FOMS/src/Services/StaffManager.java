@@ -191,61 +191,84 @@ public class StaffManager implements IStaffManagement {
         }
     }
 
-    public void promoteStaff() {
-        try {
-            StaffTextDB.printStaffList("staff.txt");
-            System.out.println("Select a staff member (input number):");
-            int choice = sc.nextInt(); sc.nextLine();
-            List<Staff> staffList = StaffTextDB.readStaff("staff.txt");
-            Staff selectedStaff = staffList.get(choice - 1);
+    public void promoteStaff() throws IOException {
 
-            System.out.println("Promote " + selectedStaff.getName() + " ? <Y/N>");
-            if ("Y".equalsIgnoreCase(sc.nextLine())) {
-                if (selectedStaff.getRole() == Role.S) {
-                    selectedStaff.setRole(Role.M);
-                    StaffTextDB.updateStaff("staff.txt", selectedStaff, selectedStaff);
-                    System.out.println("Staff promoted successfully.");
+        int choice, i = 0;
+        String confirm;
+
+        // select staff
+        System.out.println("Select a staff member");
+        StaffTextDB.printStaffList("staff.txt");
+        List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
+        choice = sc.nextInt();
+        sc.nextLine();
+        Staff selectedStaff = staffs.get(choice - 1);
+        Staff oldRole = selectedStaff;
+        Staff newRole = oldRole;
+        List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
+        Branch b = null;
+        for (Branch branch : branches) {
+            if (selectedStaff.getBranch().equals(branch.getName())) {
+                b = branches.get(i);
+                break;
+            }
+            i++;
+        }
+
+        System.out.println("Promote " + selectedStaff.getName() + " ? <Y/N>");
+        confirm = sc.nextLine();
+        if (confirm.equalsIgnoreCase("Y")) {
+            if (selectedStaff.getRole().equals(Role.S)) {
+                if (!CheckQuota.checkManagerQuota(b)) {
+                    newRole.setRole(Role.M);
+                    StaffTextDB.updateStaff("staff.txt", oldRole, newRole);
+                    StaffTextDB.printStaffList("staff.txt");
+                    System.out.println("SStaff has been promoted successfully.\n");
                 }
             }
-        } catch (InputMismatchException e) {
-            System.err.println("Invalid input: " + e.getMessage());
-            sc.nextLine();  // consume the wrong input
-        } catch (IOException e) {
-            System.err.println("Failed to process input/output: " + e.getMessage());
-        } catch (Exception e) {
-            System.err.println("An error occurred: " + e.getMessage());
-        }
+        } else
+            return;
     }
 
-    public void transferStaff() {
-        try {
-            StaffTextDB.printStaffList("staff.txt");
-            System.out.println("Select a staff member (input number):");
-            int choice = sc.nextInt(); sc.nextLine();
-            List<Staff> staffList = StaffTextDB.readStaff("staff.txt");
-            Staff selectedStaff = staffList.get(choice - 1);
+    public void transferStaff() throws IOException {
 
-            System.out.println("Select a new branch:");
-            List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
-            branches.forEach(branch -> System.out.println(branch.getName()));
-            int branchChoice = sc.nextInt(); sc.nextLine();
-            Branch newBranch = branches.get(branchChoice - 1);
+        int choice;
 
-            selectedStaff.setBranch(newBranch.getName());
-            StaffTextDB.updateStaff("staff.txt", selectedStaff, selectedStaff);
-            System.out.println("Staff transferred successfully.");
-        } catch (InputMismatchException e) {
-            System.err.println("Invalid input: " + e.getMessage());
-            sc.nextLine();  // consume the wrong input
-        } catch (IOException e) {
-            System.err.println("Failed to process input/output: " + e.getMessage());
-        } catch (Exception e) {
-            System.err.println("An error occurred: " + e.getMessage());
+        // select staff
+        StaffTextDB.printStaffList("staff.txt");
+        List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
+        System.out.println("Select a staff member");
+        choice = sc.nextInt();
+        Staff selectedStaff = staffs.get(choice - 1);
+        Staff oldBranch = selectedStaff;
+        Staff newBranch = oldBranch;
+
+        // select branch
+        BranchManager bm = new BranchManager();
+        bm.printBranch("branch.txt");
+        List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
+        choice = sc.nextInt();
+        Branch b = branches.get(choice - 1);
+        newBranch.setBranch(b.getName());
+
+        // add input and branch check
+        // check staff
+        if (selectedStaff.getRole().equals(Role.S)) {
+            if (CheckQuota.checkStaffQuota(b)) {
+                StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
+                StaffTextDB.printStaffList("staff.txt");
+                System.out.println("Staff transferred successfully.\n");
+                return;
+            }
+        }
+        // check manager
+        else if (selectedStaff.getRole().equals(Role.M)) {
+            if (CheckQuota.checkManagerQuota(b)) {
+                StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
+                StaffTextDB.printStaffList("staff.txt");
+                System.out.println("Staff transferred successfully.\n");
+                return;
+            }
         }
     }
-
-    // Promote, Transfer, and Filter functions would be similar, adding try-catch blocks
-    // around the code previously discussed. Each would catch IOException, InputMismatchException,
-    // and general Exception, logging appropriate error messages and stopping the execution flow
-    // as you requested.
 }
