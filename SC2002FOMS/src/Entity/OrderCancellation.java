@@ -9,6 +9,9 @@ import Enums.OrderStatus;
 import Stores.Order;
 import Stores.OrderTextDB;
 
+/**
+ * Handles the cancellation of orders.
+ */
 public class OrderCancellation {
     private Timer timer;
     private static OrderStatus os = null;
@@ -16,6 +19,13 @@ public class OrderCancellation {
     public OrderCancellation() {
         this.timer = new Timer();
     }
+
+	/**
+     * Schedules the cancellation of an order.
+     * @param orderID The ID of the order to cancel.
+     * @param branch The branch where the order was made.
+     * @throws IOException If an input/output error occurs.
+     */
 
     public void scheduleOrderCancellation(int orderID, String branch) throws IOException {
     	

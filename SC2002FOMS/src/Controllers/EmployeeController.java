@@ -7,38 +7,49 @@ import Stores.AuthStore;
 import Stores.Staff;
 import Stores.StaffTextDB;
 
-/* This controller lays out the fundamental actions every employee in the branch can do in the system
-ie change password action, view order, process order etc
-all subclasses should be able to implement this, just need to inherit this method from superclass
+/**
+ * EmployeeController serves as a base class for all employee types within the system.
+ * It provides common functionalities such as changing passwords, viewing, and processing orders.
+ * This class is designed to be extended by other specific employee role controllers.
  */
+public class EmployeeController {
+    
+    private static final Scanner sc = new Scanner(System.in);
 
-public class EmployeeController{
-	
-	private static final Scanner sc = new Scanner(System.in);
+    /**
+     * Allows an employee to change their password.
+     * The method retrieves the current staff member's details, prompts for a new password,
+     * and updates the password if it is different from the old password.
+     * 
+     * @return true if the password was changed successfully, false if the new password is the same as the old password.
+     * @throws IOException if there is an issue reading from or writing to the staff database file.
+     */
+    protected static boolean changePassword() throws IOException {
+        String oldPassword;
+        String newPassword;
+        
+        // Retrieve the current staff details from the authentication store
+        Staff oldStaff = AuthStore.getCurrentStaff();
+        // Clone the current staff object to update the password
+        Staff newStaff = new Staff(oldStaff.getName(), oldStaff.getLoginID(), oldStaff.getRole(), oldStaff.getGender(), oldStaff.getAge(), oldStaff.getBranch(), oldStaff.getPassword());
+        
+        // Get the current password from the auth store
+        oldPassword = AuthStore.getCurrentStaff().getPassword();
+        
+        System.out.println("New password:");
+        newPassword = sc.nextLine();
+        
+        // Check if the new password is the same as the old password
+        if (oldPassword.equals(newPassword)) {
+            return false; // No change needed
+        }
 
-	
-	protected static boolean changePassword() throws IOException
-	{
-		String oldPassword;
-		String newPassword;
-		
-		Staff oldStaff = AuthStore.getCurrentStaff();
-		Staff newStaff = new Staff(oldStaff.getName(), oldStaff.getLoginID(), oldStaff.getRole(), oldStaff.getGender(), oldStaff.getAge(), oldStaff.getBranch(), oldStaff.getPassword());
-		
-		oldPassword = AuthStore.getCurrentStaff().getPassword();
-		
-		System.out.println("New password:");
-		newPassword = sc.nextLine();
-		
-		if (oldPassword.equals(newPassword))
-		{
-			return false;
-		}
-
-		newStaff.setPassword(newPassword);
-		
-		StaffTextDB.updateStaff("staff.txt", oldStaff , newStaff);
-		
-		return true;
-	}
+        // Set the new password
+        newStaff.setPassword(newPassword);
+        
+        // Update the staff record in the database
+        StaffTextDB.updateStaff("staff.txt", oldStaff, newStaff);
+        
+        return true; // Password changed successfully
+    }
 }
