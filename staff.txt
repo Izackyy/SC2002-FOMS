@@ -1,14 +1,7 @@
 kumar Blackmore|kumarB|S|M|32|NTU|password
-Alexei|Alexei|M|M|25|NTU|newpassword
-Tom Chan|TomC|S|M|56|JP|password
+Alexei|Alexei|M|M|25|NTU|password
+Tom Chan|TomC|M|M|56|JP|password
 Alica Ang|AlicaA|M|F|27|JE|password
-Mary lee|MaryL|M|F|44|UNASSIGNED|password
+Mary lee|MaryL|S|F|44|JE|password
 Justin Loh|JustinL|S|M|49|JP|password
 Boss|boss|A|F|62|NA|password
-Staff1|S1|S|M|21|NTU|password
-Staff2|S2|S|F|37|NTU|password
-Staff3|S3|S|M|20|NTU|password
-Staff4|S4|S|F|30|NTU|password
-Staff5|S5|S|M|42|NTU|password
-Staff6|S6|S|F|36|NTU|password
-Staff7|S7|S|M|22|NTU|password
