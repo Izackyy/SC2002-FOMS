@@ -6,6 +6,11 @@ import java.util.Scanner;
 import Stores.AuthStore;
 import Stores.Staff;
 import Stores.StaffTextDB;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * EmployeeController serves as a base class for all employee types within the system.

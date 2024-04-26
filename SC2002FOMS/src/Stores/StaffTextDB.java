@@ -12,11 +12,27 @@ import java.util.StringTokenizer;
 import Enums.Gender;
 import Enums.OrderStatus;
 import Enums.Role;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+
+/**
+ * StaffTextDB is a utility class that reads and writes Staff data to and from a text file.
+ */
 
 public class StaffTextDB {
 	public static final String SEPARATOR = "|";
 
 	// an example of reading
+	/**
+	 * Reads the Staff data from the specified file and returns a list of Staff
+	 * 
+	 * @param filename
+	 * @return
+	 * @throws IOException
+	 */
 	public static ArrayList readStaff(String filename) throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList) read(filename);
@@ -47,6 +63,13 @@ public class StaffTextDB {
 	}
 
 	// an example of saving
+	/**
+	 * Writes the Staff data to the specified file.
+	 * 
+	 * @param filename
+	 * @param al
+	 * @throws IOException
+	 */
 	public static void saveStaff(String filename, List al) throws IOException {
 		List alw = new ArrayList();// to store MenuItem data
 
@@ -70,19 +93,39 @@ public class StaffTextDB {
 		}
 		write(filename, alw);
 	}
-
+	// an example of adding
+	/**
+	 * Adds a Staff to the specified file.
+	 * 
+	 * @param filename
+	 * @param staff
+	 * @throws IOException
+	 */
 	public static void addStaff(String filename, Staff staff) throws IOException {
 		List al = readStaff(filename);
 		al.add(staff);
 		saveStaff(filename, al);
 	}
-
+	/**
+	 * Removes a Staff from the specified file.
+	 * 
+	 * @param filename
+	 * @param staff
+	 * @throws IOException
+	 */
 	public static void removeStaff(String filename, Staff staff) throws IOException {
 		List al = readStaff(filename);
 		al.remove(staff);
 		saveStaff(filename, al);
 	}
-
+	/**
+	 * Updates a Staff in the specified file.
+	 * 
+	 * @param filename
+	 * @param oldStaff
+	 * @param newStaff
+	 * @throws IOException
+	 */
 	public static void updateStaff(String filename, Staff oldStaff, Staff newStaff) throws IOException {
 		List al = readStaff(filename);
 		if (al.contains(oldStaff)) {
@@ -95,6 +138,13 @@ public class StaffTextDB {
 	}
 
 	/** Write fixed content to the given file. */
+	/**
+	 * Writes the given data to the specified file.
+	 * 
+	 * @param fileName
+	 * @param data
+	 * @throws IOException
+	 */
 	public static void write(String fileName, List data) throws IOException {
 		PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -108,6 +158,13 @@ public class StaffTextDB {
 	}
 
 	/** Read the contents of the given file. */
+	/**
+	 * Reads the contents of the given file.
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
 	public static List read(String fileName) throws IOException {
 		List data = new ArrayList();
 		Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -120,7 +177,12 @@ public class StaffTextDB {
 		}
 		return data;
 	}
-
+	/**
+	 * Prints the Staff list from the specified file.
+	 * 
+	 * @param filename
+	 * @throws IOException
+	 */
 	public static void printStaffList(String filename) throws IOException {
 		System.out.println("Staff List: ");
 		List<Staff> staffs = readStaff(filename);

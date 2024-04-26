@@ -8,11 +8,27 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+/*
+ * PaymentTextDB is a utility class that reads and writes Payment data to and from
+ * a text file.
+ */
 
 public class PaymentTextDB {
 	public static final String SEPARATOR = "|";
 
 	// an example of reading
+	/**
+	 * Reads the Payment data from the specified file and returns a list of Payment
+	 * 
+	 * @param filename
+	 * @return
+	 * @throws IOException
+	 */
 	public static ArrayList<Payment> readPaymentType(String filename) throws IOException {
 		ArrayList<String> stringArray = (ArrayList<String>) read(filename);
 		ArrayList<Payment> alr = new ArrayList<>();
@@ -31,6 +47,13 @@ public class PaymentTextDB {
 	}
 
 	// an example of saving
+	/**
+	 * Writes the Payment data to the specified file.
+	 * 
+	 * @param filename
+	 * @param al
+	 * @throws IOException
+	 */
 	public static void savePaymentType(String filename, List al) throws IOException {
 		List alw = new ArrayList();
 
@@ -42,13 +65,26 @@ public class PaymentTextDB {
 		}
 		write(filename, alw);
 	}
-
+	// an example of adding
+	/**
+	 * Adds a Payment object to the specified file.
+	 * 
+	 * @param filename
+	 * @param payment
+	 * @throws IOException
+	 */
 	public static void addPaymentType(String filename, Payment payment) throws IOException {
 		List al = readPaymentType(filename);
 		al.add(payment);
 		savePaymentType(filename, al);
 	}
-
+	/**
+	 * Removes a Payment object from the specified file.
+	 * 
+	 * @param filename
+	 * @param payment
+	 * @throws IOException
+	 */
 	public static void removePaymentType(String filename, Payment payment) throws IOException {
 		List al = readPaymentType(filename);
 		al.remove(payment);
@@ -56,6 +92,15 @@ public class PaymentTextDB {
 	}
 
 	/** Write fixed content to the given file. */
+	// an example of writing
+	
+	/**
+	 * Writes the given data to the specified file.
+	 * 
+	 * @param fileName
+	 * @param data
+	 * @throws IOException
+	 */
 	public static void write(String fileName, List data) throws IOException {
 		PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -69,6 +114,15 @@ public class PaymentTextDB {
 	}
 
 	/** Read the contents of the given file. */
+	// an example of reading
+
+	/**
+	 * Reads the contents of the specified file and returns a list of strings.
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
 	public static List read(String fileName) throws IOException {
 		List data = new ArrayList();
 		Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -81,7 +135,12 @@ public class PaymentTextDB {
 		}
 		return data;
 	}
-
+	/**
+	 * Prints the Payment methods from the specified file.
+	 * 
+	 * @param filename
+	 * @throws IOException
+	 */
 	public static void printPaymentMethod(String filename) throws IOException {
 		System.out.println("Payment Methods: \n");
 		List<Payment> payments = readPaymentType(filename);
@@ -91,7 +150,14 @@ public class PaymentTextDB {
 			c++;
 		}
 	}
-
+	/**
+	 * Compares the input string to the names in the specified file.
+	 * 
+	 * @param filename
+	 * @param input
+	 * @return
+	 * @throws IOException
+	 */
 	public static boolean compareName(String filename, String input) throws IOException {
 		// Read names from the text file
 		List<Payment> names = readPaymentType(filename);

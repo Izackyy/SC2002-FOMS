@@ -1,3 +1,5 @@
+
+
 package Main;
 
 import java.io.IOException;
@@ -17,6 +19,12 @@ import Services.PaymentManager;
 import Services.StaffManager;
 import Stores.AuthStore;
 import Stores.Staff;
+
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * The {@code FomsApp} class is the main class that starts the application.
@@ -61,7 +69,7 @@ public class FomsApp {
 			}
 		}
 		
-		
-        //StaffTextDB.printStaffList();
+		System.out.println("Thank you for using FOMS!");
 	}
 }
+

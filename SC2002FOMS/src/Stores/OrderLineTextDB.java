@@ -10,12 +10,28 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import Enums.OrderStatus;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+/**
+ * OrderLineTextDB is a utility class that reads and writes OrderLine data to and from
+ * a text file.
+ */
 
 public class OrderLineTextDB {
 	
 	public static final String SEPARATOR = "|";
 
     // an example of reading
+
+	/**
+	 * Reads the OrderLine data from the specified file and returns a list of OrderLine
+	 * @param filename
+	 * @return
+	 * @throws IOException
+	 */
 	public static ArrayList readOrderLine(String filename) throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
@@ -39,6 +55,13 @@ public class OrderLineTextDB {
 	}
 
   // an example of saving
+
+  /**
+   * Writes the OrderLine data to the specified file.
+   * @param filename
+   * @param al
+   * @throws IOException
+   */
 public static void saveOrderLine(String filename, List al) throws IOException {
 		List alw = new ArrayList() ;// to store MenuItem data
 
@@ -57,6 +80,14 @@ public static void saveOrderLine(String filename, List al) throws IOException {
 			write(filename,alw);
 	}
 
+// an example of adding
+
+/**
+ * Adds an OrderLine to the specified file.
+ * @param filename
+ * @param orderLine
+ * @throws IOException
+ */
 public static void addOrder(String filename, OrderLine orderLine) throws IOException {
     List al = readOrderLine(filename);
     al.add(orderLine);
@@ -64,7 +95,7 @@ public static void addOrder(String filename, OrderLine orderLine) throws IOExcep
 }
 
 //assume we dont have to remove orderlines,, can keep track of total menuitems sold
-
+	
   /** Write fixed content to the given file. */
   public static void write(String fileName, List data) throws IOException  {
     PrintWriter out = new PrintWriter(new FileWriter(fileName));
@@ -80,6 +111,14 @@ public static void addOrder(String filename, OrderLine orderLine) throws IOExcep
   }
 
   /** Read the contents of the given file. */
+  // an example of reading
+
+  /**
+   * Reads the contents of the given file.
+   * @param fileName
+   * @return
+   * @throws IOException
+   */
   public static List read(String fileName) throws IOException {
 	List data = new ArrayList() ;
     Scanner scanner = new Scanner(new FileInputStream(fileName));

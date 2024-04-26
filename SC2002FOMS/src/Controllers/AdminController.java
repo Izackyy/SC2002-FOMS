@@ -1,3 +1,4 @@
+
 package Controllers;
 
 import java.io.IOException;
@@ -6,6 +7,12 @@ import java.util.Scanner;
 import Interfaces.IBranchManagement;
 import Interfaces.IPaymentManagement;
 import Interfaces.IStaffManagement;
+
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * AdminController extends the functionalities of EmployeeController to provide 

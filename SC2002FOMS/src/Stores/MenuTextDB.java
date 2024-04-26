@@ -11,6 +11,11 @@ import java.util.StringTokenizer;
 
 import Enums.Availability;
 import Enums.OrderStatus;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * MenuTextDB is a utility class that reads and writes MenuItem data to and from
@@ -128,6 +133,12 @@ public static void updateMenuItem(String filename, MenuItem oldItem, MenuItem ne
 
 
   /** Write fixed content to the given file. */
+  /**
+   * Writes the given data to the specified file.
+   * @param fileName
+   * @param data
+   * @throws IOException
+   */
   public static void write(String fileName, List data) throws IOException  
   {
     PrintWriter out = new PrintWriter(new FileWriter(fileName));
@@ -143,6 +154,12 @@ public static void updateMenuItem(String filename, MenuItem oldItem, MenuItem ne
   }
 
   /** Read the contents of the given file. */
+  /**
+   * Reads the contents of the specified file and returns a list of strings.
+   * @param fileName
+   * @return
+   * @throws IOException
+   */
   public static List read(String fileName) throws IOException {
 	List data = new ArrayList() ;
     Scanner scanner = new Scanner(new FileInputStream(fileName));

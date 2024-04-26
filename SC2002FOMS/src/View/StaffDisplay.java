@@ -7,9 +7,18 @@ import Enums.Gender;
 import Enums.Role;
 import Stores.Staff;
 import Stores.StaffTextDB;
-
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
+/**
+ * StaffDisplay class allows the staff to view the staff list.
+ */
 public class StaffDisplay {
-	
+	/**
+	 * Prints the entire staff list.
+	 */
 	public static void printStaffList() //for admin to call, not required
 	  {
 		  String filename = "staff.txt" ;
@@ -27,7 +36,11 @@ public class StaffDisplay {
 				System.out.println("IOException > " + e.getMessage());
 			}
 	  	}
-	  
+	  /**
+	   * Prints the staff list of a specific branch.
+	   * 
+	   * @param branch The branch to print the staff list of.
+	   */
 	public static void printStaffList(String branch) //overload to call branch staff list
 	{
 		System.out.println("======Staff List @" + branch + "======");
@@ -51,6 +64,11 @@ public class StaffDisplay {
 	}
 	  
 	// --- for manager ---
+	/**
+	 * Prints the staff list of a specific age.
+	 * 
+	 * @param age The age to print the staff list of.
+	 */
 	public static void printStaffList(int age)
 	{
 		System.out.println("======Staff List (Age)======");
@@ -72,7 +90,10 @@ public class StaffDisplay {
 			System.out.println("IOException > " + e.getMessage());
 		}
 	}
-	  
+	/**
+	 * Prints the staff list of a specific gender
+	 * @param gender The gender to print the staff list of.
+	 */
 	public static void printStaffList(Gender gender)
 	{
 		System.out.println("======Staff List (Gender)======");
@@ -93,7 +114,11 @@ public class StaffDisplay {
 			System.out.println("IOException > " + e.getMessage());
 		}
 	}
-	  
+	  /**
+	   * Prints the staff list of a specific role.
+	   * 
+	   * @param role The role to print the staff list of.
+	   */
 	public static void printStaffList(Role role)
 	{
 		System.out.println("======Staff List (Role)======");

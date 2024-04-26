@@ -7,6 +7,11 @@ import Interfaces.IBranchManagement;
 import Stores.BranchTextDB;
 import Stores.Branch;
 import Enums.BranchStatus;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * Manages branch operations including adding, removing, printing, and setting the status of branches.

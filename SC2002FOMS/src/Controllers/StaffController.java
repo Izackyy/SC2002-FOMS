@@ -7,6 +7,11 @@ import java.util.Scanner;
 import Interfaces.IOrderManager;
 import Services.OrderManager;
 import Stores.AuthStore;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * StaffController extends the EmployeeController to provide general staff-related actions

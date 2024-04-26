@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.util.List;
 import Stores.Staff;
 import Stores.Branch;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * CheckQuota class checks the quota of staff and managers in a branch.

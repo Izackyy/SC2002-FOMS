@@ -11,6 +11,11 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import Enums.BranchStatus;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * BranchTextDB is a utility class that reads and writes Branch data to and from
@@ -81,6 +86,15 @@ public class BranchTextDB {
 	}
 
 	/** Write fixed content to the given file. */
+	// an example of writing
+
+	/**
+	 * Writes the given data to the specified file.
+	 * 
+	 * @param fileName The name of the file to write to.
+	 * @param data     The data to write.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public static void write(String fileName, List data) throws IOException {
 		PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
@@ -94,6 +108,15 @@ public class BranchTextDB {
 	}
 
 	/** Read the contents of the given file. */
+	// an example of reading
+
+	/**
+	 * Reads the data from the specified file and returns a list of strings.
+	 * 
+	 * @param fileName The name of the file to read from.
+	 * @return A list of strings.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public static List read(String fileName) throws IOException {
 		List data = new ArrayList();
 		Scanner scanner = new Scanner(new FileInputStream(fileName));

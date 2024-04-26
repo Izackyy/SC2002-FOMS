@@ -1,6 +1,11 @@
 package Entity;
 
 import Stores.MenuItem;
+/*
+ * @author Aaron Mari Santos Solis, Toh Jun Sheng, Dana Yak, Isaac Wong Jia Kai, Jamie Tan Pei Wen
+ * @version 1.0
+ * @since 2024-04-01
+ */
 
 /**
  * Represents an item in a shopping cart.
