@@ -1,0 +1,539 @@
+==== CONFIGS ====		
+{
+    "base_path": "/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src",
+    "out": "/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc",
+    "javadoc_executable": "/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home/bin/javadoc",
+    "exclude": [],
+    "raw_params": ""
+}
+
+==== COMMAND ====
+"/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home/bin/javadoc" 
+	-sourcepath "/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src" 
+	-d "/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc" 
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AdminController.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AuthController.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/CustomerController.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/EmployeeController.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/ManagerController.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/StaffController.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/Cart.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/CartItem.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/OrderCancellation.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/Receipt.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Availability.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/BranchStatus.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/DiningOption.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Gender.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Role.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Exceptions/ItemNotFoundException.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IBranchManagement.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IOrderManager.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IPayment.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IPaymentManagement.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IStaffManagement.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Main/FomsApp.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/AuthStaffService.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/BranchManager.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/ChangeStatus.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckQuota.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckStatus.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/OrderManager.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/PaymentManager.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/PaymentService.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/StaffManager.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/AuthStore.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Branch.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/BranchTextDB.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuItem.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Order.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLine.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderTextDB.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Payment.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/PaymentTextDB.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Staff.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/StaffTextDB.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/View/MenuDisplay.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/View/StaffDisplay.java"
+	"/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/module-info.java"
+
+
+==== JAVADOC OUTPUT ====
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AdminController.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AuthController.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/CustomerController.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/EmployeeController.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/ManagerController.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/StaffController.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/Cart.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/CartItem.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/OrderCancellation.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/Receipt.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Availability.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/BranchStatus.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/DiningOption.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Gender.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Role.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Exceptions/ItemNotFoundException.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IBranchManagement.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IOrderManager.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IPayment.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IPaymentManagement.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IStaffManagement.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Main/FomsApp.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/AuthStaffService.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/BranchManager.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/ChangeStatus.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckQuota.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckStatus.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/OrderManager.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/PaymentManager.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/PaymentService.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/StaffManager.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/AuthStore.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Branch.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/BranchTextDB.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuItem.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Order.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLine.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderTextDB.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Payment.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/PaymentTextDB.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Staff.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/StaffTextDB.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/View/MenuDisplay.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/View/StaffDisplay.java...
+Loading source file /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/module-info.java...
+Constructing Javadoc information...
+Creating destination directory: "/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/"
+Building index for all the packages and classes...
+Standard Doclet version 22.0.1+8-16
+Building tree for all the packages and classes...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/AdminController.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AdminController.java:26: warning: no comment
+    protected IPaymentManagement pm;
+                                 ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/EmployeeController.java:60: warning: no comment
+	public void start()	throws IOException{
+	            ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/AuthController.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AuthController.java:18: warning: no comment
+    public static AuthStaffService authService;
+                                   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AuthController.java:15: warning: use of default constructor, which does not provide a comment
+public class AuthController {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/AuthStaffService.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/AuthStaffService.java:18: warning: use of default constructor, which does not provide a comment
+public class AuthStaffService {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/AuthStore.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/AuthStore.java:10: warning: use of default constructor, which does not provide a comment
+public class AuthStore {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Enums/Availability.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Availability.java:17: warning: no comment
+public enum Availability {
+       ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Availability.java:19: warning: no comment
+    AVAILABLE,
+    ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Availability.java:21: warning: no comment
+    UNAVAILABLE
+    ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/Branch.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Branch.java:69: error: @param name not found
+	 * @param name The new name of the branch.
+	          ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Branch.java:82: error: @param name not found
+	 * @param location The new location of the branch.
+	          ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Branch.java:85: warning: no @param for a
+	public boolean setBranchStatus(int a) {
+	               ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Branch.java:85: warning: no @return
+	public boolean setBranchStatus(int a) {
+	               ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Branch.java:103: error: @param name not found
+	 * @param staffQuota The new staff quota of the branch.
+	          ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Branch.java:106: warning: no @return
+	public boolean isOpen() {
+	               ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/BranchManager.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/BranchManager.java:20: warning: use of default constructor, which does not provide a comment
+public class BranchManager implements IBranchManagement {
+       ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IBranchManagement.java:16: warning: no comment
+    void addBranch() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IBranchManagement.java:18: warning: no comment
+    void setBranchStatus() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IBranchManagement.java:20: warning: no comment
+    void removeBranch() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IBranchManagement.java:22: warning: no comment
+    void printBranch(String filename) throws IOException;
+         ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Enums/BranchStatus.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/BranchStatus.java:17: warning: no comment
+public enum BranchStatus {
+       ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/BranchStatus.java:21: warning: no comment
+    CLOSED
+    ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/BranchStatus.java:19: warning: no comment
+    OPEN,
+    ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/BranchTextDB.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/BranchTextDB.java:27: warning: no comment
+	public static final String SEPARATOR = "|";
+	                           ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/BranchTextDB.java:25: warning: use of default constructor, which does not provide a comment
+public class BranchTextDB {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Entity/Cart.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/Cart.java:41: error: exception not thrown: java.io.IOException
+     * @throws IOException If an error occurs during reading the menu item from the file.
+               ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/Cart.java:42: error: exception not thrown: Exceptions.ItemNotFoundException
+     * @throws ItemNotFoundException If the item with the specified name does not exist.
+               ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/Cart.java:33: warning: no comment
+	public Cart() {
+	       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Entity/CartItem.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/ChangeStatus.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/ChangeStatus.java:18: warning: use of default constructor, which does not provide a comment
+public class ChangeStatus {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/CheckQuota.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckQuota.java:18: warning: use of default constructor, which does not provide a comment
+public class CheckQuota {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/CheckStatus.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckStatus.java:18: warning: use of default constructor, which does not provide a comment
+public class CheckStatus {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/CustomerController.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/CustomerController.java:25: warning: use of default constructor, which does not provide a comment
+public class CustomerController {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Enums/DiningOption.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/DiningOption.java:17: warning: no comment
+public enum DiningOption {
+       ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/DiningOption.java:19: warning: no comment
+    DINE_IN,
+    ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/DiningOption.java:21: warning: no comment
+    TAKEAWAY;
+    ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/EmployeeController.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/EmployeeController.java:20: warning: use of default constructor, which does not provide a comment
+public class EmployeeController {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Main/FomsApp.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Main/FomsApp.java:33: warning: use of default constructor, which does not provide a comment
+public class FomsApp {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Enums/Gender.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Gender.java:17: warning: no comment
+public enum Gender {
+       ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Gender.java:21: warning: no comment
+    F  // Female
+    ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/Gender.java:19: warning: no comment
+    M, // Male
+    ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Interfaces/IBranchManagement.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Interfaces/IOrderManager.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IOrderManager.java:15: warning: no comment
+    void displayNewOrder(String branch) throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IOrderManager.java:16: warning: no comment
+    void processOrder(String branch) throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IOrderManager.java:17: warning: no comment
+    void viewDetails() throws IOException;
+         ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Interfaces/IPayment.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IPayment.java:12: warning: no comment
+    public abstract void processPayment();
+                         ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Interfaces/IPaymentManagement.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IPaymentManagement.java:15: warning: no comment
+    void addPaymentMethod() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IPaymentManagement.java:19: warning: no comment
+    void editPayment() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IPaymentManagement.java:17: warning: no comment
+    void removePaymentMethod() throws IOException;
+         ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Interfaces/IStaffManagement.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IStaffManagement.java:14: warning: no comment
+    void addStaffAcc() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IStaffManagement.java:16: warning: no comment
+    void editStaffAcc() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IStaffManagement.java:17: warning: no comment
+    void filterStaff() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IStaffManagement.java:18: warning: no comment
+    void promoteStaff() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IStaffManagement.java:15: warning: no comment
+    void removeStaffAcc() throws IOException;
+         ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Interfaces/IStaffManagement.java:19: warning: no comment
+    void transferStaff() throws IOException;
+         ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Exceptions/ItemNotFoundException.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Exceptions/ItemNotFoundException.java:15: warning: no comment
+public class ItemNotFoundException extends Exception {
+       ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Exceptions/ItemNotFoundException.java:16: warning: no comment
+    public ItemNotFoundException(String message) {
+           ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/ManagerController.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/View/MenuDisplay.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/View/MenuDisplay.java:18: warning: use of default constructor, which does not provide a comment
+public class MenuDisplay {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/MenuItem.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/MenuTextDB.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:31: warning: no description for @param
+	 * @param filename
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:32: warning: no description for @return
+	 * @return
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:33: warning: no description for @throws
+	 * @throws IOException
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:64: warning: no description for @param
+   * @param filename
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:65: warning: no description for @param
+   * @param al
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:66: warning: no description for @throws
+   * @throws IOException
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:138: warning: no description for @param
+   * @param fileName
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:139: warning: no description for @param
+   * @param data
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:140: warning: no description for @throws
+   * @throws IOException
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:159: warning: no description for @param
+   * @param fileName
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:160: warning: no description for @return
+   * @return
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:161: warning: no description for @throws
+   * @throws IOException
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:25: warning: no comment
+	public static final String SEPARATOR = "|";
+	                           ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/MenuTextDB.java:24: warning: use of default constructor, which does not provide a comment
+public class MenuTextDB {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Entity/NewOrder.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java:41: warning: no description for @param
+	 * @param branch
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java:51: warning: no description for @param
+	 * @param branch
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java:52: warning: no description for @throws
+	 * @throws IOException
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java:143: warning: no description for @return
+	 * @return
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java:150: warning: no description for @return
+	 * @return
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java:158: warning: no description for @return
+	 * @return
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/NewOrder.java:33: warning: no comment
+	public static int orderID;
+	                  ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/Order.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Entity/OrderCancellation.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/OrderCancellation.java:65: warning: no description for @param
+	 * @param orderID
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/OrderCancellation.java:66: warning: no description for @param
+	 * @param branch
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/OrderCancellation.java:67: warning: no description for @throws
+	 * @throws IOException
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Entity/OrderCancellation.java:24: warning: no comment
+    public OrderCancellation() {
+           ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/OrderLine.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLine.java:70: error: @param name not found
+	 * @param quantity The new quantity.
+	          ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/OrderLineTextDB.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:31: warning: no description for @param
+	 * @param filename
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:32: warning: no description for @return
+	 * @return
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:33: warning: no description for @throws
+	 * @throws IOException
+	   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:61: warning: no description for @param
+   * @param filename
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:62: warning: no description for @param
+   * @param al
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:63: warning: no description for @throws
+   * @throws IOException
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:87: warning: no description for @param
+ * @param filename
+   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:88: warning: no description for @param
+ * @param orderLine
+   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:89: warning: no description for @throws
+ * @throws IOException
+   ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:100: warning: no @param for fileName
+  public static void write(String fileName, List data) throws IOException  {
+                     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:100: warning: no @param for data
+  public static void write(String fileName, List data) throws IOException  {
+                     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:100: warning: no @throws for java.io.IOException
+  public static void write(String fileName, List data) throws IOException  {
+                     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:118: warning: no description for @param
+   * @param fileName
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:119: warning: no description for @return
+   * @return
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:120: warning: no description for @throws
+   * @throws IOException
+     ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:25: warning: no comment
+	public static final String SEPARATOR = "|";
+	                           ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderLineTextDB.java:23: warning: use of default constructor, which does not provide a comment
+public class OrderLineTextDB {
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/OrderManager.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/OrderManager.java:100: error: @param name not found
+	 * @param branch The branch where the order is located.
+	          ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/OrderManager.java:24: warning: use of default constructor, which does not provide a comment
+public class OrderManager implements IOrderManager{
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Enums/OrderStatus.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java:19: warning: no comment
+public enum OrderStatus {
+       ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java:25: warning: no comment
+	CANCELLED,
+	^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java:27: warning: no comment
+	COMPLETED
+	^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java:21: warning: no comment
+	PROCESSING,
+	^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java:23: warning: no comment
+	READY_TO_PICKUP,
+	^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/OrderTextDB.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderTextDB.java:30: warning: no description for @param
+     * @param filename
+       ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/Payment.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/PaymentManager.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/PaymentService.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/PaymentTextDB.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Entity/Receipt.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Enums/Role.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/Staff.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Staff.java:102: error: @param name not found
+	 * @param name The new name of the staff member.
+	          ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Staff.java:111: error: @param name not found
+	 * @param role The new role of the staff member.
+	          ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Staff.java:121: error: @param name not found
+	 * @param branch The new branch of the staff member.
+	          ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Staff.java:129: error: @param name not found
+	 * @param password The new password of the staff member.
+	          ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/Staff.java:137: error: @param name not found
+	 * @param name The new name of the staff member.
+	          ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/StaffController.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/View/StaffDisplay.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/StaffManager.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/StaffManager.java:29: error: exception not thrown: java.io.IOException
+     * @throws IOException if an error occurs during file operations
+               ^
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/StaffTextDB.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Entity/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Entity/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Enums/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Enums/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Exceptions/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Exceptions/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Interfaces/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Interfaces/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Main/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Main/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/View/package-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/View/package-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/module-summary.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/constant-values.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/serialized-form.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/overview-tree.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/allclasses-index.html...
+Building index for all classes...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/allpackages-index.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/index-all.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/search.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/index.html...
+Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/help-doc.html...
+13 errors
+100 warnings
+
+
