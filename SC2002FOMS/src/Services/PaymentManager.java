@@ -6,11 +6,17 @@ import java.util.List;
 import Interfaces.IPaymentManagement;
 import Stores.Payment;
 import Stores.PaymentTextDB;
-
+/**
+ * PaymentManager class allows the staff to add, remove, and edit payment methods.
+ */
 public class PaymentManager implements IPaymentManagement {
 
     private static final Scanner sc = new Scanner(System.in);
-
+    /**
+     * Adds a new payment method to the system.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
     @Override
     public void addPaymentMethod() throws IOException {
 
@@ -30,7 +36,11 @@ public class PaymentManager implements IPaymentManagement {
         PaymentTextDB.printPaymentMethod("payment.txt");
         return;
     }
-
+    /**
+     * Removes an existing payment method from the system.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
     @Override
     public void removePaymentMethod() throws IOException {
 
@@ -54,7 +64,11 @@ public class PaymentManager implements IPaymentManagement {
         }
         return;
     }
-
+    /**
+     * Edits the payment methods by allowing the user to add or remove payment methods.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
     @Override
     public void editPayment() throws IOException {
 

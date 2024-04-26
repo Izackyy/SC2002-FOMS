@@ -39,7 +39,7 @@ public class AdminController extends EmployeeController {
      * 
      * @throws IOException if an I/O error occurs
      */
-    public void start() throws IOException {
+    public void start() throws IOException{
         int selection;
 
         do {

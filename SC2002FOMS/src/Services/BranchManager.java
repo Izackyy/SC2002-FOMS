@@ -8,9 +8,20 @@ import Stores.BranchTextDB;
 import Stores.Branch;
 import Enums.BranchStatus;
 
+/**
+ * Manages branch operations including adding, removing, printing, and setting the status of branches.
+ * Implements the IBranchManagement interface.
+ */
 public class BranchManager implements IBranchManagement {
 
     private static final Scanner sc = new Scanner(System.in);
+    /**
+     * Adds a new branch after ensuring it does not already exist in the branch list.
+     * This method prompts the user for the branch's name, location, and staff quota, and
+     * automatically sets its status to OPEN. The new branch is then added to the branch list.
+     * 
+     * @throws IOException If an error occurs during file operations.
+     */
 
     @Override
     public void addBranch() throws IOException {
@@ -35,12 +46,18 @@ public class BranchManager implements IBranchManagement {
 
         // assumption that every new branch added will be set as open
 
-        System.out.println("Branch has been succesfully added");
+        System.out.println("Branch has been successfully added");
 
         Branch branch = new Branch(name, location, staffQuota, BranchStatus.OPEN);
         BranchTextDB.addBranch("branch.txt", branch);
     }
-
+    /**
+     * Sets the status of an existing branch to either OPEN or CLOSED based on user input.
+     * The method lists all branches, allows the user to select a branch, and prompts for the new status.
+     * It validates the input and updates the branch's status if the input is valid.
+     * 
+     * @throws IOException If an error occurs during file operations.
+     */
     @Override
     public void setBranchStatus() throws IOException {
         // TODO Auto-generated method stub
@@ -71,6 +88,13 @@ public class BranchManager implements IBranchManagement {
         printBranch("branch.txt");
         System.out.println("Branch status updated successfully.\n");
     }
+    /**
+     * Removes a branch specified by the user from the branch list.
+     * This method prompts the user to enter the name of the branch to be removed,
+     * checks if it exists, and removes it from the list if it does.
+     * 
+     * @throws IOException If an error occurs during file operations.
+     */
 
     @Override
     public void removeBranch() throws IOException {
@@ -103,6 +127,13 @@ public class BranchManager implements IBranchManagement {
             System.out.println("Branch does not exist");
         }
     }
+    /**
+     * Prints all branches along with their status from the branch list.
+     * This method reads the branch list from a file and displays each branch with its status.
+     * 
+     * @param filename The name of the file containing the branch information.
+     * @throws IOException If an error occurs during file operations.
+     */
 
     @Override
     public void printBranch(String filename) throws IOException {

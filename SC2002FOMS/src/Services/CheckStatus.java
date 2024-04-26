@@ -6,11 +6,20 @@ import java.util.Scanner;
 
 import Stores.Order;
 import Stores.OrderTextDB;
+/**
+ * CheckStatus class allows the staff to check the status of an order.
+ */
 
 public class CheckStatus {
 
 	
 	private static final Scanner sc = new Scanner(System.in);
+	/**
+	 * Checks the status of an order.
+	 * 
+	 * @param branch The branch where the order is located.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	
 	public static void check(String branch) throws IOException
 	{

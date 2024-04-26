@@ -12,10 +12,18 @@ import Enums.Role;
 import Enums.Gender;
 
 import Interfaces.IStaffManagement;
+/**
+ * StaffManager class allows the manager to manage staff accounts.
+ */
 
 public class StaffManager implements IStaffManagement {
 
     private static final Scanner sc = new Scanner(System.in);
+    /**
+     * Adds a new staff account to the system.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
 
     public void addStaffAcc() throws IOException {
         System.out.println("Name:");
@@ -74,7 +82,11 @@ public class StaffManager implements IStaffManagement {
         StaffTextDB.addStaff("staff.txt", staff);
 
     }
-
+    /**
+     * Removes an existing staff account from the system.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
     public void removeStaffAcc() throws IOException {
         StaffTextDB.printStaffList("staff.txt");
         System.out.println("Enter Staff Name:");
@@ -96,7 +108,11 @@ public class StaffManager implements IStaffManagement {
         }
     }
 
-    
+    /**
+     * Edits an existing staff account in the system.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
     public void editStaffAcc() throws IOException {
         String yesNo;
         Staff oldStaff = null;
@@ -150,7 +166,11 @@ public class StaffManager implements IStaffManagement {
         }
         StaffTextDB.updateStaff("staff.txt", oldStaff, newStaff);
     }
-
+    /**
+     * Edits the staff accounts by allowing the user to add, remove, or edit staff accounts.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
     @Override
     public void editStaff() throws IOException {
         System.out.println("===========Staff Editor==========");
@@ -174,7 +194,10 @@ public class StaffManager implements IStaffManagement {
         }
         System.out.println("Staff details have been updated");
     }
-
+    /**
+     * Filters the staff accounts
+     * 
+     * */
     @Override
     public void filterStaff() throws IOException {
 
@@ -242,7 +265,11 @@ public class StaffManager implements IStaffManagement {
 
         }
     }
-
+    /**
+     * Promotes a staff member to a manager.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
     @Override
     public void promoteStaff() throws IOException {
 
@@ -283,7 +310,12 @@ public class StaffManager implements IStaffManagement {
         } else
             return;
     }
-
+    
+    /**
+     * Transfers a staff member to another branch.
+     * 
+     * @throws IOException if an error occurs during file operations
+     */
     @Override
     public void transferStaff() throws IOException {
 

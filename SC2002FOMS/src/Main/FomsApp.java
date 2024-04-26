@@ -18,10 +18,18 @@ import Services.StaffManager;
 import Stores.AuthStore;
 import Stores.Staff;
 
-
+/**
+ * The {@code FomsApp} class is the main class that starts the application.
+ * It checks the role of the current user and starts the appropriate controller.
+ */
 public class FomsApp {
 	
-
+	/**
+	 * The main method of the application.
+	 * It starts the application by checking the role of the current user and starting the appropriate controller.
+	 * @param aArgs The arguments passed to the application.
+	 * @throws IOException If an I/O error occurs.
+	 */
 	public static void main(String[]aArgs) throws IOException
 	{
 		AuthController.start(); //to log in

@@ -32,12 +32,12 @@ public class ManagerController extends StaffController {
     }
 
     /**
-     * Starts the interactive session for the manager, providing a menu of managerial actions.
-     * This includes viewing new orders, processing orders, editing the menu, and managing staff.
-     * 
-     * @throws IOException if an input or output operation is failed or interpreted.
-     */
-public void start() {
+	 * Starts the interactive session for the manager, providing a menu of actions including
+	 * displaying new orders, processing orders, viewing order details, editing the menu, viewing staff list,
+	 * changing passwords, and quitting the session. Handles user inputs and exceptions related to order management tasks.
+	 */
+	@Override
+	public void start(){
         boolean success = false;
         int selection = 0;
         do {

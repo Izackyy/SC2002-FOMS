@@ -55,7 +55,12 @@ public class OrderCancellation {
             }
         }, 30000*2); //5 * 60 * 1000); // parameter here is mil sec
     }
-
+	/**
+	 * Cancels an order.
+	 * @param orderID
+	 * @param branch
+	 * @throws IOException
+	 */
     public void cancelOrder(int orderID, String branch) throws IOException {
         
     	@SuppressWarnings("unchecked")

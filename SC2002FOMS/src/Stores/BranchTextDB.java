@@ -12,11 +12,23 @@ import java.util.StringTokenizer;
 
 import Enums.BranchStatus;
 
+/**
+ * BranchTextDB is a utility class that reads and writes Branch data to and from
+ * a text file.
+ */
+
 public class BranchTextDB {
 
 	public static final String SEPARATOR = "|";
-
-	// an example of reading
+	
+	/**
+	 * Reads the branch data from the specified file and returns a list of Branch
+	 * objects.
+	 * 
+	 * @param filename The name of the file to read from.
+	 * @return A list of Branch objects.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public static ArrayList readBranchList(String filename) throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList) read(filename);
@@ -42,6 +54,14 @@ public class BranchTextDB {
 	}
 
 	// an example of saving
+
+	/**
+	 * Writes the branch data to the specified file.
+	 * 
+	 * @param filename The name of the file to write to.
+	 * @param al       The list of Branch objects to write.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public static void saveBranch(String filename, List al) throws IOException {
 		List alw = new ArrayList();// to store MenuItem data
 
@@ -86,18 +106,41 @@ public class BranchTextDB {
 		}
 		return data;
 	}
+	
+	/**
+	 * Adds a new branch to the system.
+	 * 
+	 * @param filename The name of the file to write to.
+	 * @param branch The branch to add.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 
 	public static void addBranch(String filename, Branch branch) throws IOException {
 		List al = readBranchList(filename);
 		al.add(branch);
 		saveBranch(filename, al);
 	}
+	/**
+	 * Removes a branch from the system.
+	 * 
+	 * @param filename The name of the file to write to.
+	 * @param branch The branch to remove.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 
 	public static void removeBranch(String filename, Branch branch) throws IOException {
 		List al = readBranchList(filename);
 		al.remove(branch);
 		saveBranch(filename, al);
 	}
+	/**
+	 * Updates the status of a branch.
+	 * 
+	 * @param filename The name of the file to write to.
+	 * @param oldStatus The old status of the branch.
+	 * @param newStatus The new status of the branch.
+	 * @throws IOException If an error occurs during file operations.
+	 */
 
 	public static void updateBranchStatus(String filename, Branch oldStatus, Branch newStatus) throws IOException {
 		List al = readBranchList(filename);

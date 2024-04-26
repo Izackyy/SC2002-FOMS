@@ -6,11 +6,17 @@ import java.util.List;
 
 import Stores.Payment;
 import Stores.PaymentTextDB;
-
+/**
+ * PaymentService class allows the staff to select a payment method.
+ */
 public class PaymentService {
 
 	private static Payment payment;
-
+	/**
+	 * Starts the payment process.
+	 * 
+	 * @throws IOException If an error occurs during file operations.
+	 */
 	public static void start() throws IOException {
 
 		int choice;
@@ -28,33 +34,3 @@ public class PaymentService {
 		selectedPayment.processPayment();
 	}
 }
-
-/*
- * int selection;
- * System.out.println("Please select payment method");
- * System.out.println("1) Cash");
- * System.out.println("2) Credit/Debit");
- * System.out.println("3) Paypal");
- * 
- * Scanner sc = new Scanner(System.in);
- * selection = sc.nextInt();
- * sc.nextLine(); //input buffer
- * 
- * switch(selection)
- * {
- * case(1):
- * payment = new Cash();
- * break;
- * case(2):
- * payment = new CreditDebit();
- * break;
- * case(3):
- * payment = new Epayment();
- * break;
- * }
- * 
- * payment.processPayment();
- * }
- * 
- * }
- */
