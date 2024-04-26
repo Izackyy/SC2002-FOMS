@@ -8,6 +8,6 @@ public enum OrderStatus {
 	
 	CANCELLED,
 	
-	COLLECTED
+	COMPLETED
 
 }
