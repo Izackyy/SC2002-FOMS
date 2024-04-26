@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import Enums.DiningOption;
 import Enums.OrderStatus;
-import Services.MenuDisplay;
+import View.MenuDisplay;
 import Services.PaymentService;
 import Stores.Branch;
 import Stores.Order;

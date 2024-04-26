@@ -10,8 +10,8 @@ import Interfaces.IOrderManager;
 import Stores.AuthStore;
 import Stores.MenuItem;
 import Stores.MenuTextDB;
-import Services.MenuDisplay;
-import Services.StaffDisplay;
+import View.MenuDisplay;
+import View.StaffDisplay;
 
 public class ManagerController extends StaffController // inheritence
 {
