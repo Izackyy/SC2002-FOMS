@@ -15,7 +15,7 @@ public class AdminController extends EmployeeController {
 	protected IPaymentManagement pm;
 
 	private static final Scanner sc = new Scanner(System.in);
-
+	
 	public AdminController(IBranchManagement bm, IStaffManagement sm, IPaymentManagement pm) {
 		this.bm = bm;
 		this.sm = sm;
