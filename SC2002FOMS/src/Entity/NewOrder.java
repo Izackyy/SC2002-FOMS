@@ -99,13 +99,16 @@ public class NewOrder {
 
 		while (selection < 1 || selection > 2) {
 			selection = sc.nextInt();
-		}
-		sc.nextLine(); // input buffer;
 
 		if (selection == 1) {
 			order.option = DiningOption.DINE_IN;
+		} else if (selection == 2) {
+			order.option = DiningOption.TAKEAWAY;
+		} else {
+			System.out.println("Invalid selection. Please try again.");
 		}
-
+	}
+		
 		// check out
 		PaymentService.start();
 		Receipt receipt = new Receipt();

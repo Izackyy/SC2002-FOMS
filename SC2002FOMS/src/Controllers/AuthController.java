@@ -56,7 +56,7 @@ public class AuthController {
                         System.out.println("Invalid option. Please select 1, 2, or 3.");
                         continue;
                 }
-
+    
                 System.out.println("UserID: ");
                 String userID = sc.nextLine();
                 if (userID.isEmpty()) {

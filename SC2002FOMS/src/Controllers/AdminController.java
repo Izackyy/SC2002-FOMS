@@ -65,37 +65,37 @@ public class AdminController extends EmployeeController {
 
             selection = sc.nextInt();
 
-            switch (selection) {
-                case (1):
-                    sm.editStaff();
-                    break;
-                case (2):
-                    sm.filterStaff();
-                    break;
-                case (3):
-                    sm.promoteStaff();
-                    break;
-                case (4):
-                    sm.transferStaff();
-                    break;
-                case (5):
-                    pm.editPayment();
-                    break;
-                case (6):
-                    bm.setBranchStatus();
-                    break;
-                case (7):
-                    bm.addBranch();
-                    break;
-                case (8):
-                    sc.nextLine(); // clears the input buffer
-                    bm.removeBranch();
-                    break;
-                case (9):
-                    changePassword();
-                default:
-                    return;
-            }
+			switch (selection) {
+				case (1):
+					sm.editStaffAcc();
+					break;
+				case (2):
+					sm.filterStaff();
+					break;
+				case (3):
+					sm.promoteStaff();
+					break;
+				case (4):
+					sm.transferStaff();
+					break;
+				case (5):
+					pm.editPayment();
+					break;
+				case (6):
+					bm.setBranchStatus();
+					break;
+				case (7):
+					bm.addBranch();
+					break;
+				case (8):
+					sc.nextLine();// input buffer
+					bm.removeBranch();
+					break;
+				case (9):
+					changePassword();
+				default:
+					return;
+			}
 
         } while (selection != 10);
     }
