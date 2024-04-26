@@ -43,7 +43,7 @@ public class AdminController extends EmployeeController {
 
 			switch (selection) {
 				case (1):
-					sm.editStaff();
+					sm.editStaffAcc();
 					break;
 				case (2):
 					sm.filterStaff();
@@ -66,7 +66,6 @@ public class AdminController extends EmployeeController {
 				case (8):
 					sc.nextLine();// input buffer
 					bm.removeBranch();
-					;
 					break;
 				case (9):
 					changePassword();
