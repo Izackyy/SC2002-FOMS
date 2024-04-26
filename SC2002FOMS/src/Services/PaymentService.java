@@ -14,7 +14,7 @@ public class PaymentService {
 	public static void start() throws IOException {
 
 		int choice;
-		try (Scanner sc = new Scanner(System.in)) {
+		Scanner sc = new Scanner(System.in); 
 			System.out.println("Select a payment type: ");
 			List<Payment> payments = PaymentTextDB.readPaymentType("payment.txt");
 			int c = 1;
@@ -25,7 +25,6 @@ public class PaymentService {
 			choice = sc.nextInt();
 			Payment selectedPayment = payments.get(choice - 1);
 			selectedPayment.processPayment();
-		}
 	}
 }
 
