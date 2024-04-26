@@ -11,13 +11,13 @@
 package Enums;
 
 public enum OrderStatus {
-    
-    PROCESSING,
-    
-    READY_TO_PICKUP,
-    
-    CANCELLED,
-    
-    COLLECTED
+	
+	PROCESSING,
+	
+	READY_TO_PICKUP,
+	
+	CANCELLED,
+	
+	COMPLETED
 
 }

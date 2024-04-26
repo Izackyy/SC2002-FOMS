@@ -16,11 +16,6 @@ public class Branch {
 		this.branchStatus = branchStatus;
 	}
 
-	public void setStaffQuota(String branch) // not sure if this is needed tho
-	{
-		this.staffQuota = staffQuota;
-	}
-
 	public String getName() {
 		return name;
 	}
