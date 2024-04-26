@@ -2,7 +2,7 @@
 
 [![](imgs/fypms.png)](https://pufanyi.github.io/FYPMS/)
 
-NTU AY2022/23 Semester 2 SC2002 Group Project - Food Order Management System (FOMS).
+NTU AY2023/24 Semester 2 SC2002 Group Project - Food Order Management System (FOMS).
 
 Food Order Management System (FOMS) is a Java console application that utilizes object-oriented concepts to efficiently manage streamlining the process of ordering, payment,
 and order management for both customers and staff at Fastfood restaurants. The program is designed with a focus on reusability, extensibility, and maintainability, allowing for easy upgrades and future development. It provides flexibility to accommodate different user types and their requirements.
@@ -15,11 +15,10 @@ The initial password for every user is `password`.
 - [GitHub Repository](https://github.com/Izackyy/SC2002-FOMS)
 - [Documentation](https://Izackyy.github.io/SC2002-FOMS/docs)
 - [Report](docs/report)
-- [Presentation Video](https://youtu.be/8FikWzfHlLA)
 
 ## Team Members
 
-We are a group 6 from tutorial group A50, Nanyang Technological University, Singapore. There are 4 members in our group:
+We are a group 6 from tutorial group FDAB, Nanyang Technological University, Singapore. There are 5 members in our group:
 
 | Name         | Github Account                                  | Email                 |
 |--------------|-------------------------------------------------|-----------------------|         
@@ -29,47 +28,36 @@ We are a group 6 from tutorial group A50, Nanyang Technological University, Sing
 | Toh Jun Sheng  | [jxxsheng](https://github.com/jxxsheng)   | [tohj0041@e.ntu.edu.sg](mailto:tohj0041@e.ntu.edu.sg)  |
 |Solis Aaron Mari Santos| [abomasumm](https://github.com/abomasumm)           | [aaron004@e.ntu.edu.sg](mailto:aaron004@e.ntu.edu.sg) |
 
-## Highlights
-
-- **Reflection**: The interface `Model` uses reflection to convert between classes and strings, enabling dynamic handling of model data without manual mapping.
-- **Generic Repository Class**: `Repository<Model>` class with generics allows for flexible data storage and retrieval for any model type, reducing duplication and improving maintainability.
-- **SHA-3 Password Encryption**: User passwords are encrypted using the SHA-3 algorithm for enhanced
-security.
-- **Batch CSV Data Import**: The system supports batch importing of initial data from CSV files, making it convenient to process large datasets in chunks.
-- **Factory Design Pattern**: The factory pattern is used to quickly generate requests based on different requirements, enhancing system scalability and adaptability.
-- **Data Syncing**: The system automatically saves data and synchronizes it with the database, ensuring that data is not lost in the event of a crash. Every data entry or update will be saved and reflected upon seperate runs.
-
-
 ## Features
 
-- [x] Student
-  - [x] View my profile
-  - [x] Change my password
-  - [x] View project list
-  - [x] View my project
-  - [x] View my supervisor
-  - [x] Register for a project
-  - [x] Deregister for a project
-  - [x] Change title for a project
-  - [x] View history and status of my requests
-- [x] Supervisor
-  - [x] View my profile
-  - [x] Change my password
-  - [x] Create a project
-  - [x] View all my projects
-  - [x] Modify title of projects
-  - [x] View all pending student requests
-  - [x] Approve/Reject student requests
-  - [x] Submit request for transferring
-  - [x] View all incoming/outgoing requests' history and status
-- [x] Supervisor
-  - [x] View My Profile
-  - [x] Change My Password
-  - [x] View All Projects
-  - [x] View Pending Requests
-  - [x] View All Requests' History and Status
-  - [x] Accept or Reject Requests
-  - [x] Generate Project Details
+- [x] Customer
+  - [x] Select branch
+  - [x] View menu of selected branch when ordering
+  - [x] Place a new order
+  - [x] Add, remove, edit items in cart
+  - [x] Make payments (Cash, Credit/Debit, E-payment)
+  - [x] Generate receipt
+  - [x] Check order status
+  - [x] Collect order 
+- [x] Staff
+  - [x] Display new orders in their branch
+  - [x] View details of a particular order
+  - [x] Process order
+- [x] Manager
+  - [x] Display new orders in their branch
+  - [x] View details of a particular order
+  - [x] Process order
+  - [x] Display staff list of branch supervised
+  - [x] Add, remove, edit menu items in their branch
+  - [x] Edit availiability of menu items
+- [x] Admin
+  - [x] Add, edit, remove staff accounts
+  - [x] Filter (branch, role etc) and display staff list
+  - [x] Assign managers to each branch within the quota constraint
+  - [x] Promote a staff to a Branch manager
+  - [x] Transfer a staff/manager among branches
+  - [x] Add/remove payment method
+  - [x] Open/close branch.
 
 ## Build
 
@@ -105,25 +93,18 @@ The main class is `src/main/Main.java`.
 
 The java class `src/test/HardReload.java` is used to hard reload the database.
 
+## Generating JavaDocs
+
+(to insert instructions)
+
 ## UML Class Diagram
 
 The uml diagram is generated by [draw.io](https://draw.io/).
 
-You can refer to the [project main page](https://pufanyi.github.io/FYPMS) for the UML class diagram.
+You can refer to the [project main page](https://github.com/Izackyy/SC2002-FOMS) for the UML class diagram.
 
 [Here](umls) is the source code of the UML class diagram.
 
-## BibTeX
-
-```bibtex
-@software{Pu_FYPMS_Final_Year_2023,
-  author  = {Pu, Fanyi and Jin, Qingyang and Soo, Ying Xi and Jiang, Jinyi},
-  month   = apr,
-  title   = {{FYPMS: Final Year Project Management System}},
-  year    = {2023}
-}
-```
-
 ## License
 
-[MIT](LICENSE) © Pu Fanyi, Jin Qingyang, Soo Ying Xi, Jiang Jinyi
+[MIT](LICENSE) © Jamie, Isaac, Aaron, Dana, Jun Sheng
