@@ -200,7 +200,7 @@ public class StaffManager implements IStaffManagement {
 
                 choice = sc.nextInt();
 
-                branch = al.get(selection - 1).getName();
+                branch = al.get(choice - 1).getName();
 
                 StaffDisplay.printStaffList(branch);
                 break;
