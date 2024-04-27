@@ -17,8 +17,6 @@ import Stores.Branch;
 
 public class CheckQuota {
 
-    private static int staffCount = 0, managerCount = 0;
-
     /**
      * Returns the number of staff in a branch.
      * 
@@ -27,6 +25,7 @@ public class CheckQuota {
      * @throws IOException if an I/O error occurs when reading the staff list
      */
     public static int staffQuota(Branch b) throws IOException {
+        int staffCount = 0;
         @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
         for (Staff s : staffs) {
@@ -45,6 +44,7 @@ public class CheckQuota {
      */
 
     public static int managerQuota(Branch b) throws IOException {
+        int managerCount = 0;
         @SuppressWarnings("unchecked")
         List<Staff> staffs = StaffTextDB.readStaff("staff.txt");
         for (Staff s : staffs) {
@@ -124,7 +124,7 @@ public class CheckQuota {
             System.out.println("Too many staffs in " + b.getName() + ". Remove some staffs.");
             return false;
         } else if (check == 0) {
-            System.out.println("No more staff slots left in" + b.getName() + ". Choose another branch.");
+            System.out.println("No more staff slots left in " + b.getName() + ". Choose another branch.");
             return false;
         } else if (check > 0) {
             System.out.println(check + " staff slot(s) remaining.");
@@ -147,7 +147,7 @@ public class CheckQuota {
             System.out.println("Too many managers in " + b.getName() + ". Remove some managers.");
             return false;
         } else if (check == 0) {
-            System.out.println("No more manager slots left in" + b.getName() + ". Choose another branch.");
+            System.out.println("No more manager slots left in " + b.getName() + ". Choose another branch.");
             return false;
         } else if (check > 0) {
             System.out.println(check + " manager slot(s) remaining.");
