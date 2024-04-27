@@ -42,8 +42,26 @@ public class StaffManager implements IStaffManagement {
                 }
             }
 
-            System.out.println("StaffID:");
-            String staffID = sc.nextLine();
+            String staffID = null;
+
+            boolean duplicate;
+            do
+            {
+                duplicate = false;
+                System.out.println("StaffID:");
+                staffID = sc.nextLine();
+
+                List<Staff> staffL = StaffTextDB.readStaff("staff.txt");
+                for (Staff staff : staffL) {
+                    if (staff.getLoginID().equals(staffID)){
+                        System.out.println("StaffID is already in use");
+                        duplicate = true;
+                        break;
+                    }
+                }
+                
+            }while (duplicate == true);
+
             System.out.println("Role: ");
             Role role = Role.valueOf(sc.nextLine().toUpperCase());
             System.out.println("Gender: ");
@@ -117,9 +135,28 @@ public class StaffManager implements IStaffManagement {
             System.out.println("Age: " + oldStaff.getAge());
 
             System.out.println("Update StaffID? (Y/N)");
+            String newLoginID = null;
             if ("Y".equalsIgnoreCase(sc.nextLine())) {
-                System.out.println("New Staff ID:");
-                oldStaff.setLoginID(sc.nextLine());
+                boolean duplicate;
+                do
+                {
+                    duplicate = false;
+                    System.out.println("New Staff ID:");
+                    newLoginID = sc.nextLine();
+
+                    List<Staff> staffL = StaffTextDB.readStaff("staff.txt");
+                    for (Staff staff : staffL) {
+                        if (staff.getLoginID().equals(newLoginID)){
+                            System.out.println("StaffID is already in use");
+                            duplicate = true;
+                            break;
+                        }
+                    }
+                
+                }while (duplicate == true);
+
+                oldStaff.setLoginID(newLoginID);
+
             }
 
             System.out.println("Update Password? (Y/N)");
