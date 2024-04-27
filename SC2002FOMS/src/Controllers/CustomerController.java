@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 import Entity.NewOrder;
 import Enums.BranchStatus;
@@ -63,21 +64,33 @@ public class CustomerController {
             System.out.println("4) Quit");
             System.out.println("=====================================");
             
-            selection = sc.nextInt();
+            try{
+
+                selection = sc.nextInt();
             
-            switch(selection) {
-                case(1):
-                    newOrder(branch);
-                    break;
+                switch(selection) {
+                    case(1):
+                        newOrder(branch);
+                        break;
                     
-                case(2):
-                    CheckStatus.check(branch.getName());
-                    break;
+                    case(2):
+                        CheckStatus.check(branch.getName());
+                        break;
                     
-                case(3):
-                    ChangeStatus.changeStatus(branch.getName());
-                    // Collect food change status
+                    case(3):
+                        ChangeStatus.changeStatus(branch.getName());
+                        // Collect food change status
+                }
+
             }
+            catch (InputMismatchException e) {
+                System.out.println("Please enter a valid number.");
+                sc.next(); // Clear the incorrect input from scanner buffer
+            } catch (RuntimeException e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            }   
         } while (selection != 4);
         
         System.out.println("Session end");
