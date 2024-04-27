@@ -1,6 +1,4 @@
- SC2002 Project 
-
-[![](imgs/fypms.png)](https://pufanyi.github.io/FYPMS/)
+# SC2002 Project 
 
 NTU AY2023/24 Semester 2 SC2002 Group Project - Food Order Management System (FOMS).
 
@@ -73,7 +71,6 @@ You can refer to [UML](https://github.com/Izackyy/SC2002-FOMS/blob/main/SC2002FO
 ## Report
 
 You can refer to the [report](https://github.com/Izackyy/SC2002-FOMS/blob/main/SC2002FOMS/SC2002%20Report.pdf) we created on this project.
-
 
 ## License
 
