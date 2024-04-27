@@ -1,4 +1,4 @@
- SC2002 Project 
+# SC2002 Project 
 
 [![](imgs/fypms.png)](https://pufanyi.github.io/FYPMS/)
 
