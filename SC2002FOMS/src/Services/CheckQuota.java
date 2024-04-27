@@ -71,7 +71,7 @@ public class CheckQuota {
         if (max_s - s < 0)
             return -1;
         else
-            return max_s - s;
+            return max_s - s -1;
     }
     /**
      * Returns the remaining manager quota in a branch.
@@ -91,21 +91,21 @@ public class CheckQuota {
             if (1 - m <= 0)
                 return -1;
             else
-                return 1 - m;
+                return 1 - m -1 ;// if successfully, staff is added
         }
 
         if (5 <= s && s <= 8) {
             if (2 - m <= 0)
                 return -1;
             else
-                return 2 - m;
+                return 2 - m -1;
         }
 
         if (9 <= s && s <= 15) {
             if (3 - m <= 0)
                 return -1;
             else
-                return 3 - m;
+                return 3 - m -1;
         }
         return -1;
     }
