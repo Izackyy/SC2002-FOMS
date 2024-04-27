@@ -56,8 +56,18 @@ public class StaffManager implements IStaffManagement {
 
             System.out.println("Gender: ");
             Gender gender = Gender.valueOf(sc.nextLine().toUpperCase());
+
             System.out.println("Age:");
-            int age = sc.nextInt(); sc.nextLine();
+            // int age = sc.nextInt(); sc.nextLine();
+            int age;
+            
+            age = sc.nextInt();
+            sc.nextLine(); // consume the newline character
+        
+            if (age <= 15) {
+                System.out.println("Staff must be older than 15. Please ensure staff are above 15.");
+                return;
+            }
 
             List<Branch> branches = BranchTextDB.readBranchList("branch.txt");
             int i = 1;
