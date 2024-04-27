@@ -56,7 +56,7 @@ Please download all the txt files required.
 
 1) Open Eclipse
 
-2) Click on File > Import > Git > Projects from Git > Clone URI
+2) Click on File >-Import > >-Git > >-Projects from Git > >-Clone URI
 
 3) In the Clone URI window, paste the following URL
    > https://github.com/Izackyy/SC2002-FOMS.git
