@@ -7,7 +7,7 @@ and order management for both customers and staff at Fastfood restaurants. The p
 
 ## Team Members
 
-We are a group 6 from lab group FDAB, Nanyang Technological University, Singapore. There are 5 members in our group:
+We are group 6 from lab group FDAB, Nanyang Technological University, Singapore. There are 5 members in our group:
 
 | Name         | Github Account                                  | Email                 |
 |--------------|-------------------------------------------------|-----------------------|         
@@ -87,7 +87,7 @@ You can refer to [UML](https://github.com/Izackyy/SC2002-FOMS/blob/main/SC2002FO
 
 ## Report
 
-You can refer to the [report](https://github.com/Izackyy/SC2002-FOMS/blob/main/SC2002FOMS/SC2002%20Report.pdf) we created on this project.
+You can refer to the [report](https://github.com/Izackyy/SC2002-FOMS/blob/main/SC2002FOMS/FDAB%20Group6%20Report.pdf) we created on this project.
 
 ## License
 
