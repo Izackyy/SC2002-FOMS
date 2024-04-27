@@ -56,26 +56,26 @@ Please download all the txt files required.
 
 1) Open Eclipse
 
-2) Click on File <Import></Import> > <Git></Git> > <Projects from Git> > <Clone URI>
+2) Click on File > 'Import' > 'Git' > 'Projects from Git' > 'Clone URI'
 
 3) In the Clone URI window, paste the following URL
-   > https://github.com/Izackyy/SC2002-FOMS.git
+   > 'https://github.com/Izackyy/SC2002-FOMS.git'
 
 4) Follow prompts and finish cloning process
 
 5) Drag and drop the txt files into SC2002-Project_SC2002FOMS folder
 
-6) In >Main > >FomsApp.java , run as Java Application
+6) In 'Main' > 'FomsApp.java' , run as Java Application
 
 You have successfully cloned and run SC2002 FOMS on Eclipse!
 
 ### Using Visual Studio Code
 
-1) On your application, click >Source Control > >Clone Repository
+1) On your application, click 'Source Control' > 'Clone Repository'
 
-2) Paste >https://github.com/Izackyy/SC2002-FOMS.git into your tool bar and create a folder
+2) Paste 'https://github.com/Izackyy/SC2002-FOMS.git' into your tool bar and create a folder
 
-3) Click >Run and Debug
+3) Click 'Run and Debug'
 
 You have successfully cloned and run SC2002 FOMS on Visual Studio Code!
 
