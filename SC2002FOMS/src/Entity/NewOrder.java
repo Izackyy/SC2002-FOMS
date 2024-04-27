@@ -1,7 +1,7 @@
 package Entity;
 
 import java.io.IOException;
-
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -56,7 +56,7 @@ public class NewOrder {
 		NewOrder order = new NewOrder(branch);
 
 		boolean confirm = false;
-		int selection;
+		int selection = -1;
 
 		do {
 			System.out.println("======Cart Actions======");
@@ -65,33 +65,45 @@ public class NewOrder {
 			System.out.println("3) Edit Item in cart");
 			System.out.println("4) Confirm cart");
 
-			selection = sc.nextInt();
+			try{
+				selection = sc.nextInt();
 
-			switch (selection) {
-				case (1):
-					MenuDisplay.printMenuItem(branch.getName());
-					order.cart.addItem(branch.getName());
-					System.out.println("===================Updated Cart===================");
-					order.cart.printCart();
-					break;
-				case (2):
-					order.cart.removeItem();
-					System.out.println("===================Updated Cart===================");
-					order.cart.printCart();
-					break;
-				case (3):
-					order.cart.editItem();
-					System.out.println("===================Updated Cart===================");
-					order.cart.printCart();
-					break;
-				case (4):
-					if (order.cart.checkItems() == false) {
-						System.out.println("Cart is empty. Please add items.");
-					} else {
-						confirm = true;
-					}
+				switch (selection) {
+					case (1):
+						MenuDisplay.printMenuItem(branch.getName());
+						order.cart.addItem(branch.getName());
+						System.out.println("===================Updated Cart===================");
+						order.cart.printCart();
+						break;
+					case (2):
+						order.cart.removeItem();
+						System.out.println("===================Updated Cart===================");
+						order.cart.printCart();
+						break;
+					case (3):
+						order.cart.editItem();
+						System.out.println("===================Updated Cart===================");
+						order.cart.printCart();
+						break;
+					case (4):
+						if (order.cart.checkItems() == false) {
+							System.out.println("Cart is empty. Please add items.");
+						} else {
+							confirm = true;
+						}
+					default:
+						System.out.println("Please enter a valid number.");
+						break;
+				}
 			}
-
+			catch (InputMismatchException e) {
+                System.out.println("Please enter a valid number.");
+                sc.next(); // Clear the incorrect input from scanner buffer
+            } catch (RuntimeException e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            }   
 		} while (confirm == false);
 
 		System.out.println("Dine-in/Takeaway?");
