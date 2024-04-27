@@ -156,4 +156,45 @@ public class CheckQuota {
         return false;
     }
 
+    //test
+
+    public static void checkManagerRequirement(Branch b) throws IOException
+    { 
+        int s = staffQuota(b);
+        int m = managerQuota(b);
+
+        if (1 <= s && s <= 4) {
+            if (m == 0)
+            {
+                System.out.println("Please assign a manager to " + b.getName());
+            }
+            else if (m > 1)
+            {
+                System.out.println("Please remove a manager from " + b.getName());
+            }
+            else
+            {
+                System.out.println("No further action required");
+            }
+        }
+
+        if (5 <= s && s <= 8) {
+            if (m<2)
+                System.out.println("Please add assign manager to " + b.getName());
+            else if (m>2)
+                System.out.println("Please remove a manager from " + b.getName());
+            else 
+                System.out.println("No further action required");
+        }
+
+        if (9 <= s && s <= 15) {
+            if (m<3)
+                System.out.println("Please add assign manager to " + b.getName());
+            else if (m>2)
+                System.out.println("Please remove a manager from " + b.getName());
+            else
+                System.out.println("No further action required");
+        }
+    }
+
 }

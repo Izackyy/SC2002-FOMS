@@ -29,7 +29,7 @@ public class StaffManager implements IStaffManagement {
      * @throws IOException if an error occurs during file operations
      */
 
-    public void addStaffAcc() {
+    public void addStaffAcc() { // can only add STAFF account
         try {
             System.out.println("Name:");
             String name = sc.nextLine();
@@ -62,8 +62,6 @@ public class StaffManager implements IStaffManagement {
                 
             }while (duplicate == true);
 
-            System.out.println("Role: ");
-            Role role = Role.valueOf(sc.nextLine().toUpperCase());
             System.out.println("Gender: ");
             Gender gender = Gender.valueOf(sc.nextLine().toUpperCase());
             System.out.println("Age:");
@@ -83,9 +81,18 @@ public class StaffManager implements IStaffManagement {
 
             Branch branch = branches.get(selection - 1);
 
-            Staff newStaff = new Staff(name, staffID, role, gender, age, branch.getName());
-            StaffTextDB.addStaff("staff.txt", newStaff);
-            System.out.println("Staff has been successfully added.");
+            if (CheckQuota.checkStaffQuota(branch)) {
+                Staff newStaff = new Staff(name, staffID, Role.S, gender, age, branch.getName());
+                StaffTextDB.addStaff("staff.txt", newStaff);
+                System.out.println("Staff has been successfully added.");
+                CheckQuota.checkManagerRequirement(branch);
+                StaffTextDB.printStaffList("staff.txt");
+                System.out.println("");
+                return;
+            }
+
+            System.out.println("Staff Quota for " + branch.getName() + " has been exceeded. Staff cannot be added");
+
         } catch (IOException e) {
             System.err.println("Failed to process input/output: " + e.getMessage());
         } catch (Exception e) {
