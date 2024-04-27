@@ -314,7 +314,7 @@ public class StaffManager implements IStaffManagement {
             if (CheckQuota.checkManagerQuota(b)) {
                 StaffTextDB.updateStaff("staff.txt", oldBranch, newBranch);
                 StaffTextDB.printStaffList("staff.txt");
-                System.out.println("Staff transferred successfully.\n");
+                System.out.println("Manager transferred successfully.\n");
                 return;
             }
         }

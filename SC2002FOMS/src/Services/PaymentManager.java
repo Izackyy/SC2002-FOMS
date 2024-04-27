@@ -26,6 +26,7 @@ public class PaymentManager implements IPaymentManagement {
     public void addPaymentMethod() throws IOException {
 
         PaymentTextDB.printPaymentMethod("payment.txt");
+        System.out.println("");
         System.out.println("Name:");
         String name = sc.nextLine();
 
@@ -37,8 +38,11 @@ public class PaymentManager implements IPaymentManagement {
 
         Payment payment = new Payment(name);
         PaymentTextDB.addPaymentType("payment.txt", payment);
+        System.out.println("");
         System.out.println("Payment method added successfully.");
-        System.out.println("Updated Payment Methods:");
+        System.out.println("");
+        System.out.println("-Updated-");
+        PaymentTextDB.printPaymentMethod("payment.txt");
         return;
     }
     /**
@@ -61,6 +65,7 @@ public class PaymentManager implements IPaymentManagement {
                 PaymentTextDB.removePaymentType("payment.txt", toRemove);
                 System.out.println("Payment method removed successfully.");
                 System.out.println("Updated Payment Methods:");
+                PaymentTextDB.printPaymentMethod("payment.txt");
                 return;
             }
         }
