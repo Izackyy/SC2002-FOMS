@@ -34,14 +34,6 @@ public class StaffManager implements IStaffManagement {
             System.out.println("Name:");
             String name = sc.nextLine();
 
-            List<Staff> staffList = StaffTextDB.readStaff("staff.txt");
-            for (Staff staff : staffList) {
-                if (staff.getName().equalsIgnoreCase(name)) {
-                    System.out.println("Staff already exists");
-                    return;
-                }
-            }
-
             String staffID = null;
 
             boolean duplicate;
