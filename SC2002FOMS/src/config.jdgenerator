@@ -118,12 +118,15 @@ Building index for all the packages and classes...
 Standard Doclet version 22.0.1+8-16
 Building tree for all the packages and classes...
 Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/AdminController.html...
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/EmployeeController.java:62: warning: no main description
+     * @throws IOException
+       ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/EmployeeController.java:62: warning: no description for @throws
+     * @throws IOException
+       ^
 /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AdminController.java:26: warning: no comment
     protected IPaymentManagement pm;
                                  ^
-/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/EmployeeController.java:60: warning: no comment
-	public void start()	throws IOException{
-	            ^
 Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Controllers/AuthController.html...
 /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Controllers/AuthController.java:18: warning: no comment
     public static AuthStaffService authService;
@@ -220,6 +223,9 @@ Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS
 /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckQuota.java:18: warning: use of default constructor, which does not provide a comment
 public class CheckQuota {
        ^
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckQuota.java:157: warning: no comment
+    public static void checkManagerRequirement(Branch b) throws IOException
+                       ^
 Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/CheckStatus.html...
 /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/CheckStatus.java:18: warning: use of default constructor, which does not provide a comment
 public class CheckStatus {
@@ -449,7 +455,7 @@ Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS
 public class OrderLineTextDB {
        ^
 Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/OrderManager.html...
-/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/OrderManager.java:100: error: @param name not found
+/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/OrderManager.java:102: error: @param name not found
 	 * @param branch The branch where the order is located.
 	          ^
 /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Services/OrderManager.java:24: warning: use of default constructor, which does not provide a comment
@@ -468,13 +474,7 @@ public enum OrderStatus {
 /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java:21: warning: no comment
 	PROCESSING,
 	^
-/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Enums/OrderStatus.java:23: warning: no comment
-	READY_TO_PICKUP,
-	^
 Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/OrderTextDB.html...
-/Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/Stores/OrderTextDB.java:30: warning: no description for @param
-     * @param filename
-       ^
 Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Stores/Payment.html...
 Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/PaymentManager.html...
 Generating /Users/aaronsolis/Documents/Shit for school/Intro to DSAI/SC2002-FOMS/SC2002FOMS/src/javadoc/SC2002FOMS/Services/PaymentService.html...
