@@ -87,7 +87,7 @@ You can refer to [UML](https://github.com/Izackyy/SC2002-FOMS/blob/main/SC2002FO
 
 ## Report
 
-You can refer to the [report](https://github.com/Izackyy/SC2002-FOMS/blob/main/SC2002FOMS/SC2002%20Report.pdf) we created on this project.
+You can refer to the [report]{https://github.com/Izackyy/SC2002-FOMS/blob/main/SC2002FOMS/FDAB%20Group6%20UML%20diagram.png) we created on this project.
 
 ## License
 
