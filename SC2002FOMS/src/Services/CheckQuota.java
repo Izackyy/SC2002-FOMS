@@ -91,7 +91,7 @@ public class CheckQuota {
             if (1 - m <= 0)
                 return -1;
             else
-                return 1 - m -1 ;// if successfully, staff is added
+                return 1 - m -1;// if successfully, staff is added
         }
 
         if (5 <= s && s <= 8) {
@@ -121,12 +121,10 @@ public class CheckQuota {
         int check;
         check = remainderStaffQuota(b);
         if (check < 0) {
-            System.out.println("Too many staffs in " + b.getName() + ". Remove some staffs.");
+            System.out.println("Staff Quota for " + b.getName() + " has been exceeded. Staff cannot be added");
             return false;
-        } else if (check == 0) {
-            System.out.println("No more staff slots left in " + b.getName() + ". Choose another branch.");
-            return false;
-        } else if (check > 0) {
+        } 
+        else if (check >= 0) {
             System.out.println(check + " staff slot(s) remaining.");
             return true;
         }
@@ -146,10 +144,8 @@ public class CheckQuota {
         if (check < 0) {
             System.out.println("Too many managers in " + b.getName() + ". Remove some managers.");
             return false;
-        } else if (check == 0) {
-            System.out.println("No more manager slots left in " + b.getName() + ". Choose another branch.");
-            return false;
-        } else if (check > 0) {
+        }
+        else if (check >= 0) {
             System.out.println(check + " manager slot(s) remaining.");
             return true;
         }

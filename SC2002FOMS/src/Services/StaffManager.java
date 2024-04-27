@@ -91,8 +91,6 @@ public class StaffManager implements IStaffManagement {
                 return;
             }
 
-            System.out.println("Staff Quota for " + branch.getName() + " has been exceeded. Staff cannot be added");
-
         } catch (IOException e) {
             System.err.println("Failed to process input/output: " + e.getMessage());
         } catch (Exception e) {
