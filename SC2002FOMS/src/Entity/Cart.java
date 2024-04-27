@@ -67,6 +67,11 @@ public class Cart {
 
 			System.out.println("Quantity");
 			quantity = sc.nextInt();
+			while (quantity<=0)
+					{
+						System.out.println("Invalid input! Quantity cannot be negative or 0!");
+						quantity = sc.nextInt();
+					}
 			sc.nextLine(); // Clear the input buffer
 
 			System.out.println("Any special request? (Customisation): ");
@@ -148,6 +153,11 @@ public class Cart {
 		System.out.println("New quantity:");
 
 		newQuantity = sc.nextInt();
+		while (newQuantity<=0)
+					{
+						System.out.println("Invalid input! Quantity cannot be negative or 0!");
+						newQuantity = sc.nextInt();
+					}
 		sc.nextLine(); // input buffer
 
 		editItem.setQuantity(newQuantity);

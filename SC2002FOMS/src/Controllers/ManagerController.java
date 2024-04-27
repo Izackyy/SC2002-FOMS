@@ -146,6 +146,11 @@ public class ManagerController extends StaffController {
 		       
 				System.out.println("Price:");
 				double price = sc.nextDouble();
+				while(price<0)
+				{
+					System.out.println("Invalid input! Price cannot be negative!");
+					price = sc.nextDouble();
+				}
 				sc.nextLine(); //input buffer
 				System.out.println("Category:");
 				String category = sc.nextLine();
@@ -244,6 +249,11 @@ public class ManagerController extends StaffController {
 				{
 					System.out.println("New price:");
 					double newPrice = sc.nextDouble();
+					while (newPrice<0)
+					{
+						System.out.println("Invalid input! Price cannot be negative!");
+						newPrice = sc.nextDouble();
+					}
 					newItem.setPrice(newPrice);
 					yesNo = "N";
 					sc.nextLine(); //input buffer
