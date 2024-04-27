@@ -60,6 +60,7 @@ public class EmployeeController {
 	
     /** 
      * @throws IOException
+     * abstract method to be implemented by subclasses
      */
     public void start()	throws IOException{
 	}

@@ -20,7 +20,7 @@ import Interfaces.IStaffManagement;
  * It utilizes interfaces to manage branches, staff, and payment methods.
  */
 public class AdminController extends EmployeeController {
-
+    // Attributes
     private IBranchManagement bm;
     private IStaffManagement sm;
     protected IPaymentManagement pm;

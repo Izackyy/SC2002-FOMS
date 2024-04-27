@@ -152,7 +152,13 @@ public class CheckQuota {
         return false;
     }
 
-    //test
+    
+    /**
+     * Checks if the staff and manager quota in a branch is exceeded.
+     * 
+     * @param b the branch to check
+     * @throws IOException if an I/O error occurs when reading the staff list
+     */
 
     public static void checkManagerRequirement(Branch b) throws IOException
     { 
