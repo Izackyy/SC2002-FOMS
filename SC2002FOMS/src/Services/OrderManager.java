@@ -38,8 +38,8 @@ public class OrderManager implements IOrderManager{
         Order o = null;
 
         while (true) {
-            System.out.println("Select OrderID to process:");
-			System.out.println("Enter -1 to return to home screen");
+            System.out.println("Select OrderID to process: <Enter -1 to return to home screen>");
+			System.out.println("==============================================================");
             displayNewOrder(branch);  // Display orders before asking for input
             String input = sc.nextLine().trim();  // Read the entire line of input
 
@@ -82,6 +82,7 @@ public class OrderManager implements IOrderManager{
             OrderCancellation orderCancellation = new OrderCancellation();
             orderCancellation.scheduleOrderCancellation(orderID, AuthStore.getCurrentStaff().getBranch());
 
+			System.out.println("");
             System.out.println("Order ID: " + orderID);
 
             allOrders = OrderTextDB.readOrder("order.txt");
@@ -92,6 +93,7 @@ public class OrderManager implements IOrderManager{
                 }
             }
             System.out.println("Order Status: " + o.getOrderStatus());
+			System.out.println("");
         }
     }
 	

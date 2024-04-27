@@ -176,7 +176,7 @@ public class Cart {
 		} else {
 			System.out.println("Items in the cart:");
 			for (CartItem item : cart) {
-				System.out.println(i + ") " + item.getQuantity() + "x " + item.getItem().getName());
+				System.out.printf(i + ") x%-1d %-20s Customisation:: %s\n", item.getQuantity(), item.getItem().getName(), item.getCustomisation());
 				i++;
 			}
 		}

@@ -24,6 +24,6 @@ public class Receipt {
         
         order.getCart().printCart();
         
-        System.out.println("Total: " + order.getCart().calculateCart()); // need to find a way to round to 2dp
+        System.out.println("Total: $" + order.getCart().calculateCart()); // need to find a way to round to 2dp
     }
 }

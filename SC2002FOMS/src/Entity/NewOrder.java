@@ -71,17 +71,17 @@ public class NewOrder {
 				case (1):
 					MenuDisplay.printMenuItem(branch.getName());
 					order.cart.addItem(branch.getName());
-					System.out.println("======Updated Cart======");
+					System.out.println("===================Updated Cart===================");
 					order.cart.printCart();
 					break;
 				case (2):
 					order.cart.removeItem();
-					System.out.println("======Updated Cart======");
+					System.out.println("===================Updated Cart===================");
 					order.cart.printCart();
 					break;
 				case (3):
 					order.cart.editItem();
-					System.out.println("======Updated Cart======");
+					System.out.println("===================Updated Cart===================");
 					order.cart.printCart();
 					break;
 				case (4):
