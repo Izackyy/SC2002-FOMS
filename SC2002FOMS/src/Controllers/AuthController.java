@@ -78,7 +78,7 @@ public class AuthController {
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a valid number.");
                 sc.nextLine(); // Clear the scanner buffer
-                continue; // Explicitly continue the loop
+                continue;// Explicitly continue the loop
             } catch (Exception e) {
                 System.out.println("An error occurred during login: " + e.getMessage());
                 return; // Possibly exit, or handle differently
