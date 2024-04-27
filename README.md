@@ -50,17 +50,34 @@ We are a group 6 from lab group FDAB, Nanyang Technological University, Singapor
   - [x] Add/remove payment method
   - [x] Open/close branch.
 
-## Build
+## FOMS Setup instructions
+### Using Eclipse
+Please download all the txt files required.
 
-Download the project from GitHub.
+1) Open Eclipse
 
-```bash
-git clone https://github.com/Izackyy/SC2002-FOMS.git
-```
+2) Click on File > Import > Git > Projects from Git > Clone URI
 
-## Generating JavaDocs
+3) In the Clone URI window, paste the following URL
+   > https://github.com/Izackyy/SC2002-FOMS.git
 
-(to insert instructions)
+4) Follow prompts and finish cloning process
+
+5) Drag and drop the txt files into SC2002-Project_SC2002FOMS folder
+
+6) In >Main > >FomsApp.java , run as Java Application
+
+You have successfully cloned and run SC2002 FOMS on Eclipse!
+
+### Using Visual Studio Code
+
+1) On your application, click >Source Control > >Clone Repository
+
+2) Paste >https://github.com/Izackyy/SC2002-FOMS.git into your tool bar and create a folder
+
+3) Click >Run and Debug
+
+You have successfully cloned and run SC2002 FOMS on Visual Studio Code!
 
 ## UML Class Diagram
 
